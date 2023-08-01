@@ -23,4 +23,4 @@ class Profile(models.Model):
                           editable=False, primary_key=True)
 
     def __str__(self):
-        return self.user.username
+        return str(self.username)
