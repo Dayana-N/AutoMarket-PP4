@@ -1,3 +1,43 @@
-h1 {
-    color: red;
+/* Root colors */
+:root {
+  --blue-background: rgba(80, 106, 135, 0.8);
+  --dark-blue-background: rgba(63, 84, 108, 0.8);
+  --page-background: rgb(231, 236, 242);
+  --white: #fff;
+}
+
+body {
+    background-color: rgb(231, 236, 242);
+}
+
+/* Navbar */
+.header-nav {
+    background-color: var(--blue-background);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--white);
+    font-weight: 600;
+}
+
+.navbar-dark .navbar-brand {
+    color: var(--white);
+}
+
+.logo {
+    height: 47px;
+}
+
+/* Footer */
+#footer {
+    background-color: var(--blue-background);
+    color: var(--white);
+}
+
+#social-links a {
+    text-decoration: none;
+}
+
+.copyright {
+    background-color: var(--dark-blue-background);
 }
