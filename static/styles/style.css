@@ -4,6 +4,7 @@
   --dark-blue-background: rgba(63, 84, 108, 0.8);
   --page-background: rgb(231, 236, 242);
   --white: #fff;
+  --violet: #7284c9;
 }
 
 body {
@@ -50,6 +51,28 @@ body {
 
 .hero-text-container h1 {
     font-size: 2.5rem;
+}
+
+/* LogIn page */
+.shadow-container {
+  background-color: var(--white);
+  border-radius: 5px;
+  box-shadow: -1px 1px 18px 4px rgba(0, 0, 0, 0.42);
+  -webkit-box-shadow: -1px 1px 18px 4px rgba(0, 0, 0, 0.42);
+  -moz-box-shadow: -1px 1px 18px 4px rgba(0, 0, 0, 0.42);
+}
+
+.shadow-container input {
+  background-color: var(--page-background);
+}
+
+.shadow-container a {
+  text-decoration: none;
+  color: var(--violet);
+}
+
+.btn-blue {
+  background-color: #4465aa;
 }
 
 /* Footer */
