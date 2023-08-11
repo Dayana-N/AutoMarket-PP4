@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
+from .forms import CustomUserCreationForm
+
 
 # Create your views here.
 
@@ -42,6 +44,28 @@ def logout_user(request):
     logout(request)
     messages.info(request, 'You have logged out')
     return redirect('home')
+
+
+def register_user(request):
+    '''
+    A view that handles user registration
+    '''
+    form = CustomUserCreationForm()
+
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+            messages.success(request, 'You have successfully registered')
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'An error has occurred. Try again.')
+
+    context = {'form': form}
+    return render(request, 'users/register.html', context)
 
 
 def update_profile(request):
