@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 {% block title %}
 Register
 {% endblock title %}
@@ -11,24 +12,20 @@ Register
                 <h2>Sign Up</h2>
                 <form method="POST" action="{% url 'register' %}" class="mt-3">
                     {% csrf_token %}
-                    {{ form.as_p }}
 
-                    <!-- Username input -->
-                    <!-- <div class="form-floating mb-4">
-                        <input type="text" name="username" id="username" class="form-control" placeholder="User name" />
-                        <label class="form-label" for="username">User name</label>
-                    </div> -->
-                    <!-- Password input -->
-                    <!-- <div class="form-floating mb-4">
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" />
-                        <label class="form-label" for="password">Password</label>
-                    </div> -->
-                    <!-- Password2 input -->
-                    <!-- <div class="form-floating mb-4">
-                        <input type="password" name="password2" id="password2" class="form-control" placeholder="Repeat Password" />
-                        <label class="form-label" for="password2">Repeat Password</label>
-                    </div> -->
+                    {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                    {% endfor %}
 
+                    {% for field in form.visible_fields %}
+                    <div class="form-floating mb-4">
+                        {{ field|add_class:'form-control'|attr:'placeholder:' }}
+                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                        {% for error in field.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
                     <div class="row mb-4">
                         <div class="col">
                             <a href="{% url 'login' %}">Already have an account? Log In</a>

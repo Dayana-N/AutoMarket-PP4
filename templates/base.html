@@ -59,35 +59,21 @@
         </nav>
 
     </header>
-    <div class="container">
+    <div class="container-fluid message-container">
         <div class="row justify-content-center">
-            <div class="col-md-4 col-12 p-sm-0">
+            <div class="col-md-5 col-12 p-0">
                 {% if messages %}
-
                 {% for message in messages %}
-                  <div class="alert {{ message.tags }} alert-dismissible m-0 p-0" role="alert" >
+                  <div class="alert alert-dismissible m-0 p-0" role="alert" >
                     <button type="button" class="btn-close p-1" data-bs-dismiss="alert" aria-label="x"></button>
-                    
-                    <p class="p-0">{{ message }}</p>
-                    
-                   
+                    <p class="p-0 m-0 {{ message.tags }}">{{ message }}</p>
                   </div>
                   {% endfor %}
-                
-                
-               
-                
                 {% endif %}
 
             </div>
-
-
         </div>
-   
-
-
     </div>
-
 
     {% block content %}
     {% endblock content%}

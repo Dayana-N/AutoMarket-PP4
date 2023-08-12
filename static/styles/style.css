@@ -29,6 +29,11 @@ body {
   height: 47px;
 }
 
+/* Django Messages */
+.message-container {
+  background-color: var(--blue-background);
+}
+
 /* Hero section */
 #hero-image {
   background-image: url(/static/images/hero-image.avif);
