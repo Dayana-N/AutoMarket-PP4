@@ -61,7 +61,7 @@ def register_user(request):
             user.save()
             messages.success(request, 'You have successfully registered')
             login(request, user)
-            return redirect('home')
+            return redirect('update-profile')
         else:
             messages.error(request, 'An error has occurred. Try again.')
 
