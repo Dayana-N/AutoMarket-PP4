@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}
+Profile
+{% endblock title %}
+
+{% block content %}
+<section class="profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mx-auto text-center my-5 p-2 shadow-container">
+                <h2 class="py-5">My Profile</h2>
+                <div class="container profile-container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-xl-5 my-3 py-5 shadow-container">
+                            <a href="#" class="btn blue mt-3 text-white">Edit</a>
+                            <div class="row d-flex justify-content-center">
+                                <div class="image-container p-3">
+                                    <img class="profile-image" src="{{ profile.profile_image.url }}"
+                                        alt="user profile image">
+                                </div>
+                            </div>
+
+                            <h4>{{ profile.name }}</h4>
+                            <p>{{ profile.username }}</p>
+                            <p>{{ profile.town }}, {{ profile.county }}</p>
+                            <div class="row p-3  d-flex flex-column align-items-center">
+                                <h4>Contact Details:</h4>
+                                <div class="col-12 text-center m-auto">
+                                    <p>Email: {{ profile.email }}</p>
+                                    <p>Phone: {{ profile.phone }}</p>
+                                </div>
+
+                            </div>
+                            <a href="#" class="btn blue text-white">Send Message</a>
+                        </div>
+
+
+                        <div class="col-12 col-xl-5 m-3 d-flex flex-column justify-content-center">
+                            <div class="row p-3 mt-5">
+                                <h4>About Me:</h4>
+                                <div class="col px-2">
+                                    <p>{{ profile.about_me }} </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row p-3 mt-4">
+                                <div class="col-12 col-md-6">
+                                    <p>Active Listings: 5</p>
+                                    <button class="btn blue text-white">View Listings</button>
+                                </div>
+
+                                <div class="col-12 col-md-6 mt-3 mt-md-0">
+                                    <p>Favourite Listings: 8</p>
+                                    <button class="btn blue text-white">View Listings</button>
+                                </div>
+                            </div>
+                            <div class="row p-3 mt-5 justify-content-center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

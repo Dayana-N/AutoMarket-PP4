@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import CustomUserCreationForm
@@ -66,6 +67,18 @@ def register_user(request):
 
     context = {'form': form}
     return render(request, 'users/register.html', context)
+
+
+@login_required(login_url='login')
+def profile_page(request):
+    '''
+    A view that renders user's profile
+    '''
+    profile = request.user.profile
+    context = {
+        'profile': profile
+    }
+    return render(request, 'users/profile_page.html', context)
 
 
 def update_profile(request):

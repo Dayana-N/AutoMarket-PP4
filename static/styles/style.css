@@ -5,6 +5,7 @@
   --page-background: rgb(231, 236, 242);
   --white: #fff;
   --violet: #7284c9;
+  --light-gray: #c9c9c9;
 }
 
 body {
@@ -78,6 +79,24 @@ body {
 
 .btn-blue {
   background-color: #4465aa;
+}
+
+/* profile page */
+.profile-container {
+  border: 2px solid var(--light-gray);
+}
+.image-container {
+  height: 250px;
+  width: 250px;
+}
+.profile-image {
+  width: 100%;
+  height: auto;
+  border-radius: 25%;
+}
+
+.blue {
+  background-color: var(--blue-background);
 }
 
 /* Footer */
