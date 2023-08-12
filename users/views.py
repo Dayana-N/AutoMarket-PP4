@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, ProfileForm
 
 
 # Create your views here.
@@ -81,8 +81,15 @@ def profile_page(request):
     return render(request, 'users/profile_page.html', context)
 
 
+@login_required(login_url='login')
 def update_profile(request):
     '''
     A view that updates user's profile
     '''
-    return render(request, 'users/update_profile.html')
+    profile = request.user.profile
+    form = ProfileForm(instance=profile)
+    context = {
+        'form': form,
+        'profile': profile
+    }
+    return render(request, 'users/update_profile.html', context)

@@ -82,7 +82,7 @@ body {
 }
 
 /* profile page */
-.profile-container {
+.border-container {
   border: 2px solid var(--light-gray);
 }
 .image-container {

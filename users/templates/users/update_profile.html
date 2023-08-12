@@ -1,11 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automarket Update Profile</title>
-</head>
-<body>
-    <h1>Update-profile</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}
+Edit Profile
+{% endblock title %}
+
+{% block content %}
+<section class="profile">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mx-auto text-center my-5 p-2 shadow-container">
+                <h2 class="py-5">Edit Profile</h2>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 border-container">
+                            <form method="POST" action="{% url 'update-profile' %}" class="mt-3">
+                                {% csrf_token %}
+                                <!-- Display Current Image -->
+                                <div class="row d-flex justify-content-center">
+                                    <div class="image-container p-3">
+                                        <img class="profile-image" src="{{ profile.profile_image.url }}"
+                                            alt="user profile image">
+                                    </div>
+                                </div>
+                                <!-- Edit Current Image -->
+                                <div class="form-control mb-4">
+                                    <label for="{{ form.profile_image.id_for_label }}" class="form-label">Profile
+                                        Image</label>
+                                    {% render_field form.profile_image class="form-control" %}
+                                    {{ form.profile_image.errors }}
+                                    {% for error in form.profile_image.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                <!-- Edit Name -->
+                                <div class="form-floating mb-4">
+                                    {% render_field form.name class="form-control" placeholder=form.name.label %}
+                                    <label for="{{ form.name.id_for_label }}" class="form-label">Name</label>
+                                    {{ form.name.errors }}
+                                    {% for error in form.name.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                 <!-- Edit Username -->
+                                 <div class="form-floating mb-4">
+                                    {% render_field form.username class="form-control" placeholder=form.username.label %}
+                                    <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>
+                                    {{ form.username.errors }}
+                                    {% for error in form.username.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+
+                                <!-- Edit email -->
+                                <div class="form-floating mb-4">
+                                    {% render_field form.email class="form-control" placeholder=form.email.label %}
+                                    <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                                    {{ form.email.errors }}
+                                    {% for error in form.email.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+
+                                <!-- Edit phone -->
+                                <div class="form-floating mb-4">
+                                    {% render_field form.phone class="form-control" placeholder=form.phone.label %}
+                                    <label for="{{ form.phone.id_for_label }}" class="form-label">Phone</label>
+                                    {{ form.phone.errors }}
+                                    {% for error in form.phone.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+
+                                <!-- Edit town -->
+                                <div class="form-floating mb-4">
+                                    {% render_field form.town class="form-control" placeholder=form.town.label %}
+                                    <label for="{{ form.town.id_for_label }}" class="form-label">Town</label>
+                                    {{ form.town.errors }}
+                                    {% for error in form.town.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+
+                                <!-- Edit county -->
+                                <div class="form-floating mb-4">
+                                    {% render_field form.county class="form-control" placeholder=form.county.label %}
+                                    <label for="{{ form.county.id_for_label }}" class="form-label">County</label>
+                                    {{ form.county.errors }}
+                                    {% for error in form.county.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+
+                                <!-- Edit about_me -->
+                                <div class="form-control mb-4">
+                                    <label for="{{ form.about_me.id_for_label }}" class="form-label">About Me</label>
+                                    {% render_field form.about_me class="form-control" %}
+                                    
+                                    {{ form.about_me.errors }}
+                                    {% for error in form.about_me.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                <!-- Submit button -->
+                                <button type="submit"
+                                    class="btn btn-lg btn-blue text-white btn-block mb-4">Submit</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

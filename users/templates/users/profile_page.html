@@ -9,10 +9,10 @@ Profile
         <div class="row">
             <div class="col-12 mx-auto text-center my-5 p-2 shadow-container">
                 <h2 class="py-5">My Profile</h2>
-                <div class="container profile-container">
+                <div class="container border-container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-xl-5 my-3 py-5 shadow-container">
-                            <a href="#" class="btn blue mt-3 text-white">Edit</a>
+                            <a href="{% url 'update-profile' %}" class="btn blue mt-3 text-white">Edit</a>
                             <div class="row d-flex justify-content-center">
                                 <div class="image-container p-3">
                                     <img class="profile-image" src="{{ profile.profile_image.url }}"
