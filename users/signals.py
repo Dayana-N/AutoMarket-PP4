@@ -16,6 +16,7 @@ def create_profile(sender, instance, created, **kwargs):
             user=user,
             username=user.username,
             name=user.first_name,
+            email=user.email,
         )
 
 
@@ -27,3 +28,17 @@ def delete_user(sender, instance, **kwargs):
     '''
     user = instance.user
     user.delete()
+
+
+@receiver(post_save, sender=Profile)
+def create_profile(sender, instance, created, **kwargs):
+    '''
+    Signal to update user profile
+    '''
+    profile = instance
+    user = profile.user
+    if not created:
+        user.first_name = profile.name
+        user.username = profile.username
+        user.email = profile.email
+        user.save()
