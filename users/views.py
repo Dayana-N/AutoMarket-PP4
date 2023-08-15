@@ -38,6 +38,10 @@ def login_user(request):
     return render(request, 'users/login.html')
 
 
+def log_out_confirmation(request):
+    return render(request, 'users/logout-confirmation.html')
+
+
 def logout_user(request):
     '''
     A view that handles user logout
@@ -105,6 +109,9 @@ def update_profile(request):
 
 
 def delete_profile(request):
+    '''
+    A view that deletes user's profile
+    '''
     if request.method == 'POST':
         user_profile = request.user.profile
         user_profile.delete()
@@ -113,4 +120,7 @@ def delete_profile(request):
 
 
 def delete_profile_success(request):
+    '''
+    A view that displays delete warning to user
+    '''
     return render(request, 'users/delete_profile_confirmation.html')

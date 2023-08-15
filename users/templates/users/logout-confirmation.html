@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+Log Out
+{% endblock title %}
+
+{% block content %}
+<section class="logout-profile-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 mx-auto text-center my-5 p-4 shadow-container">
+                <h2>Are you Sure you want to log out?</h2>
+              <div class="mt-2">
+                <a href="{% url 'home' %}" class="btn blue text-white">Go Home</a>
+                <a href="{% url 'logout' %}" class="btn btn-danger text-white">Log Out</a>
+              </div>
+                
+            </div>
+        </div>
+    </div>
+
+</section>
+{% endblock content %}
