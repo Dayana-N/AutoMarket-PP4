@@ -12,7 +12,7 @@ Profile
                 <div class="container border-container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-xl-5 my-3 py-5 shadow-container">
-                            <a href="{% url 'update-profile' %}" class="btn blue mt-3 text-white">Edit</a>
+                            
                             <div class="row d-flex justify-content-center">
                                 <div class="image-container p-3">
                                     <img class="profile-image" src="{{ profile.profile_image.url }}"
@@ -31,7 +31,11 @@ Profile
                                 </div>
 
                             </div>
-                            <a href="#" class="btn blue text-white">Send Message</a>
+                            <div>
+                                <a href="{% url 'update-profile' %}" class="btn blue text-white">Edit Profile</a>
+                                <a href="{% url 'delete-profile' %}" class="btn btn-danger text-white">Delete Profile</a>
+                            </div>
+                           
                         </div>
 
 

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+Delete Profile
+{% endblock title %}
+
+{% block content %}
+<section class="delete-profile-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 mx-auto text-center my-5 p-4 shadow-container">
+                <h2>We are Sorry to see you go!</h2>
+                <div id="sad-car-image">
+                    
+                </div>
+                    <a href="{% url 'home' %}" class="btn blue text-white">Go Home</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+{% endblock content %}

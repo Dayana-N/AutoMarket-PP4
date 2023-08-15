@@ -102,3 +102,15 @@ def update_profile(request):
         'profile': profile
     }
     return render(request, 'users/update_profile.html', context)
+
+
+def delete_profile(request):
+    if request.method == 'POST':
+        user_profile = request.user.profile
+        user_profile.delete()
+        return redirect('delete-profile-success')
+    return render(request, 'users/delete_profile.html')
+
+
+def delete_profile_success(request):
+    return render(request, 'users/delete_profile_confirmation.html')
