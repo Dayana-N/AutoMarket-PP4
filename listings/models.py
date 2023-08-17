@@ -44,7 +44,8 @@ class Listing(models.Model):
         max_length=100, choices=choices.TRANSMISSION)
     created = models.DateField(auto_now_add=True)
     listing_image_1 = models.ImageField(
-        null=True, blank=True, default='default-listing-img.jpg')
+        upload_to='listings/', null=True, blank=True,
+        default='listings/default-listing-img.jpg')
     listing_image_2 = models.ImageField(null=True, blank=True)
     listing_image_3 = models.ImageField(null=True, blank=True)
     listing_image_4 = models.ImageField(null=True, blank=True)

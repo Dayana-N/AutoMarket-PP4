@@ -6,6 +6,11 @@
   --white: #fff;
   --violet: #7284c9;
   --light-gray: #c9c9c9;
+  --blue-btn: rgba(87, 135, 189, 0.8);
+  --blue-btn-hover: rgba(138, 176, 219, 0.8);
+  --dark-blue-text: #10284e;
+  --green: #2fbd7d;
+  --light-green: #65d4a2;
 }
 
 body {
@@ -78,7 +83,38 @@ body {
 }
 
 .btn-blue {
-  background-color: #4465aa;
+  background-color: var(--blue-btn);
+}
+
+.btn-blue:hover {
+  background-color: var(--blue-btn-hover);
+}
+
+/* Search Container */
+#search-container {
+    background-color: var(--blue-background);
+    color: var(--white);
+}
+
+.btn-green {
+  background-color: var(--green);
+}
+
+.btn-green:hover {
+  background-color: var(--light-green);
+}
+
+/* Listing results */
+
+.card-link,
+i {
+    text-decoration: none;
+    color: var(--dark-blue-text);
+}
+
+.card-image {
+    height: 300px;
+    object-fit: cover;
 }
 
 /* profile page */
