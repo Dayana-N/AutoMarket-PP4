@@ -77,6 +77,10 @@ body {
   background-color: var(--page-background);
 }
 
+.shadow-container select {
+  background-color: var(--page-background);
+}
+
 .shadow-container a {
   text-decoration: none;
   color: var(--violet);

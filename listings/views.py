@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Listing
 from . import choices
+from .forms import ListingForm
 
 # Create your views here.
 
@@ -27,3 +28,14 @@ def listings(request):
     }
 
     return render(request, 'listings/listings.html', context)
+
+
+def create_listing(request):
+    '''
+    A view that handles creation of listings
+    '''
+    form = ListingForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'listings/create_listing.html', context)
