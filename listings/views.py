@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .models import Listing
 from . import choices
 from .forms import ListingForm
@@ -30,11 +31,23 @@ def listings(request):
     return render(request, 'listings/listings.html', context)
 
 
+@login_required(login_url='login')
 def create_listing(request):
     '''
     A view that handles creation of listings
     '''
     form = ListingForm()
+
+    if request.method == 'POST':
+        form = ListingForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            listing = form.save(commit=False)
+            listing.owner = request.user.profile
+            listing.save()
+
+        return redirect('listings')
+
     context = {
         'form': form,
     }
