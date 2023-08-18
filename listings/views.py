@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Listing
+from django.http import JsonResponse
+from .models import Listing, CarMake
 from . import choices
 from .forms import ListingForm
 
@@ -52,3 +53,16 @@ def create_listing(request):
         'form': form,
     }
     return render(request, 'listings/create_listing.html', context)
+
+
+def load_models(request, pk):
+    '''
+    A view that returns car models in JSON format
+    '''
+    try:
+        car_make = CarMake.objects.get(pk=pk)
+        car_models = car_make.carmodel_set.all()
+        data = [{model.id: model.name} for model in car_models]
+        return JsonResponse(data, safe=False)
+    except CarMake.DoesNotExist:
+        return JsonResponse([], safe=False)
