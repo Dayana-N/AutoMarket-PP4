@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load humanize %}
 {% block title %}
 Home
 {% endblock title %}
@@ -6,5 +7,53 @@ Home
 {% block content %}
 <!-- Hero section -->
 {% include 'partials/hero-section.html' %}
-<h1>AutoMarket</h1>
+{% include 'partials/search-form.html' %}
+<section class="recent-listings">
+    <div class="container text-center mt-5">
+        <h2>Recent Listings:</h2>
+        <div class="row mt-5">
+            {% for listing in listings|slice:'6' %}
+            <!-- Card -->
+            <div class="col-md-6 col-xl-4 mb-4">
+                <div class="card listing-preview">
+                    <a class="card-link" href="{% url 'single-listing' listing.id %}">
+                        <div class="card-body">
+                            <h2>{{ listing.listing_title }} </h2>
+                            <div class="row py-2 ">
+                                <div class="col-6">
+                                    <i class="fas fa-map-marker"></i> {{ listing.town|capfirst }}, {{ listing.county|capfirst }}
+                                </div>
+                                <div class="col-6">
+                                    <i class="fas fa-clock"></i> {{ listing.created|timesince }}
+                                </div>
+                            </div>
+                            <!-- Image -->
+                            <div class="row"> <img src="{{ listing.listing_main_img }}" class="card-image" alt="{{ listing.listing_title }} image">
+                            </div>
+
+                            <div class="row py-2 ">
+                                <div class="col-6">
+                                    <i class="fa-regular fa-calendar-days"></i> Year: {{ listing.year }}
+                                </div>
+                                <div class="col-6">
+                                    <i class="fa-solid fa-gauge-high"></i> Miles: {{ listing.mileage|intcomma }}
+                                </div>
+                            </div>
+
+                            <h3>Price: €{{ listing.price|intcomma }}</h3>
+
+                            <a href="#" class="btn btn-blue text-white">More Info</a>
+                        </div>
+
+                    </a>
+                </div>
+
+            </div>
+            {% endfor %}
+
+
+
+        </div>
+    </div>
+</section>
 {% endblock %}

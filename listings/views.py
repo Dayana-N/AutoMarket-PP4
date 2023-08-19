@@ -13,7 +13,11 @@ def home_page(request):
     '''
     A view that displays the homepage
     '''
-    return render(request, 'listings/index.html')
+    listings = Listing.objects.all().order_by('-created')
+    context = {
+        'listings': listings,
+    }
+    return render(request, 'listings/index.html', context)
 
 
 def listings(request):
