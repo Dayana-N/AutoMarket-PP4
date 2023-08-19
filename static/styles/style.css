@@ -121,6 +121,20 @@ i {
     object-fit: cover;
 }
 
+/* Single listing */
+.img-thumb {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+}
+.custom-icon {
+  color: #000;
+}
+.seller-image-container {
+  height: 120x;
+  width: 120px;
+}
+
 /* profile page */
 .border-container {
   border: 2px solid var(--light-gray);

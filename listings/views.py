@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from .models import Listing, CarMake
@@ -66,3 +66,14 @@ def load_models(request, pk):
         return JsonResponse(data, safe=False)
     except CarMake.DoesNotExist:
         return JsonResponse([], safe=False)
+
+
+def single_listing(request, pk):
+    '''
+    A view that renders single listing
+    '''
+    listing = Listing.objects.get(pk=pk)
+    context = {
+        'listing': listing
+    }
+    return render(request, 'listings/single-listing.html', context)

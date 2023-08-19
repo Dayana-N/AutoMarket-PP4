@@ -91,7 +91,7 @@ Listings
             <!-- Card -->
             <div class="col-md-6 col-xl-4 mb-4">
                 <div class="card listing-preview">
-                    <a class="card-link" href="#">
+                    <a class="card-link" href="{% url 'single-listing' listing.id %}">
                         <div class="card-body">
                             <h2>{{ listing.listing_title }} </h2>
                             <div class="row py-2 ">
@@ -103,7 +103,7 @@ Listings
                                 </div>
                             </div>
                             <!-- Image -->
-                            <div class="row"> <img src="{{ listing.listing_image_1.url }}" class="card-image" alt="{{ listing.listing_title }} image">
+                            <div class="row"> <img src="{{ listing.listing_main_img }}" class="card-image" alt="{{ listing.listing_title }} image">
                             </div>
 
                             <div class="row py-2 ">

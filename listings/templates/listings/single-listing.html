@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block title %}
+{{ listing.listing_title}}
+{% endblock title %}
+
+{% block content %}
+<section id="listing" class="py-4">
+    <div class="container">
+        <a href="{% url 'listings' %}" class="btn btn-blue text-white mb-4" >Back To Listings</a>
+        <div class="row">
+            <div class="col-12 col-xl-7">
+                <!-- Images carousel -->
+                <a href="{{ listing.listing_image_1.url }}" data-lightbox="listing-images">
+                    <img src="{{ listing.listing_image_1.url }}" alt="{{ listing.listing_title }} image" class="img-fluid">
+                </a>
+                <div class="row mb-5 thumbs mt-2">
+                    {% if listing.listing_image_2 %}
+                    <div class="col-4 col-md-2 mt-2 mt-md-0">
+                        <a href="{{ listing.listing_image_2.url }}" data-lightbox="listing-images">
+                            <img src="{{ listing.listing_image_2.url }}" alt="{{ listing.listing_title }} image" class="img-fluid img-thumb">
+                        </a>
+                    </div>
+                    {% endif %}
+
+                    {% if listing.listing_image_3 %}
+                    <div class="col-4 col-md-2 mt-2 mt-md-0">
+                        <a href="{{ listing.listing_image_3.url }}" data-lightbox="listing-images">
+                            <img src="{{ listing.listing_image_3.url }}" alt="{{ listing.listing_title }} image" class="img-fluid img-thumb">
+                        </a>
+                    </div>
+                    {% endif %}
+
+                    {% if listing.listing_image_4 %}
+                    <div class="col-4 col-md-2 mt-2 mt-md-0">
+                        <a href="{{ listing.listing_image_4.url }}" data-lightbox="listing-images">
+                            <img src="{{ listing.listing_image_4.url }}" alt="{{ listing.listing_title }} image" class="img-fluid img-thumb">
+                        </a>
+                    </div>
+                    {% endif %}
+
+                    {% if listing.listing_image_5 %}
+                    <div class="col-4 col-md-2 mt-2 mt-md-0">
+                        <a href="{{ listing.listing_image_5.url }}" data-lightbox="listing-images">
+                            <img src="{{ listing.listing_image_5.url }}" alt="{{ listing.listing_title }} image" class="img-fluid img-thumb">
+                        </a>
+                    </div>
+                    {% endif %}
+
+                    {% if listing.listing_image_6 %}
+                    <div class="col-4 col-md-2 mt-2 mt-md-0">
+                        <a href="{{ listing.listing_image_6.url }}" data-lightbox="listing-images">
+                            <img src="{{ listing.listing_image_6.url }}" alt="{{ listing.listing_title }} image" class="img-fluid img-thumb">
+                        </a>
+                    </div>
+                    {% endif %}
+
+                    {% if listing.listing_image_7 %}
+                    <div class="col-4 col-md-2 mt-2 mt-md-0">
+                        <a href="{{ listing.listing_image_7.url }}" data-lightbox="listing-images">
+                            <img src="{{ listing.listing_image_7.url }}" alt="{{ listing.listing_title }} image" class="img-fluid img-thumb">
+                        </a>
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+
+            <!-- Listing title and details -->
+            <div class="col-12 col-md-10 col-xl-5">
+
+                <div class="row">
+
+                    <div class="col-6">
+                        <h2>{{ listing.car_make }}</h2>
+                        <h4>{{ listing.car_model }}</h4>
+                    </div>
+                    <div class="col-6 text-end">
+                        <h2>€{{ listing.price|intcomma }}</h2>
+                        <p>{{ listing.created|timesince}}</p>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="icon">
+                                <span><i class="fa-regular fa-calendar-days custom-icon"></i> {{ listing.year }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="icon">
+                                <span> <i class="fa-solid fa-gauge-high custom-icon"></i> {{ listing.mileage|intcomma }} km</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <div class="icon">
+                                <span>
+                                    <svg class="custom-icon" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="red" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M24 3C24 1.343 22.657 0 21 0C19.343 0 18 1.343 18 3C18 4.305 18.838 5.403 20 5.816V11H13V5.816C14.162 5.403 15 4.305 15 3C15 1.343 13.657 0 12 0C10.343 0 9 1.343 9 3C9 4.305 9.838 5.403 11 5.816V11H4V5.816C5.162 5.403 6 4.305 6 3C6 1.343 4.657 0 3 0C1.343 0 0 1.343 0 3C0 4.305 0.838 5.403 2 5.816V18.184C0.838 18.597 0 19.695 0 21C0 22.657 1.343 24 3 24C4.657 24 6 22.657 6 21C6 19.695 5.162 18.597 4 18.184V13H11V18.184C9.838 18.597 9 19.695 9 21C9 22.657 10.343 24 12 24C13.657 24 15 22.657 15 21C15 19.695 14.162 18.597 13 18.184V13H20C21.103 13 22 12.103 22 11V5.816C23.162 5.403 24 4.305 24 3Z"
+                                            fill="#000" />
+                                    </svg>
+
+                                </span>
+                                {{ listing.transmission|capfirst }}
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="icon">
+                                <span>
+                                    <svg class="custom-icon" width="24" height="24" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g fill="none" fill-rule="evenodd">
+                                            <path d="m0 0h24v24h-24z" />
+                                            <path
+                                                d="m3.6 13.8h-1.2v1.2c0 .6627417-.5372583 1.2-1.2 1.2s-1.2-.5372583-1.2-1.2v-4.8c0-.6627417.5372583-1.2 1.2-1.2s1.2.5372583 1.2 1.2v1.2h1.2v-2.4h1.2l2.04-2.04c.22448572-.22902677.53130492-.35866869.852-.36h3.108v-1.2h-1.2c-.6627417 0-1.2-.5372583-1.2-1.2s.5372583-1.2 1.2-1.2h4.8c.6627417 0 1.2.5372583 1.2 1.2s-.5372583 1.2-1.2 1.2h-1.2v1.2h2.112c.9123765-.0063496 1.7494427.50519089 2.16 1.32l1.728 3.48h2.4v-1.2h1.2s1.2-.492 1.2 4.8c0 4.8-1.2 4.8-1.2 4.8h-1.2v-2.4h-2.4v1.2c0 .6627417-.5372583 1.2-1.2 1.2h-8.4c-.75541753 0-1.46674948-.355666-1.92-.96l-2.88-3.84h-1.2zm2.4-1.2 3.6 4.8h7.2v-1.2c0-.6627417.5372583-1.2 1.2-1.2h3.6v-1.2h-3.144c-.4588741.0009183-.8780959-.2599308-1.08-.672l-2.052-4.116h-7.116l-2.208 2.172z"
+                                                fill="#000" fill-rule="nonzero" />
+                                        </g>
+                                    </svg>
+
+
+                                </span>
+                                {{ listing.engine_size }}L
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <div class="icon">
+                                <i class="fas fa-map-marker custom-icon"></i> {{ listing.town|capfirst }}, {{ listing.county|capfirst }}
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="icon">
+                                <i class="fa-solid fa-gas-pump custom-icon"></i> {{ listing.fuel_type|capfirst }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-10">
+                        <form action="">
+                            <button class="btn" type="submit" name="save-listing" value="">
+                                <i class="fa-regular fa-heart fa-bounce" style="color: #cc2424;"></i>
+                                Save Listing</button>
+                        </form>
+
+                    </div>
+                </div>
+
+
+                <div class="row mt-3 justify-content-center text-center">
+                    <div style="background-color: rgb(231, 236, 242)" class="col-10 my-2 py-3 shadow-container">
+
+
+                        <div class="row d-flex justify-content-center align-items-center ">
+                            <div class="col-6">
+                                <div class="seller-image-container p-3">
+                                    <img class="profile-image" src="{{ listing.owner.profile_image.url }}"
+                                        alt="user profile image">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <h4>{{ listing.owner.name }}</h4>
+                                <p>{{ listing.owner.town }}, {{ listing.owner.county }}</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row px-3  d-flex flex-column align-items-center">
+
+                            <div class="col-12 text-center m-auto">
+                                <p>Email: {{ listing.owner.email|slice:'51' }}</p>
+                                <p>Phone: {{ listing.owner.phone }}</p>
+                            </div>
+
+                        </div>
+                        <div class="row px-4">
+
+                            <button class="btn btn-blue btn-lg text-white">Message Seller</button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-12 col-lg-10">
+                <h5>Description:</h5>
+                <hr>
+                <p>{{ listing.description }}</p>
+            </div>
+    </div>
+</section>
+{% endblock content%}
