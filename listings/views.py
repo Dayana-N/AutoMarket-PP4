@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.http import JsonResponse
 from .models import Listing, CarMake
 from . import choices
@@ -47,8 +48,9 @@ def create_listing(request):
             listing.owner = request.user.profile
             listing.save()
 
-        return redirect('listings')
-
+            return redirect('single-listing', listing.pk)
+        else:
+            messages.error(request, 'Something went wrong! Please try again.')
     context = {
         'form': form,
     }
