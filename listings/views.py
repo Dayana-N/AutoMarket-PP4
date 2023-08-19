@@ -47,7 +47,7 @@ def create_listing(request):
             listing = form.save(commit=False)
             listing.owner = request.user.profile
             listing.save()
-
+            messages.success(request, 'You listing has been created!')
             return redirect('single-listing', listing.pk)
         else:
             messages.error(request, 'Something went wrong! Please try again.')

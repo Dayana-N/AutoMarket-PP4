@@ -97,6 +97,7 @@ def update_profile(request):
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid:
             form.save()
+            messages.success(request, 'Profile updated successfully.')
             return redirect('profile')
         else:
             messages.error(request, 'An error has occurred. Try again.')
@@ -115,6 +116,8 @@ def delete_profile(request):
     if request.method == 'POST':
         user_profile = request.user.profile
         user_profile.delete()
+
+        messages.success(request, 'Profile deleted successfully.')
         return redirect('delete-profile-success')
     return render(request, 'users/delete_profile.html')
 
