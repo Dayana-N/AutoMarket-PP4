@@ -9,86 +9,190 @@ Create Listings
 {% block content %}
 <section class="create-listing">
     <div class="container">
-        <div class="row justify-content-center">
-        </div>
             <div class="row justify-content-center">
                 <div class="col-10 text-center my-5 p-4 shadow-container">
                 <form class="form" method="POST" action="{% url 'create-listing' %}" enctype="multipart/form-data" id="listing-form">
                     {% csrf_token %}
                     <div class="row justify-content-center">
                         <h1>Create New Listing</h1>
-                    <div class="col-12 col-md-6 mt-3">
-                        {% for field in form.visible_fields %}
+                    <div class="col-12 mt-3">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                            <!-- Form Fields -->
+                                <div class="form-floating mb-4">
+                                    {% render_field form.car_make class="form-control" %}
+                                    <label for="id_car_make" class="form-label">Car Make: *</label>
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
 
-                        {% if forloop.counter <= 6 %} 
-                        <div class="form-floating mb-4">
-                            {{ field|add_class:'form-control'|attr:'placeholder:' }}
-                            <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-                            {% for error in field.errors %}
-                            <span class="text-danger">{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
+                                <div class="form-floating mb-4">
+                                    {% render_field form.car_model class="form-control" %}
+                                    <label for="id_car_model" class="form-label">Car Model: *</label>
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
 
-                        {% endfor %}
-                    </div>
-                    <div class="col-12 col-md-6 mt-3">
-                        {% for field in form.visible_fields %}
+                                <div class="form-floating mb-4">
+                                    {% render_field form.year class="form-control" %}
+                                    <label for="id_year" class="form-label">Car Year: *</label>
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
 
-                        {% if forloop.counter >= 7 and forloop.counter <= 12 %} 
-                        <div class="form-floating mb-4">
-                            {{ field|add_class:'form-control'|attr:'placeholder:' }}
-                            <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-                            {% for error in field.errors %}
-                            <span class="text-danger">{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
+                                <div class="form-floating mb-4">
+                                    {% render_field form.town class="form-control" placeholder=form.town.label %}
+                                    <label for="id_town" class="form-label">Town:  *</label>
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
 
-                        {% endfor %}
-                    </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <h3>Add Your Images:</h3>
-                        <div class="col-12 col-md-6 mt-3">
-                            {% for field in form.visible_fields %}
-    
-                            {% if forloop.counter >= 13 and forloop.counter <= 15 %} 
-                            <div class="form-floating mb-4">
-                                {{ field|add_class:'form-control'|attr:'placeholder:' }}
-                                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-                                {% for error in field.errors %}
-                                <span class="text-danger">{{ error }}</span>
-                                {% endfor %}
+                                <div class="form-floating mb-4">
+                                    {% render_field form.county class="form-control" %}
+                                    <label for="id_county" class="form-label">County:  *</label>
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            
                             </div>
-                            {% endif %}
+                            <div class="col-12 col-md-6">
+                                <div class="form-floating mb-4">
+                                    {% render_field form.mileage class="form-control" placeholder=form.mileage.label %}
+                                    <label for="id_mileage" class="form-label">Mileage: *</label>
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="form-floating mb-4">
+                                    {% render_field form.fuel_type class="form-control" %}
+                                    <label for="id_fuel_type" class="form-label">Fuel Type:  *</label>
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="form-floating mb-4">
+                                    {% render_field form.engine_size class="form-control" placeholder=form.mileage.engine_size%}
+                                    <label for="id_engine_size" class="form-label">Engine Size: *</label>
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="form-floating mb-4">
+                                    {% render_field form.body_type class="form-control" %}
+                                    <label for="id_body_type" class="form-label">Body Type:</label>
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
     
-                            {% endfor %}
-                        </div>
-                        <div class="col-12 col-md-6 mt-3">
-                            {% for field in form.visible_fields %}
-    
-                            {% if forloop.counter >= 16 and forloop.counter <= 18 %} 
-                            <div class="form-floating mb-4">
-                                {{ field|add_class:'form-control'|attr:'placeholder:' }}
-                                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-                                {% for error in field.errors %}
-                                <span class="text-danger">{{ error }}</span>
-                                {% endfor %}
+                                <div class="form-floating mb-4">
+                                    {% render_field form.transmission class="form-control" %}
+                                    <label for="id_transmission" class="form-label">Transmission:  *</label>
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
                             </div>
-                            {% endif %}
-    
-                            {% endfor %}
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-floating mb-4">
+                                    {% render_field form.price class="form-control" placeholder=form.price.label %}
+                                    <label for="id_price" class="form-label">Price:  *</label>
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
                     </div>
+                        <!-- Description Field -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group mb-4">
+                                    <label for="id_description" class="form-label">Description:</label>
+                                    {% render_field form.description class="form-control" placeholder=form.description.label %}
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Images -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h3>Images:</h3>
+                                <div class="form-group mb-4">
+                                    <label for="id_listing_image_1" class="form-label">Main Image:</label>
+                                    {% render_field form.listing_image_1 class="form-control" %}
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
 
+                                <div class="form-group mb-4">
+                                    <label for="id_listing_image_2" class="form-label ">Additional Images:</label>
+                                    {% render_field form.listing_image_2 class="form-control" %}
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
 
+                                <div class="form-group mb-4">
+                                    <label for="id_listing_image_3" class="form-label sr-only">Additional Images:</label>
+                                    {% render_field form.listing_image_3 class="form-control" %}
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="form-group mb-4">
+                                    <label for="id_listing_image_4" class="form-label sr-only">Additional Images:</label>
+                                    {% render_field form.listing_image_4 class="form-control" %}
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="form-group mb-4">
+                                    <label for="id_listing_image_5" class="form-label sr-only">Additional Images:</label>
+                                    {% render_field form.listing_image_5 class="form-control" %}
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="form-group mb-4">
+                                    <label for="id_listing_image_6" class="form-label sr-only">Additional Images:</label>
+                                    {% render_field form.listing_image_6 class="form-control" %}
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="form-group mb-4">
+                                    <label for="id_listing_image_7" class="form-label sr-only">Additional Images:</label>
+                                    {% render_field form.listing_image_7 class="form-control" %}
+                                    {% for error in field.errors %}
+                                    <span class="text-danger">{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <button type="submit" class="btn btn-blue btn-lg mt-2">Submit</button>
                 </form>
             </div>
-             </div>
-        
-
+        </div>
     </div>
 </section>
 {% endblock %}

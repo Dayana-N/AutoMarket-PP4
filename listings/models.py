@@ -30,7 +30,6 @@ class Listing(models.Model):
     price = models.IntegerField()
     year = models.CharField(
         max_length=10, choices=choices.get_year_choices(), null=True)
-    price = models.IntegerField()
     mileage = models.IntegerField(null=True)
     town = models.CharField(max_length=100)
     county = models.CharField(max_length=100, choices=choices.COUNTIES)
@@ -39,7 +38,6 @@ class Listing(models.Model):
     fuel_type = models.CharField(max_length=100, choices=choices.FUEL_TYPE)
     engine_size = models.DecimalField(
         max_digits=3, decimal_places=1, null=True)
-    battery_capacity = models.IntegerField(null=True, blank=True)
     transmission = models.CharField(
         max_length=100, choices=choices.TRANSMISSION)
     created = models.DateField(auto_now_add=True)
