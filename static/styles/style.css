@@ -154,6 +154,22 @@ i {
   background-color: var(--blue-background);
 }
 
+.listings-color a {
+  color: var(--dark-blue-text);
+}
+
+.btn-sidebar {
+  color:var(--violet)
+}
+
+.my-favourites-container, .my-listings-container, .my-profile-container {
+  display: none;
+}
+
+.profile-row {
+  min-height: 767px;
+}
+
 /* Delete profile confirmation page */
 #sad-car-image {
   background-image: url(../images/sad_car.png);

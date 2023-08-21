@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import CustomUserCreationForm, ProfileForm
+from .models import Profile
 
 
 # Create your views here.
@@ -74,13 +75,15 @@ def register_user(request):
 
 
 @login_required(login_url='login')
-def profile_page(request):
+def profile_page(request, pk):
     '''
     A view that renders user's profile
     '''
-    profile = request.user.profile
+    profile = Profile.objects.get(id=pk)
+    listings = profile.listing_set.all()
     context = {
-        'profile': profile
+        'profile': profile,
+        'listings': listings
     }
     return render(request, 'users/profile_page.html', context)
 
@@ -98,7 +101,7 @@ def update_profile(request):
         if form.is_valid:
             form.save()
             messages.success(request, 'Profile updated successfully.')
-            return redirect('profile')
+            return redirect('profile', profile.id)
         else:
             messages.error(request, 'An error has occurred. Try again.')
 

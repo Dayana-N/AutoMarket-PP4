@@ -42,7 +42,7 @@
                             <a class="nav-link" href="{% url 'create-listing' %}">Create Listing</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'profile' %}">Profile ({{request.user.profile.username}})</a>
+                            <a class="nav-link" href="{% url 'profile' request.user.profile.id %}">Profile ({{request.user.profile.username}})</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Inbox</a>

@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
 {% block title %}
 Profile
 {% endblock title %}
@@ -8,11 +10,33 @@ Profile
     <div class="container">
         <div class="row">
             <div class="col-12 mx-auto text-center my-5 p-2 shadow-container">
-                <h2 class="py-5">My Profile</h2>
-                <div class="container border-container">
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-xl-5 my-3 py-5 shadow-container">
-                            
+                <h2 class="py-5">{{ profile.name }}'s Profile</h2>
+                <div class="container">
+                    <div class="row justify-content-center profile-row">
+                        <div class="col-12 col-lg-2 m-3">
+                            <div class="container sidebar text-start p-2 border-container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button class="btn btn-sidebar p-0" id="btn-profile">Profile</button>
+                                    </div>
+                                </div>
+    
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button class="btn btn-sidebar p-0" id="btn-listings">My Listings</button>
+                                    </div>
+                                </div>
+    
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button class="btn btn-sidebar p-0" id="btn-favourites">My Favourites</button>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="col-12 col-lg-9 my-3 py-5 shadow-container" id="my-profile-container">
+
                             <div class="row d-flex justify-content-center">
                                 <div class="image-container p-3">
                                     <img class="profile-image" src="{{ profile.profile_image.url }}"
@@ -31,38 +55,132 @@ Profile
                                 </div>
 
                             </div>
-                            <div>
-                                <a href="{% url 'update-profile' %}" class="btn btn-blue text-white">Edit Profile</a>
-                                <a href="{% url 'delete-profile' %}" class="btn btn-danger text-white">Delete Profile</a>
-                            </div>
-                           
-                        </div>
 
-
-                        <div class="col-12 col-xl-5 m-3 d-flex flex-column justify-content-center">
-                            <div class="row p-3 mt-5">
+                            <div class="row p-3">
                                 <h4>About Me:</h4>
                                 <div class="col px-2">
                                     <p>{{ profile.about_me }} </p>
-
+                                
                                 </div>
 
                             </div>
 
-                            <div class="row p-3 mt-4">
-                                <div class="col-12 col-md-6">
-                                    <p>Active Listings: 5</p>
-                                    <button class="btn btn-blue text-white">View Listings</button>
-                                </div>
-
-                                <div class="col-12 col-md-6 mt-3 mt-md-0">
-                                    <p>Favourite Listings: 8</p>
-                                    <button class="btn btn-blue text-white">View Listings</button>
-                                </div>
+                            {% if request.user.profile.id == profile.id %}
+                            <div>
+                                <a href="{% url 'update-profile' %}" class="btn btn-blue text-white">Edit Profile</a>
+                                <a href="{% url 'delete-profile' %}" class="btn btn-danger text-white">Delete
+                                    Profile</a>
                             </div>
-                            <div class="row p-3 mt-5 justify-content-center">
+                            {% else %}
+                            <div>
+                                <a href="" class="btn btn-blue text-white">Send Message</a>
+                            </div>
+                            {% endif %}
+
+                        </div>
+                       
+                        <div class="col-12 col-lg-9 my-3 py-5 my-listings-container listings-color shadow-container" id="my-listings-container">
+                            <h3>My Listings:</h3>
+                            <div class="row">
+                            {% if listings %}
+                            
+                            {% for listing in listings %}
+                            <div class="col-12 col-lg-6 mb-4">
+                                <div class="card listing-preview">
+                                    <a class="card-link" href="{% url 'single-listing' listing.id %}">
+                                        <div class="card-body">
+                                            <h2>{{ listing.listing_title }} </h2>
+                                            <div class="row py-2 ">
+                                                <div class="col-6">
+                                                    <i class="fas fa-map-marker"></i> {{ listing.town|capfirst }}, {{ listing.county|capfirst }}
+                                                </div>
+                                                <div class="col-6">
+                                                    <i class="fas fa-clock"></i> {{ listing.created|timesince }}
+                                                </div>
+                                            </div>
+                                            <!-- Image -->
+                                            <div class="row"> <img src="{{ listing.listing_main_img }}" class="card-image" alt="{{ listing.listing_title }} image">
+                                            </div>
+                
+                                            <div class="row py-2 ">
+                                                <div class="col-6">
+                                                    <i class="fa-regular fa-calendar-days"></i> Year: {{ listing.year }}
+                                                </div>
+                                                <div class="col-6">
+                                                    <i class="fa-solid fa-gauge-high"></i> Miles: {{ listing.mileage|intcomma }}
+                                                </div>
+                                            </div>
+                
+                                            <h3>Price: €{{ listing.price|intcomma }}</h3>
+                
+                                            <a href="{% url 'single-listing' listing.id %}" class="btn btn-blue text-white">More Info</a>
+                                        </div>
+                
+                                    </a>
+                                </div>
+                
+                            </div>
+                            {% endfor %}
+                            {% else %}
+                            <div class="col-12">
+                                <p>You Have No Listings</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                        </div>
+
+                        <div class="col-12 col-lg-9 my-3 py-5 my-favourites-container shadow-container" id="my-favourites-container">
+                            <h3>My Favourites:</h3>
+                            <div class="row">
+                                {% if listings %}
+                                
+                                {% for listing in listings %}
+                                <div class="col-12 col-lg-6 mb-4">
+                                    <div class="card listing-preview">
+                                        <a class="card-link" href="{% url 'single-listing' listing.id %}">
+                                            <div class="card-body">
+                                                <h2>{{ listing.listing_title }} </h2>
+                                                <div class="row py-2 ">
+                                                    <div class="col-6">
+                                                        <i class="fas fa-map-marker"></i> {{ listing.town|capfirst }}, {{ listing.county|capfirst }}
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <i class="fas fa-clock"></i> {{ listing.created|timesince }}
+                                                    </div>
+                                                </div>
+                                                <!-- Image -->
+                                                <div class="row"> <img src="{{ listing.listing_main_img }}" class="card-image" alt="{{ listing.listing_title }} image">
+                                                </div>
+                    
+                                                <div class="row py-2 ">
+                                                    <div class="col-6">
+                                                        <i class="fa-regular fa-calendar-days"></i> Year: {{ listing.year }}
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <i class="fa-solid fa-gauge-high"></i> Miles: {{ listing.mileage|intcomma }}
+                                                    </div>
+                                                </div>
+                    
+                                                <h3>Price: €{{ listing.price|intcomma }}</h3>
+                    
+                                                <a href="{% url 'single-listing' listing.id %}" class="btn btn-blue text-white">More Info</a>
+                                            </div>
+                    
+                                        </a>
+                                    </div>
+                    
+                                </div>
+                                {% endfor %}
+                                {% else %}
+                                <div class="col-12">
+                                    <p>You Have No Listings</p>
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
+
+
+
                     </div>
                 </div>
             </div>
@@ -70,3 +188,6 @@ Profile
     </div>
 </section>
 {% endblock content %}
+{% block script %}
+<script src="{% static 'js/profile.js' %}"></script>
+{% endblock script %}

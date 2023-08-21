@@ -167,8 +167,10 @@
                         <div class="row d-flex justify-content-center align-items-center ">
                             <div class="col-6">
                                 <div class="seller-image-container p-3">
-                                    <img class="profile-image" src="{{ listing.owner.profile_image.url }}"
+                                    <a href="{% url 'profile' listing.owner.id %}">
+                                        <img class="profile-image" src="{{ listing.owner.profile_image.url }}"
                                         alt="user profile image">
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-6">
