@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse
@@ -58,7 +58,25 @@ def create_listing(request):
     context = {
         'form': form,
     }
-    return render(request, 'listings/create_listing.html', context)
+    return render(request, 'listings/listing_form.html', context)
+
+
+@login_required(login_url='login')
+def delete_listing(request, pk):
+    '''
+    A view that handles deleting listings
+    '''
+    listing = get_object_or_404(Listing, pk=pk)
+    profile = request.user.profile
+
+    if request.method == 'POST':
+        listing.delete()
+        messages.success(request, 'Listing deleted successfully.')
+        return redirect('profile', pk=profile.id)
+    context = {
+        'listing': listing,
+    }
+    return render(request, 'listings/delete_listing.html', context)
 
 
 def load_models(request, pk):
