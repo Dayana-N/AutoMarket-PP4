@@ -45,10 +45,6 @@
                             <a class="nav-link" href="{% url 'profile' request.user.profile.id %}">Profile ({{request.user.profile.username}})</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Inbox</a>
-                        </li>
-                        
-                        <li class="nav-item">
                             <a class="nav-link" href="{% url 'logout-confirm' %}">Log Out</a>
                         </li>
                         {% else %}
