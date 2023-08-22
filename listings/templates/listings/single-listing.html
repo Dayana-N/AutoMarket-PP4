@@ -167,7 +167,11 @@
                         <div class="row d-flex justify-content-center align-items-center ">
                             <div class="col-6">
                                 <div class="seller-image-container p-3">
+                                    {% if request.user.profile.id == listing.owner.id %}
                                     <a href="{% url 'profile' listing.owner.id %}">
+                                    {% else %}
+                                    <a href="{% url 'user-account' listing.owner.id %}">
+                                    {% endif %}
                                         <img class="profile-image" src="{{ listing.owner.profile_image.url }}"
                                         alt="user profile image">
                                     </a>

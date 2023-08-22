@@ -88,6 +88,19 @@ def profile_page(request, pk):
     return render(request, 'users/profile_page.html', context)
 
 
+def user_account(request, pk):
+    '''
+    A view that renders user's account page
+    '''
+    profile = Profile.objects.get(id=pk)
+    listings = profile.listing_set.all()
+    context = {
+        'profile': profile,
+        'listings': listings
+    }
+    return render(request, 'users/user_account.html', context)
+
+
 @login_required(login_url='login')
 def update_profile(request):
     '''
