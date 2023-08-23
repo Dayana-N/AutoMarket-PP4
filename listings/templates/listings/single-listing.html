@@ -179,7 +179,9 @@
                             </div>
                             <div class="col-6">
                                 <h4>{{ listing.owner.name }}</h4>
+                                {% if listing.owner.county and listing.owner.county %}
                                 <p>{{ listing.owner.town }}, {{ listing.owner.county }}</p>
+                                {% endif %}
                             </div>
 
                         </div>
@@ -189,7 +191,9 @@
 
                             <div class="col-12 text-center m-auto">
                                 <p>Email: {{ listing.owner.email|slice:'51' }}</p>
+                                {% if listing.owner.phone %}
                                 <p>Phone: {{ listing.owner.phone }}</p>
+                                {% endif %}
                             </div>
 
                         </div>
