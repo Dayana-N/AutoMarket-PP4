@@ -1,14 +1,17 @@
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from .models import Profile
+from .emails import welcome_body, welcome_subject
+import os
 
 
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     '''
-    Signal to create profile when
-    new user is created
+    Signal to create profile and send email
+    when new user is created
     '''
     if created:
         user = instance
@@ -17,6 +20,14 @@ def create_profile(sender, instance, created, **kwargs):
             username=user.username,
             name=user.first_name,
             email=user.email,
+        )
+
+        send_mail(
+            welcome_subject,
+            welcome_body.format(name=profile.name),
+            os.environ.get('EMAIL_HOST_USER'),
+            [profile.email],
+            fail_silently=False,
         )
 
 
