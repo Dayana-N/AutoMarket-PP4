@@ -43,6 +43,7 @@ def create_listing(request):
     A view that handles creation of listings
     '''
     form = ListingForm()
+    page = 'create'
 
     if request.method == 'POST':
         form = ListingForm(request.POST, request.FILES)
@@ -57,6 +58,7 @@ def create_listing(request):
             messages.error(request, 'Something went wrong! Please try again.')
     context = {
         'form': form,
+        'page': page,
     }
     return render(request, 'listings/listing_form.html', context)
 
@@ -77,6 +79,32 @@ def delete_listing(request, pk):
         'listing': listing,
     }
     return render(request, 'listings/delete_listing.html', context)
+
+
+@login_required(login_url='login')
+def edit_listing(request, pk):
+    '''
+    A view that handles edit listings
+    '''
+    page = 'edit'
+    profile = request.user.profile
+    listing = profile.listing_set.get(id=pk)
+    form = ListingForm(instance=listing)
+
+    if request.method == 'POST':
+        form = ListingForm(request.POST, request.FILES, instance=listing)
+        if form.is_valid():
+            listing = form.save()
+            messages.success(request, 'Listing updated successfully.')
+            return redirect('single-listing', pk=listing.id)
+        else:
+            messages.error(request, 'Something went wrong! Please try again.')
+
+    context = {
+        'form': form,
+        'page': page
+    }
+    return render(request, 'listings/listing_form.html', context)
 
 
 def load_models(request, pk):
