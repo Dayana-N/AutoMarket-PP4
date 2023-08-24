@@ -25,3 +25,13 @@ Best Regards,
 AutoMarket Team,
 automarketpp4@gmail.com
 '''
+
+contact_body = '''
+Please do not reply to this email!
+
+You have recieved a message from {sender_name}
+Email: {sender_email}
+Message:
+{message}
+
+'''

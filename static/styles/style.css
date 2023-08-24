@@ -126,6 +126,9 @@ i {
 }
 
 /* Single listing */
+.seller-card {
+  background-color: var(--page-background);
+}
 .img-thumb {
   width: auto;
   height: 100%;

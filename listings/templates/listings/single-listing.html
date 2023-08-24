@@ -8,7 +8,6 @@
 {% block content %}
 <section id="listing" class="py-4">
     <div class="container">
-        <a href="{% url 'listings' %}" class="btn btn-blue text-white mb-4" >Back</a>
         <div class="row">
             <div class="col-12 col-xl-7">
                 <!-- Images carousel -->
@@ -69,9 +68,7 @@
 
             <!-- Listing title and details -->
             <div class="col-12 col-md-10 col-xl-5">
-
                 <div class="row">
-
                     <div class="col-6">
                         <h2>{{ listing.car_make }}</h2>
                         <h4>{{ listing.car_model }}</h4>
@@ -87,14 +84,13 @@
                                 <span><i class="fa-regular fa-calendar-days custom-icon"></i> {{ listing.year }}</span>
                             </div>
                         </div>
-
                         <div class="col-6">
                             <div class="icon">
                                 <span> <i class="fa-solid fa-gauge-high custom-icon"></i> {{ listing.mileage|intcomma }} km</span>
                             </div>
                         </div>
-
                     </div>
+
                     <div class="row mt-3">
                         <div class="col-6">
                             <div class="icon">
@@ -123,13 +119,10 @@
                                                 fill="#000" fill-rule="nonzero" />
                                         </g>
                                     </svg>
-
-
                                 </span>
                                 {{ listing.engine_size }}L
                             </div>
                         </div>
-
                     </div>
 
                     <div class="row mt-3">
@@ -155,15 +148,12 @@
                                 <i class="fa-regular fa-heart fa-bounce" style="color: #cc2424;"></i>
                                 Save Listing</button>
                         </form>
-
                     </div>
                 </div>
 
 
                 <div class="row mt-3 justify-content-center text-center">
-                    <div style="background-color: rgb(231, 236, 242)" class="col-10 my-2 py-3 shadow-container">
-
-
+                    <div class="col-10 my-2 py-3 shadow-container seller-card">
                         <div class="row d-flex justify-content-center align-items-center ">
                             <div class="col-6">
                                 <div class="seller-image-container p-3">
@@ -183,29 +173,21 @@
                                 <p>{{ listing.owner.town }}, {{ listing.owner.county }}</p>
                                 {% endif %}
                             </div>
-
                         </div>
 
-
                         <div class="row px-3  d-flex flex-column align-items-center">
-
                             <div class="col-12 text-center m-auto">
                                 <p>Email: {{ listing.owner.email|slice:'51' }}</p>
                                 {% if listing.owner.phone %}
                                 <p>Phone: {{ listing.owner.phone }}</p>
                                 {% endif %}
                             </div>
-
                         </div>
                         <div class="row px-4">
-
-                            <button class="btn btn-blue btn-lg text-white" data-bs-toggle="modal" data-bs-target="#contactModal">Message Seller</button>
+                            <button class="btn btn-blue btn-lg text-white" data-bs-toggle="modal" data-bs-target="#contactModal">Email Seller</button>
                         </div>
-
                     </div>
                 </div>
-
-
             </div>
         </div>
 
@@ -235,24 +217,30 @@
                 <input type="hidden" name="listing_id" value="{{ listing.id }}">
                 <div class="form-floating mb-4">
                     <input type="text" name="listing" id="listingTitle" class="form-control" placeholder="Listing"  value="{{ listing.listing_title}}" readonly>
-                    <label class="form-label" for="listingTitle">Listing</label>
+                    <label class="form-label" for="listingTitle">Listing:</label>
                 </div>
                 
                 <div class="form-floating mb-4">
-                    <input type="email" name="email" id="contactEmail" class="form-control" placeholder="email" value="{{ request.user.profile.email }}">
-                    <label class="form-label" for="contactEmail">Email</label>
-                </div>
-                <div class="form-floating mb-4">
-                    {% if request.user.profile.phone %}
-                    <input type="text" name="phone" id="contactPhone" class="form-control" placeholder="phone" value="{{request.user.profile.phone}}">
-                    {% else %}
-                    <input type="text" name="phone" id="contactPhone" class="form-control" placeholder="phone">
-                    {% endif %}
-                    <label class="form-label" for="contactPhone">Phone</label>
+                    <input type="email" name="email" id="contactEmail" class="form-control" placeholder="email" {% if user.is_authenticated %} value="{{ request.user.profile.email }}" {% endif %} required>
+                    <label class="form-label" for="contactEmail">Email:</label>
                 </div>
 
                 <div class="form-floating mb-4">
-                    <textarea name="message" id="contactMessage" class="form-control"></textarea>
+                    <input type="text" name="name" id="contactName" class="form-control" placeholder="name" {% if user.is_authenticated %} value="{{ request.user.profile.name }}" {% endif %} required>
+                    <label class="form-label" for="contactName">Name:</label>
+                </div>
+
+                <div class="form-floating mb-4">
+                    {% if request.user.profile.phone %}
+                    <input type="text" name="phone" id="contactPhone" class="form-control" title="Please enter a 10-digit phone number" placeholder="phone" value="{{request.user.profile.phone}}" required>
+                    {% else %}
+                    <input type="text" name="phone" id="contactPhone" class="form-control" pattern="^\d{10}$" title="Please enter a 10-digit phone number" placeholder="phone" required>
+                    {% endif %}
+                    <label class="form-label" for="contactPhone">Phone:</label>
+                </div>
+
+                <div class="form-floating mb-4">
+                    <textarea name="message" id="contactMessage" class="form-control" required></textarea>
                     <label class="form-label" for="contactMessage">Enter Message Here:</label>
                 </div>
 
@@ -265,7 +253,6 @@
       </div>
     </div>
   </div>
-
-  
+  </div>
 </section>
 {% endblock content%}

@@ -42,7 +42,7 @@ def delete_user(sender, instance, **kwargs):
 
 
 @receiver(post_save, sender=Profile)
-def create_profile(sender, instance, created, **kwargs):
+def update_profile(sender, instance, created, **kwargs):
     '''
     Signal to update user profile
     '''

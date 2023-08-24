@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -6,7 +6,9 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from .forms import CustomUserCreationForm, ProfileForm
 from .models import Profile
+from .emails import contact_body
 from listings.models import Listing
+from smtplib import SMTPException
 import os
 
 
@@ -150,23 +152,32 @@ def delete_profile_success(request):
 
 def contact(request, pk):
     if request.method == 'POST':
-        listing_owner = Profile.objects.get(id=pk)
-        sender_email = request.POST['email']
-        sender_phone = request.POST['phone']
-        message = request.POST['message']
+        listing_owner = get_object_or_404(Profile, id=pk)
+        sender_email = request.POST.get('email')
+        sender_phone = request.POST.get('phone')
+        sender_name = request.POST.get('name')
+        message = request.POST.get('message')
         listing_title = request.POST['listing']
-        listing_id = request.POST['listing_id']
-        current_listing = Listing.objects.get(id=listing_id)
-        print(listing_owner, sender_email, sender_phone)
-        subject = f'New Message {listing_title}'
-        body = f'Your New Message: {message}'
+        listing_id = request.POST.get('listing_id')
+        current_listing = get_object_or_404(Listing, id=listing_id)
 
-        send_mail(
-            subject,
-            body,
-            os.environ.get('EMAIL_HOST_USER'),
-            [sender_email],
-            fail_silently=False,
-        )
+        print(listing_owner, sender_email, sender_phone)
+        subject = f'New Message {current_listing.listing_title}'
+
+        try:
+            send_mail(
+                subject,
+                contact_body.format(
+                    sender_name=sender_name, sender_email=sender_email,
+                    message=message),
+                os.environ.get('EMAIL_HOST_USER'),
+                [sender_email],
+                fail_silently=False,
+            )
+
+            messages.success(request, 'Email sent successfully!')
+        except SMTPException as e:
+            messages.error(
+                request, 'An error has occurred sending this email.')
 
         return redirect('single-listing', current_listing.id)
