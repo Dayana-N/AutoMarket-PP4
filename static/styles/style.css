@@ -138,6 +138,9 @@ i {
   height: 120x;
   width: 120px;
 }
+#contactMessage {
+  height: 250px;
+}
 
 /* profile page */
 .border-container {

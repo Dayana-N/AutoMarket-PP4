@@ -3,8 +3,11 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.core.mail import send_mail
 from .forms import CustomUserCreationForm, ProfileForm
 from .models import Profile
+from listings.models import Listing
+import os
 
 
 # Create your views here.
@@ -143,3 +146,27 @@ def delete_profile_success(request):
     A view that displays delete warning to user
     '''
     return render(request, 'users/delete_profile_confirmation.html')
+
+
+def contact(request, pk):
+    if request.method == 'POST':
+        listing_owner = Profile.objects.get(id=pk)
+        sender_email = request.POST['email']
+        sender_phone = request.POST['phone']
+        message = request.POST['message']
+        listing_title = request.POST['listing']
+        listing_id = request.POST['listing_id']
+        current_listing = Listing.objects.get(id=listing_id)
+        print(listing_owner, sender_email, sender_phone)
+        subject = f'New Message {listing_title}'
+        body = f'Your New Message: {message}'
+
+        send_mail(
+            subject,
+            body,
+            os.environ.get('EMAIL_HOST_USER'),
+            [sender_email],
+            fail_silently=False,
+        )
+
+        return redirect('single-listing', current_listing.id)

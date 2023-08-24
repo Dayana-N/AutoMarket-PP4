@@ -199,7 +199,7 @@
                         </div>
                         <div class="row px-4">
 
-                            <button class="btn btn-blue btn-lg text-white">Message Seller</button>
+                            <button class="btn btn-blue btn-lg text-white" data-bs-toggle="modal" data-bs-target="#contactModal">Message Seller</button>
                         </div>
 
                     </div>
@@ -216,5 +216,56 @@
                 <p>{{ listing.description }}</p>
             </div>
     </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contactModalLabel">Contact {{ listing.owner.name }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+            <div class="col-12 text-center">
+            <form method="POST" action="{% url 'contact' listing.owner.id %}" class="mt-3">
+                {% csrf_token %}
+                <p>An email will be sent to {{listing.owner.name}} with your message and contact details.</p>
+                
+                <input type="hidden" name="listing_id" value="{{ listing.id }}">
+                <div class="form-floating mb-4">
+                    <input type="text" name="listing" id="listingTitle" class="form-control" placeholder="Listing"  value="{{ listing.listing_title}}" readonly>
+                    <label class="form-label" for="listingTitle">Listing</label>
+                </div>
+                
+                <div class="form-floating mb-4">
+                    <input type="email" name="email" id="contactEmail" class="form-control" placeholder="email" value="{{ request.user.profile.email }}">
+                    <label class="form-label" for="contactEmail">Email</label>
+                </div>
+                <div class="form-floating mb-4">
+                    {% if request.user.profile.phone %}
+                    <input type="text" name="phone" id="contactPhone" class="form-control" placeholder="phone" value="{{request.user.profile.phone}}">
+                    {% else %}
+                    <input type="text" name="phone" id="contactPhone" class="form-control" placeholder="phone">
+                    {% endif %}
+                    <label class="form-label" for="contactPhone">Phone</label>
+                </div>
+
+                <div class="form-floating mb-4">
+                    <textarea name="message" id="contactMessage" class="form-control"></textarea>
+                    <label class="form-label" for="contactMessage">Enter Message Here:</label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-lg btn-blue text-white btn-block mb-4">Send Message</button>
+            </form>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
 </section>
 {% endblock content%}

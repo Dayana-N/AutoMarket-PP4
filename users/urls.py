@@ -12,4 +12,5 @@ urlpatterns = [
     path('delete-profile/', views.delete_profile, name='delete-profile'),
     path('delete-profile/success/', views.delete_profile_success,
          name='delete-profile-success'),
+    path('contact/<str:pk>/', views.contact, name='contact'),
 ]
