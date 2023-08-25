@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load humanize %}
+{% load static %}
 {% block title %}
 Listings
 {% endblock title %}
@@ -74,3 +75,6 @@ Listings
     </nav>
 </section>
 {% endblock %}
+{% block script %}
+<script src="{% static 'js/search.js' %}"></script> 
+{% endblock script %}
