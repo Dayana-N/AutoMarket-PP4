@@ -183,9 +183,11 @@
                                 {% endif %}
                             </div>
                         </div>
+                        {% if request.user.profile.id != listing.owner.id %}
                         <div class="row px-4">
                             <button class="btn btn-blue btn-lg text-white" data-bs-toggle="modal" data-bs-target="#contactModal">Email Seller</button>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
