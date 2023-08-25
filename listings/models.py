@@ -59,7 +59,10 @@ class Listing(models.Model):
 
     @property
     def listing_title(self):
-        return f'{self.car_make} {self.car_model}'
+        if self.car_make and self.car_model:
+            return f'{self.car_make.name} {self.car_model.name}'
+        else:
+            return "Untitled Listing"
 
     @property
     def listing_main_img(self):

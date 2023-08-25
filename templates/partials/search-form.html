@@ -7,22 +7,26 @@
             </p>
         </div>
 
-        <form>
+        <form action="{% url 'search-listings' %}">
             <div class="row">
                 <div class="col-md-3 mb-2">
                     <label class="sr-only" for="keyword">Keyword:</label>
-                    <input type="text" class="form-control" name="keywords" id="keyword" placeholder="Keyword (Toyota)">
+                    <input type="text" class="form-control" name="keywords" id="keyword" placeholder="Keyword (Toyota)" value="{{ values.keywords }}">
                 </div>
                 <div class="col-md-3 mb-2">
-                    <label for="city" class="sr-only">City:</label>
-                    <input type="text" class="form-control" name="city" id="city" placeholder="City">
+                    <label for="town" class="sr-only">Town:</label>
+                    <input type="text" class="form-control" name="town" id="town" placeholder="Town" value="{{ values.town }}">
                 </div>
                 <div class="col-md-3 mb-2">
                     <label for="county" class="sr-only">County:</label>
                     <select name="county" class="form-select" id="county">
-                        <option selected="true" disabled="disabled">County (All)</option>
-                        {% for value,option in counties %}
-                        <option value="{{ value }}">{{ option }}</option>
+                        <option selected="true" value="">County (All)</option>
+                        {% for key,option in counties %}
+                        <option value="{{ key }}"
+                        {% if key == values.county %}
+                        selected
+                        {% endif %}
+                        >{{ option }}</option>
                         {% endfor %}
                     </select>
 
@@ -31,9 +35,13 @@
                 <div class="col-md-3 mb-2">
                     <label for="fuel" class="sr-only">Fuel Type:</label>
                     <select class="form-select" name="fuel" id="fuel">
-                        <option selected="true" disabled="disabled">Fuel Type</option>
-                        {% for value,option in fuel_type %}
-                        <option value="{{ value }}">{{ option }}</option>
+                        <option selected="true" value="">Fuel Type (All)</option>
+                        {% for key,option in fuel_type %}
+                        <option value="{{ key }}"
+                        {% if key == values.fuel %}
+                        selected
+                        {% endif %}
+                        >{{ option }}</option>
                         {% endfor %}
 
                     </select>
@@ -44,8 +52,12 @@
                     <label for="min_year" class="sr-only">Min Year:</label>
                     <select class="form-select" name="min_year" id="min_year">
                         <option selected disabled>Min Year</option>
-                        {% for value,option in years %}
-                        <option value="{{ value }}">{{ option }}</option>
+                        {% for key,option in years %}
+                        <option value="{{ key }}"
+                        {% if key == values.min_year %}
+                        selected
+                        {% endif %}
+                        >{{ option }}</option>
                         {% endfor %}
 
                     </select>
@@ -54,19 +66,23 @@
                     <label for="max_year" class="sr-only">Max Year:</label>
                     <select class="form-select" name="max_year" id="max_year">
                         <option selected disabled>Max Year</option>
-                        {% for value,option in years %}
-                        <option value="{{ value }}">{{ option }}</option>
+                        {% for key,option in years %}
+                        <option value="{{ key }}"
+                        {% if key == values.max_year %}
+                        selected
+                        {% endif %}
+                        >{{ option }}</option>
                         {% endfor %}
 
                     </select>
                 </div>
                 <div class="col-md-3 mb-2">
                     <label for="min_price" class="sr-only">Min Price:</label>
-                    <input type="text" class="form-control" name="min_price" id="min_price" placeholder="Min Price">
+                    <input type="text" class="form-control" name="min_price" id="min_price" placeholder="Min Price" value="{{values.min_price}}">
                 </div>
                 <div class="col-md-3 mb-2">
                     <label for="max_price" class="sr-only">Max Price:</label>
-                    <input type="text" class="form-control" name="max_price" id="max_price" placeholder="Max Price">
+                    <input type="text" class="form-control" name="max_price" id="max_price" placeholder="Max Price" value="{{values.max_price}}">
                 </div>
             </div>
             <button type="submit" class="btn btn-green text-white btn-lg mt-3">Search</button>

@@ -42,7 +42,7 @@ Listings
 
                             <h3>Price: €{{ listing.price|intcomma }}</h3>
 
-                            <a href="#" class="btn btn-blue text-white">More Info</a>
+                            <a href="{% url 'single-listing' listing.id %}" class="btn btn-blue text-white">More Info</a>
                         </div>
 
                     </a>
