@@ -40,7 +40,7 @@ class Listing(models.Model):
         max_digits=3, decimal_places=1, null=True)
     transmission = models.CharField(
         max_length=100, choices=choices.TRANSMISSION)
-    created = models.DateField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     description = models.TextField(null=True, blank=True)
     listing_image_1 = models.ImageField(
         upload_to='listings/', null=True, blank=True,
