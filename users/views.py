@@ -152,16 +152,15 @@ def delete_profile_success(request):
 
 def contact(request, pk):
     if request.method == 'POST':
-        listing_owner = get_object_or_404(Profile, id=pk)
+        listing_id = request.POST.get('listing_id')
+        current_listing = get_object_or_404(Listing, id=listing_id)
+        listing_owner_email = current_listing.owner.email
+
         sender_email = request.POST.get('email')
         sender_phone = request.POST.get('phone')
         sender_name = request.POST.get('name')
         message = request.POST.get('message')
-        listing_title = request.POST['listing']
-        listing_id = request.POST.get('listing_id')
-        current_listing = get_object_or_404(Listing, id=listing_id)
 
-        print(listing_owner, sender_email, sender_phone)
         subject = f'New Message {current_listing.listing_title}'
 
         try:
@@ -169,9 +168,9 @@ def contact(request, pk):
                 subject,
                 contact_body.format(
                     sender_name=sender_name, sender_email=sender_email,
-                    message=message),
+                    sender_phone=sender_phone, message=message),
                 os.environ.get('EMAIL_HOST_USER'),
-                [sender_email],
+                [listing_owner_email],
                 fail_silently=False,
             )
 

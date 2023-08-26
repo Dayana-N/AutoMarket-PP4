@@ -31,6 +31,7 @@ Please do not reply to this email!
 
 You have recieved a message from {sender_name}
 Email: {sender_email}
+Phone: {sender_phone}
 Message:
 {message}
 

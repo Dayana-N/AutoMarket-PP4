@@ -8,6 +8,7 @@
 {% block content %}
 <section id="listing" class="py-4">
     <div class="container">
+        <button class="btn blue text-white mb-4" onclick="history.back()">Go Back</button>
         <div class="row">
             <div class="col-12 col-xl-7">
                 <!-- Images carousel -->
@@ -75,7 +76,7 @@
                     </div>
                     <div class="col-6 text-end">
                         <h2>€{{ listing.price|intcomma }}</h2>
-                        <p>{{ listing.created|timesince}}</p>
+                        <p>{{ listing.created|timesince}} ago</p>
                     </div>
                     <hr>
                     <div class="row">
