@@ -24,7 +24,7 @@ class Listing(models.Model):
     owner = models.ForeignKey(
         Profile, on_delete=models.CASCADE, null=True, blank=True)
     car_make = models.ForeignKey(
-        CarMake, on_delete=models.SET_NULL, null=True)
+        CarMake, on_delete=models.SET_NULL, null=True, blank=True)
     car_model = models.ForeignKey(
         CarModel, on_delete=models.SET_NULL, null=True, blank=True)
     price = models.IntegerField()

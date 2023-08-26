@@ -1,6 +1,8 @@
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import User
 import uuid
+
 
 # Create your models here.
 
@@ -24,3 +26,14 @@ class Profile(models.Model):
 
     def __str__(self):
         return str(self.username)
+
+    @property
+    def profile_img(self):
+        if self.profile_image:
+            url = self.profile_image.url
+        else:
+            url = (
+                settings.STATIC_URL +
+                'images/users/user-default.webp'
+            )
+        return url

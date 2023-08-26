@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;600&family=Special+Elite&family=Vast+Shadow&display=swap');
 /* Root colors */
 :root {
   --blue-background: rgba(80, 106, 135, 0.8);
@@ -15,6 +16,7 @@
 
 body {
   background-color: rgb(231, 236, 242);
+  font-family: 'Roboto Slab';
 }
 
 /* Navbar */
@@ -33,6 +35,12 @@ body {
 
 .logo {
   height: 47px;
+}
+
+a.active {
+  /* background-color: rgba(154, 167, 183, 0.8); */
+  border-bottom: 1px solid var(--white);
+  font-weight: 800;
 }
 
 /* Django Messages */
@@ -62,6 +70,7 @@ body {
 
 .hero-text-container h1 {
     font-size: 2.5rem;
+    font-family: 'Roboto Slab', sans-serif;
 }
 
 /* LogIn page */

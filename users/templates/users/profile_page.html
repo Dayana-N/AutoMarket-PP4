@@ -39,19 +39,26 @@ Profile
 
                             <div class="row d-flex justify-content-center">
                                 <div class="image-container p-3">
-                                    <img class="profile-image" src="{{ profile.profile_image.url }}"
+                                    <img class="profile-image" src="{{ profile.profile_img }}"
                                         alt="user profile image">
                                 </div>
                             </div>
 
                             <h4>{{ profile.name }}</h4>
                             <p>{{ profile.username }}</p>
-                            <p>{{ profile.town }}, {{ profile.county }}</p>
+                            <p>{% if profile.town %}
+                                {{ profile.town }},
+                                {% endif %}
+                                {% if profile.county %}
+                                {{ profile.county }}
+                                {% endif %}</p>
                             <div class="row p-3  d-flex flex-column align-items-center">
                                 <h4>Contact Details:</h4>
                                 <div class="col-12 text-center m-auto">
                                     <p>Email: {{ profile.email }}</p>
+                                    {% if profile.phone %}
                                     <p>Phone: {{ profile.phone }}</p>
+                                    {% endif %}
                                 </div>
 
                             </div>
