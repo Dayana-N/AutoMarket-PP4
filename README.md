@@ -1,4 +1,6 @@
 # AutoMarket
+[Link to deployed site](https://automarket-2a9033a7b561.herokuapp.com/)
+<hr>
 AutoMarket is a full stack project allowing users to postlistings with their vehicle for sale. The project is built using Django framework for the backend and HTML, CSS, Bootstrap and JavaScript on the frontend. Automarket allows the users to create an account and perform CRUD functionality on their profile and listings. This project was created as part of Code Institute full-stack developer course.
 
 ![automarket Image](./assets/readme%20images/main-image.PNG)
