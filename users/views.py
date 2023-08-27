@@ -96,6 +96,38 @@ def profile_page(request, pk):
     return render(request, 'users/profile_page.html', context)
 
 
+@login_required(login_url='login')
+def profile_listings(request, pk):
+    '''
+    A view that renders user's listings
+    '''
+    profile = Profile.objects.get(id=pk)
+    listings = profile.listing_set.all().order_by('-created')
+    listings, page_number = listings_pagination(request, listings)
+
+    context = {
+        'profile': profile,
+        'listings': listings
+    }
+    return render(request, 'users/my_listings.html', context)
+
+
+@login_required(login_url='login')
+def profile_favourites(request, pk):
+    '''
+    A view that renders user's listings
+    '''
+    profile = Profile.objects.get(id=pk)
+    listings = profile.listing_set.all().order_by('-created')
+    listings, page_number = listings_pagination(request, listings)
+
+    context = {
+        'profile': profile,
+        'listings': listings
+    }
+    return render(request, 'users/my_favourites.html', context)
+
+
 def user_account(request, pk):
     '''
     A view that renders user's account page

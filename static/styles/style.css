@@ -130,7 +130,7 @@ i {
 }
 
 .card-image {
-    height: 300px;
+    height: 250px;
     object-fit: cover;
 }
 
@@ -181,8 +181,8 @@ i {
   color:var(--violet)
 }
 
-.my-favourites-container, .my-listings-container, .my-profile-container {
-  display: none;
+.btn-sidebar.active {
+  color:var(--dark-blue-text);
 }
 
 .profile-row {

@@ -1,0 +1,22 @@
+<div class="col-12 col-lg-2 m-3">
+    <div class="container sidebar text-start p-2 border-container">
+        <div class="row">
+            <div class="col-12">
+                <a href="{% url 'profile' profile.id %}" class="btn btn-sidebar p-0 {% if 'my-profile' in request.path %}active{% endif %}">Profile</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <a href="{% url 'my-listings' profile.id %}" class="btn btn-sidebar p-0 {% if 'my-listings' in request.path %}active{% endif %}">My Listings</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <a href="{% url 'my-favourites' profile.id%}" class="btn btn-sidebar p-0 {% if 'my-favourites' in request.path %}active{% endif %}">My Favourites</a>
+            </div>
+        </div>
+    </div>
+   
+</div>

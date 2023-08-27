@@ -84,7 +84,7 @@ def delete_listing(request, pk):
     if request.method == 'POST':
         listing.delete()
         messages.success(request, 'Listing deleted successfully.')
-        return redirect('profile', pk=profile.id)
+        return redirect('my-listings', pk=profile.id)
     context = {
         'listing': listing,
     }
