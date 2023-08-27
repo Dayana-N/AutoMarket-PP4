@@ -1,12 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.db.models import Q
-from django.core.paginator import Paginator
 from django.http import JsonResponse
 from .models import Listing, CarMake, CarModel
 from . import choices
 from .forms import ListingForm
+from .utils import search_listings, listings_pagination
 
 # Create your views here.
 
@@ -27,66 +26,14 @@ def home_page(request):
     return render(request, 'listings/index.html', context)
 
 
-def search_listings(request):
+def listings(request):
     '''
-    A view that handles the search functionality
+    A view that displays all listings and handles
+    the search functionality and pagination
     '''
-    listings = Listing.objects.all().order_by('-created')
+    listings = search_listings(request)
+    listings, page_number = listings_pagination(request, listings)
 
-    if 'keywords' in request.GET:
-        keywords = request.GET['keywords']
-        if keywords:
-            # get the keywords and split them
-            keywords_list = keywords.split()
-            keyword_query = Q()
-
-            # for each word create a filter
-            for keyword in keywords_list:
-                keyword_query &= Q(description__icontains=keyword) | Q(
-                    car_make__name__icontains=keyword) | Q(
-                        car_model__name__icontains=keyword)
-
-            listings = listings.filter(keyword_query)
-
-    if 'town' in request.GET:
-        town = request.GET['town']
-        if town:
-            listings = listings.filter(town__iexact=town)
-
-    if 'county' in request.GET:
-        county = request.GET['county']
-        if county:
-            listings = listings.filter(county__iexact=county)
-
-    if 'fuel' in request.GET:
-        fuel = request.GET['fuel']
-        if fuel:
-            listings = listings.filter(fuel_type__iexact=fuel)
-
-    if 'min_year' in request.GET:
-        min_year = request.GET['min_year']
-        if min_year:
-            listings = listings.filter(year__gte=min_year)
-
-    if 'max_year' in request.GET:
-        max_year = request.GET['max_year']
-        if max_year:
-            listings = listings.filter(year__lte=max_year)
-
-    if 'min_price' in request.GET:
-        min_price = request.GET['min_price']
-        if min_price:
-            listings = listings.filter(price__gte=min_price)
-
-    if 'max_price' in request.GET:
-        max_price = request.GET['max_price']
-        if max_price:
-            listings = listings.filter(price__lte=max_price)
-
-    # Pagination
-    paginator = Paginator(listings, 2)
-    page_number = request.GET.get("page")
-    listings = paginator.get_page(page_number)
     context = {
         'counties': choices.COUNTIES,
         'body_type': choices.BODY_TYPE,

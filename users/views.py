@@ -2,13 +2,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.core.paginator import Paginator
 from django.contrib import messages
 from django.core.mail import send_mail
 from .forms import CustomUserCreationForm, ProfileForm
 from .models import Profile
 from .emails import contact_body
 from listings.models import Listing
+from listings.utils import listings_pagination
 from smtplib import SMTPException
 import os
 
@@ -86,11 +86,8 @@ def profile_page(request, pk):
     A view that renders user's profile
     '''
     profile = Profile.objects.get(id=pk)
-    listings = profile.listing_set.all()
-    # Pagination
-    paginator = Paginator(listings, 6)
-    page_number = request.GET.get("page")
-    listings = paginator.get_page(page_number)
+    listings = profile.listing_set.all().order_by('-created')
+    listings, page_number = listings_pagination(request, listings)
 
     context = {
         'profile': profile,
