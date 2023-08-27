@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator
 from django.contrib import messages
 from django.core.mail import send_mail
 from .forms import CustomUserCreationForm, ProfileForm
@@ -86,6 +87,11 @@ def profile_page(request, pk):
     '''
     profile = Profile.objects.get(id=pk)
     listings = profile.listing_set.all()
+    # Pagination
+    paginator = Paginator(listings, 6)
+    page_number = request.GET.get("page")
+    listings = paginator.get_page(page_number)
+
     context = {
         'profile': profile,
         'listings': listings

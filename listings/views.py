@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
+from django.core.paginator import Paginator
 from django.http import JsonResponse
 from .models import Listing, CarMake, CarModel
 from . import choices
@@ -82,6 +83,12 @@ def search_listings(request):
         if max_price:
             listings = listings.filter(price__lte=max_price)
 
+    # Pagination
+    paginator = Paginator(listings, 2)
+    page_number = request.GET.get("page")
+    listings = paginator.get_page(page_number)
+    values = request.GET
+    print(values)
     context = {
         'counties': choices.COUNTIES,
         'body_type': choices.BODY_TYPE,
