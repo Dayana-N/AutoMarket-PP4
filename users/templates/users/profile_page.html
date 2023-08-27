@@ -2,7 +2,7 @@
 {% load humanize %}
 {% load static %}
 {% block title %}
-Profile
+My Profile
 {% endblock title %}
 
 {% block content %}
@@ -40,32 +40,19 @@ Profile
                                     <p>Phone: {{ profile.phone }}</p>
                                     {% endif %}
                                 </div>
-
                             </div>
-
                             <div class="row p-3">
                                 <h4>About Me:</h4>
                                 <div class="col px-2">
                                     <p>{{ profile.about_me }} </p>
-                                
                                 </div>
-
                             </div>
-
-                            {% if request.user.profile.id == profile.id %}
                             <div>
                                 <a href="{% url 'update-profile' %}" class="btn btn-blue text-white">Edit Profile</a>
                                 <a href="{% url 'delete-profile' %}" class="btn btn-danger text-white">Delete
                                     Profile</a>
                             </div>
-                            {% else %}
-                            <div>
-                                <a href="" class="btn btn-blue text-white">Send Message</a>
-                            </div>
-                            {% endif %}
-
                         </div>
-                    
                     </div>
                 </div>
             </div>

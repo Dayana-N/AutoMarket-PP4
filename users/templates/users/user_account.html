@@ -17,19 +17,19 @@ User Account
                             <div class="container sidebar text-start p-2 border-container">
                                 <div class="row">
                                     <div class="col-12">
-                                        <button class="btn btn-sidebar p-0" id="btn-profile">Profile</button>
+                                        <a href="{% url 'user-account' profile.id %}" class="btn btn-sidebar p-0 active">Profile</a>
                                     </div>
                                 </div>
     
                                 <div class="row">
                                     <div class="col-12">
-                                        <button class="btn btn-sidebar p-0" id="btn-listings">Listings</button>
+                                        <a href="{% url 'user-account-listings' profile.id %}" class="btn btn-sidebar p-0">Listings</a>
                                     </div>
                                 </div>
                             </div>
                            
                         </div>
-                        <div class="col-12 col-lg-9 my-3 py-5 shadow-container" id="my-profile-container">
+                        <div class="col-12 col-lg-9 my-3 py-5 shadow-container" id="profile-container">
 
                             <div class="row d-flex justify-content-center">
                                 <div class="image-container p-3">
@@ -57,63 +57,8 @@ User Account
                                 
                                 </div>
                             </div>
-
-                            <div>
-                                <a href="" class="btn btn-blue text-white">Send Message</a>
-                            </div>
-                           
-
                         </div>
-                       
-                        <div class="col-12 col-lg-9 my-3 py-5 my-listings-container listings-color shadow-container" id="my-listings-container">
-                            <h3>My Listings:</h3>
-                            <div class="row">
-                            {% if listings %}
-                            
-                            {% for listing in listings %}
-                            <div class="col-12 col-lg-6 mb-4">
-                                <div class="card listing-preview">
-                                    <a class="card-link" href="{% url 'single-listing' listing.id %}">
-                                        <div class="card-body">
-                                            <h2>{{ listing.listing_title }} </h2>
-                                            <div class="row py-2 ">
-                                                <div class="col-6">
-                                                    <i class="fas fa-map-marker"></i> {{ listing.town|capfirst }}, {{ listing.county|capfirst }}
-                                                </div>
-                                                <div class="col-6">
-                                                    <i class="fas fa-clock"></i> {{ listing.created|timesince }}
-                                                </div>
-                                            </div>
-                                            <!-- Image -->
-                                            <div class="row"> <img src="{{ listing.listing_main_img }}" class="card-image" alt="{{ listing.listing_title }} image">
-                                            </div>
-                
-                                            <div class="row py-2 ">
-                                                <div class="col-6">
-                                                    <i class="fa-regular fa-calendar-days"></i> Year: {{ listing.year }}
-                                                </div>
-                                                <div class="col-6">
-                                                    <i class="fa-solid fa-gauge-high"></i> Miles: {{ listing.mileage|intcomma }}
-                                                </div>
-                                            </div>
-                
-                                            <h3>Price: €{{ listing.price|intcomma }}</h3>
-                
-                                            <a href="{% url 'single-listing' listing.id %}" class="btn btn-blue text-white">More Info</a>
-                                        </div>
-                
-                                    </a>
-                                </div>
-                
-                            </div>
-                            {% endfor %}
-                            {% else %}
-                            <div class="col-12">
-                                <p>You Have No Listings</p>
-                            </div>
-                            {% endif %}
-                        </div>
-                        </div>
+                    
                     </div>
                 </div>
             </div>
@@ -121,6 +66,3 @@ User Account
     </div>
 </section>
 {% endblock content %}
-{% block script %}
-<script src="{% static 'js/account.js' %}"></script>
-{% endblock script %}

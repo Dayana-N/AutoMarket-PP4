@@ -141,6 +141,20 @@ def user_account(request, pk):
     return render(request, 'users/user_account.html', context)
 
 
+def user_account_listings(request, pk):
+    '''
+    A view that renders user's account page
+    '''
+    profile = Profile.objects.get(id=pk)
+    listings = profile.listing_set.all().order_by('-created')
+    listings, page_number = listings_pagination(request, listings)
+    context = {
+        'profile': profile,
+        'listings': listings
+    }
+    return render(request, 'users/user_account_listings.html', context)
+
+
 @login_required(login_url='login')
 def update_profile(request):
     '''

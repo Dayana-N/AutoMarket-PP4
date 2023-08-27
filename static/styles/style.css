@@ -181,6 +181,7 @@ i {
   color:var(--violet)
 }
 
+
 .btn-sidebar.active {
   color:var(--dark-blue-text);
 }

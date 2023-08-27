@@ -12,6 +12,8 @@ urlpatterns = [
     path('profile/<str:pk>/my-favourites/',
          views.profile_favourites, name='my-favourites'),
     path('user-account/<str:pk>/', views.user_account, name='user-account'),
+    path('user-account/<str:pk>/listings/',
+         views.user_account_listings, name='user-account-listings'),
     path('update-profile/', views.update_profile, name='update-profile'),
     path('delete-profile/', views.delete_profile, name='delete-profile'),
     path('delete-profile/success/', views.delete_profile_success,

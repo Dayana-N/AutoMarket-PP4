@@ -63,7 +63,7 @@ def create_listing(request):
             listing.owner = request.user.profile
             listing.save()
             messages.success(request, 'You listing has been created!')
-            return redirect('single-listing', listing.pk)
+            return redirect('my-listings', listing.owner.id)
         else:
             messages.error(request, 'Something went wrong! Please try again.')
     context = {
@@ -106,7 +106,7 @@ def edit_listing(request, pk):
         if form.is_valid():
             listing = form.save()
             messages.success(request, 'Listing updated successfully.')
-            return redirect('single-listing', pk=listing.id)
+            return redirect('my-listings', profile.id)
         else:
             messages.error(request, 'Something went wrong! Please try again.')
 

@@ -11,7 +11,7 @@ Create Listings
     <div class="container">
             <div class="row justify-content-center">
                 <div class="col-10 text-center my-5 p-4 shadow-container">
-                <form class="form" method="POST" action="" enctype="multipart/form-data" id="listing-form">
+                <form class="form" method="POST" enctype="multipart/form-data" id="listing-form">
                     {% csrf_token %}
                     <div class="row justify-content-center">
                         {% if page == 'edit' %}

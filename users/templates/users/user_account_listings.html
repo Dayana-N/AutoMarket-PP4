@@ -2,7 +2,7 @@
 {% load humanize %}
 {% load static %}
 {% block title %}
-My Favourites
+User Account
 {% endblock title %}
 
 {% block content %}
@@ -13,18 +13,34 @@ My Favourites
                 <h2 class="py-5">{{ profile.name }}'s Profile</h2>
                 <div class="container">
                     <div class="row justify-content-center profile-row">
-                        {% include 'users/partials/profile_sidebar.html' %}
+                        <div class="col-12 col-lg-2 m-3">
+                            <div class="container sidebar text-start p-2 border-container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <a href="{% url 'user-account' profile.id %}" class="btn btn-sidebar p-0">Profile</a>
+                                    </div>
+                                </div>
+    
+                                <div class="row">
+                                    <div class="col-12">
+                                        <a href="{% url 'user-account-listings' profile.id %}" class="btn btn-sidebar p-0 active">Listings</a>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+     
                        
-                        <div class="col-12 col-lg-9 my-3 py-5 listings-color shadow-container">
-                            <h3>My Favourites:</h3>
+                        <div class="col-12 col-lg-9 my-3 py-5 listings-container listings-color shadow-container" id="listings-container">
+                            <h3>My Listings:</h3>
                             <div class="row">
                             {% if listings %}
                             
                             {% for listing in listings %}
                             <div class="col-12 col-lg-6 mb-4">
                                 <div class="card listing-preview">
-                                    <div class="card-body">
-                                            <a class="card-link" href="{% url 'single-listing' listing.id %}">
+                                    <a class="card-link" href="{% url 'single-listing' listing.id %}">
+                                        <div class="card-body">
                                             <h2>{{ listing.listing_title }} </h2>
                                             <div class="row py-2 ">
                                                 <div class="col-6">
@@ -48,16 +64,17 @@ My Favourites
                                             </div>
                 
                                             <h3>Price: €{{ listing.price|intcomma }}</h3>
-                                        </a>
-                                            <a href="{% url 'single-listing' listing.id %}" class="btn btn-blue text-white">View</a>
+                
+                                            <a href="{% url 'single-listing' listing.id %}" class="btn btn-blue text-white">More Info</a>
                                         </div>
                 
+                                    </a>
                                 </div>
                 
                             </div>
                             {% endfor %}
 
-                             <!-- Pagination -->
+
                             <div class="row">
                                 <div class="col-md-12">
                                     {% if listings.has_other_pages %}
@@ -108,12 +125,10 @@ My Favourites
                                 <p>You Have No Listings</p>
                             </div>
                             {% endif %}
-                            </div>
+
+
                         </div>
-
-
-
-
+                        </div>
                     </div>
                 </div>
             </div>
