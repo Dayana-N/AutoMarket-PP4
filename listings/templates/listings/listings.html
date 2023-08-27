@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load humanize %}
 {% load static %}
+{% load url_helper %}
 {% block title %}
 Listings
 {% endblock title %}
@@ -66,7 +67,7 @@ Listings
                     <ul class="pagination justify-content-center">
                         {% if listings.has_previous %}
                         <li class="page-item">
-                            <a class="page-link" href="?{{ request.GET.urlencode }}&page={{ listings.previous_page_number }}">&laquo;</a>
+                            <a class="page-link" href="?{% query_transform page=listings.previous_page_number %}">&laquo;</a>
                         </li>
                         {% else %}
                         <li class="page-item disabled">
@@ -79,10 +80,10 @@ Listings
                         {% if i <= listings.number|add:2 and i >= listings.number|add:-2 %}
                         {% if listings.number == i %}
                         <li class="page-item active" aria-current="page">
-                            <a class="page-link" href="?page={{i}}">{{i}}</a>
+                            <a class="page-link" href="?{% query_transform page=i %}">{{i}}</a>
                         </li>
                         {% else %}
-                        <li class="page-item"><a class="page-link" href="?{{ request.GET.urlencode }}&page={{i}}">{{i}}</a></li>
+                        <li class="page-item"><a class="page-link" href="?{% query_transform page=i %}">{{i}}</a></li>
                         {% endif %}
                         {% endif %}
 
@@ -90,7 +91,7 @@ Listings
                         
                         {% if listings.has_next %}
                         <li class="page-item">
-                            <a class="page-link" href="?{{ request.GET.urlencode }}&page={{listings.next_page_number}}">&raquo;</a>
+                            <a class="page-link" href="?{% query_transform page=listings.next_page_number %}">&raquo;</a>
                         </li>
                         {% else %}
                         <li class="page-item disabled">

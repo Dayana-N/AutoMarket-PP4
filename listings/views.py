@@ -87,8 +87,6 @@ def search_listings(request):
     paginator = Paginator(listings, 2)
     page_number = request.GET.get("page")
     listings = paginator.get_page(page_number)
-    values = request.GET
-    print(values)
     context = {
         'counties': choices.COUNTIES,
         'body_type': choices.BODY_TYPE,
