@@ -24,38 +24,43 @@ My Favourites
                             <div class="col-12 col-lg-6 mb-4">
                                 <div class="card listing-preview">
                                     <div class="card-body">
-                                            <a class="card-link" href="{% url 'single-listing' listing.id %}">
-                                            <h2>{{ listing.listing_title }} </h2>
+                                            <a class="card-link" href="{% url 'single-listing' listing.listing.id %}">
+                                            <h2>{{ listing.listing.listing_title }} </h2>
                                             <div class="row py-2 ">
                                                 <div class="col-6">
-                                                    <i class="fas fa-map-marker"></i> {{ listing.town|capfirst }}, {{ listing.county|capfirst }}
+                                                    <i class="fas fa-map-marker"></i> {{ listing.listing.town|capfirst }}, {{ listing.listing.county|capfirst }}
                                                 </div>
                                                 <div class="col-6">
-                                                    <i class="fas fa-clock"></i> {{ listing.created|timesince }}
+                                                    <i class="fas fa-clock"></i> {{ listing.listing.created|timesince }}
                                                 </div>
                                             </div>
                                             <!-- Image -->
-                                            <div class="row"> <img src="{{ listing.listing_main_img }}" class="card-image" alt="{{ listing.listing_title }} image">
+                                            <div class="row"> <img src="{{ listing.listing.listing_main_img }}" class="card-image" alt="{{ listing.listing.listing_title }} image">
                                             </div>
                 
                                             <div class="row py-2 ">
                                                 <div class="col-6">
-                                                    <i class="fa-regular fa-calendar-days"></i> Year: {{ listing.year }}
+                                                    <i class="fa-regular fa-calendar-days"></i> Year: {{ listing.listing.year }}
                                                 </div>
                                                 <div class="col-6">
-                                                    <i class="fa-solid fa-gauge-high"></i> Miles: {{ listing.mileage|intcomma }}
+                                                    <i class="fa-solid fa-gauge-high"></i> Miles: {{ listing.listing.mileage|intcomma }}
                                                 </div>
                                             </div>
                 
-                                            <h3>Price: €{{ listing.price|intcomma }}</h3>
+                                            <h3>Price: €{{ listing.listing.price|intcomma }}</h3>
                                         </a>
-                                            <a href="{% url 'single-listing' listing.id %}" class="btn btn-blue text-white">View</a>
+                                            <a href="{% url 'single-listing' listing.listing.id %}" class="btn btn-blue text-white">View</a>
+                                            <a href="{% url 'remove-myfavourites' listing.listing.id %}" class="btn btn-danger text-white">Remove</a>
                                         </div>
+
+                                        
                 
                                 </div>
                 
                             </div>
                             {% endfor %}
+
+
 
                              <!-- Pagination -->
                             <div class="row">
@@ -105,7 +110,7 @@ My Favourites
 
                             {% else %}
                             <div class="col-12">
-                                <p>You Have No Listings</p>
+                                <p>You Have No Favourite Listings</p>
                             </div>
                             {% endif %}
                             </div>

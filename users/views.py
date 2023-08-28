@@ -7,7 +7,7 @@ from django.core.mail import send_mail
 from .forms import CustomUserCreationForm, ProfileForm
 from .models import Profile
 from .emails import contact_body
-from listings.models import Listing
+from listings.models import Listing, Favourite
 from listings.utils import listings_pagination
 from smtplib import SMTPException
 import os
@@ -118,7 +118,7 @@ def profile_favourites(request, pk):
     A view that renders user's listings
     '''
     profile = Profile.objects.get(id=pk)
-    listings = profile.listing_set.all().order_by('-created')
+    listings = Favourite.objects.filter(owner=profile).order_by('-created')
     listings, page_number = listings_pagination(request, listings)
 
     context = {

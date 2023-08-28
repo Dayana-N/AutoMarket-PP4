@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import JsonResponse
-from .models import Listing, CarMake, CarModel
+from .models import Listing, CarMake, CarModel, Favourite
 from . import choices
 from .forms import ListingForm
 from .utils import search_listings, listings_pagination
@@ -135,10 +135,11 @@ def single_listing(request, pk):
     A view that renders single listing
     '''
     listing = Listing.objects.get(pk=pk)
-
+    profile = request.user.profile.id
     favourite = bool
+
     if request.user.is_authenticated:
-        if listing.favourites.filter(id=request.user.profile.id).exists():
+        if Favourite.objects.filter(owner=profile, listing=listing).exists():
             favourite = True
 
     context = {
@@ -154,9 +155,24 @@ def favourite_listings(request, pk):
     A view that adds and removes listings from favourites
     '''
     listing = get_object_or_404(Listing, pk=pk)
-    if listing.favourites.filter(id=request.user.profile.id).exists():
-        listing.favourites.remove(request.user.profile)
-        print('removed', request.user.profile)
-    else:
-        listing.favourites.add(request.user.profile)
+    profile = request.user.profile
+    favourite_listing, created = Favourite.objects.get_or_create(
+        owner=profile, listing=listing)
+    if not created:
+        favourite_listing.delete()
+
     return redirect('single-listing', pk=pk)
+
+
+@login_required(login_url='login')
+def remove_myfavourites(request, pk):
+    '''
+    A view that removes listing from favourites
+    '''
+    listing = get_object_or_404(Listing, pk=pk)
+    profile = request.user.profile
+    favourite_listing = get_object_or_404(
+        Favourite, owner=profile, listing=listing)
+    if favourite_listing:
+        favourite_listing.delete()
+        return redirect('my-favourites', pk=profile.id)

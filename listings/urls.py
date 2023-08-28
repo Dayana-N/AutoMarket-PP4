@@ -12,5 +12,7 @@ urlpatterns = [
          name='edit-listing'),
     path('favourite-listings/<str:pk>/', views.favourite_listings,
          name='favourite-listings'),
+    path('remove-myfavourites/<str:pk>/', views.remove_myfavourites,
+         name='remove-myfavourites'),
     path('load-models/<str:pk>', views.load_models, name='load-models'),
 ]
