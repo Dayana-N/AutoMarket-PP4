@@ -1,4 +1,5 @@
 from django.db import models
+from django_resized import ResizedImageField
 from django.conf import settings
 from . import choices
 from users.models import Profile
@@ -42,15 +43,21 @@ class Listing(models.Model):
         max_length=100, choices=choices.TRANSMISSION)
     created = models.DateTimeField(auto_now_add=True)
     description = models.TextField(null=True, blank=True)
-    listing_image_1 = models.ImageField(
-        upload_to='listings/', null=True, blank=True,
-        default='listings/default-listing-img.jpg')
-    listing_image_2 = models.ImageField(null=True, blank=True)
-    listing_image_3 = models.ImageField(null=True, blank=True)
-    listing_image_4 = models.ImageField(null=True, blank=True)
-    listing_image_5 = models.ImageField(null=True, blank=True)
-    listing_image_6 = models.ImageField(null=True, blank=True)
-    listing_image_7 = models.ImageField(null=True, blank=True)
+    listing_image_1 = ResizedImageField(
+        quality=75, force_format='WEBP', blank=True,
+        upload_to='listings/', default='listings/default-listing-img.jpg')
+    listing_image_2 = ResizedImageField(
+        quality=75, force_format='WEBP', upload_to='listings/', blank=True)
+    listing_image_3 = ResizedImageField(
+        quality=75, force_format='WEBP', upload_to='listings/', blank=True)
+    listing_image_4 = ResizedImageField(
+        quality=75, force_format='WEBP', upload_to='listings/', blank=True)
+    listing_image_5 = ResizedImageField(
+        quality=75, force_format='WEBP', upload_to='listings/', blank=True)
+    listing_image_6 = ResizedImageField(
+        quality=75, force_format='WEBP', upload_to='listings/', blank=True)
+    listing_image_7 = ResizedImageField(
+        quality=75, force_format='WEBP', upload_to='listings/', blank=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)
 

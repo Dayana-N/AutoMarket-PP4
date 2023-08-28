@@ -153,6 +153,7 @@ def single_listing(request, pk):
 def favourite_listings(request, pk):
     '''
     A view that adds and removes listings from favourites
+    on profile page
     '''
     listing = get_object_or_404(Listing, pk=pk)
     profile = request.user.profile
@@ -171,7 +172,7 @@ def favourite_listings(request, pk):
 @login_required(login_url='login')
 def remove_myfavourites(request, pk):
     '''
-    A view that removes listing from favourites
+    A view that removes listing from favourites on profile page
     '''
     listing = get_object_or_404(Listing, pk=pk)
     profile = request.user.profile
