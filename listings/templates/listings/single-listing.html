@@ -144,10 +144,19 @@
                 <hr>
                 <div class="row">
                     <div class="col-10">
-                        <form action="">
-                            <button class="btn" type="submit" name="save-listing" value="">
+                        <form method="POST" action="{% url 'favourite-listings' listing.id %}">
+                            {% csrf_token %}
+                            
+                            {% if favourite %}
+                            <button class="btn" type="submit" name="favourites" value="submit">
+                                <i class="fa-solid fa-heart" style="color: #cc2424;"></i>
+                                Save Listing</button>
+                            {% else %}
+                            <button class="btn" type="submit" name="favourites" value="submit">
                                 <i class="fa-regular fa-heart fa-bounce" style="color: #cc2424;"></i>
                                 Save Listing</button>
+                            {% endif %}
+                            
                         </form>
                     </div>
                 </div>

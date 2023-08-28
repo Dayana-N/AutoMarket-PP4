@@ -10,5 +10,7 @@ urlpatterns = [
          name='delete-listing'),
     path('edit-listing/<str:pk>/', views.edit_listing,
          name='edit-listing'),
+    path('favourite-listings/<str:pk>/', views.favourite_listings,
+         name='favourite-listings'),
     path('load-models/<str:pk>', views.load_models, name='load-models'),
 ]

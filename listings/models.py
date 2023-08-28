@@ -42,6 +42,8 @@ class Listing(models.Model):
         max_length=100, choices=choices.TRANSMISSION)
     created = models.DateTimeField(auto_now_add=True)
     description = models.TextField(null=True, blank=True)
+    favourites = models.ManyToManyField(
+        Profile, related_name='favourites', blank=True)
     listing_image_1 = models.ImageField(
         upload_to='listings/', null=True, blank=True,
         default='listings/default-listing-img.jpg')

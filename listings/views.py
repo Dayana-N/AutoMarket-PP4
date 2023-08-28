@@ -135,7 +135,28 @@ def single_listing(request, pk):
     A view that renders single listing
     '''
     listing = Listing.objects.get(pk=pk)
+
+    favourite = bool
+    if request.user.is_authenticated:
+        if listing.favourites.filter(id=request.user.profile.id).exists():
+            favourite = True
+
     context = {
-        'listing': listing
+        'listing': listing,
+        'favourite': favourite
     }
     return render(request, 'listings/single-listing.html', context)
+
+
+@login_required(login_url='login')
+def favourite_listings(request, pk):
+    '''
+    A view that adds and removes listings from favourites
+    '''
+    listing = get_object_or_404(Listing, pk=pk)
+    if listing.favourites.filter(id=request.user.profile.id).exists():
+        listing.favourites.remove(request.user.profile)
+        print('removed', request.user.profile)
+    else:
+        listing.favourites.add(request.user.profile)
+    return redirect('single-listing', pk=pk)
