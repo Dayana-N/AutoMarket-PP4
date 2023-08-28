@@ -158,8 +158,12 @@ def favourite_listings(request, pk):
     profile = request.user.profile
     favourite_listing, created = Favourite.objects.get_or_create(
         owner=profile, listing=listing)
-    if not created:
+
+    if created:
+        messages.success(request, 'Listing saved.')
+    else:
         favourite_listing.delete()
+        messages.success(request, 'Listing removed.')
 
     return redirect('single-listing', pk=pk)
 
@@ -171,8 +175,17 @@ def remove_myfavourites(request, pk):
     '''
     listing = get_object_or_404(Listing, pk=pk)
     profile = request.user.profile
-    favourite_listing = get_object_or_404(
-        Favourite, owner=profile, listing=listing)
-    if favourite_listing:
-        favourite_listing.delete()
-        return redirect('my-favourites', pk=profile.id)
+
+    if request.method == 'POST':
+        favourite_listing = get_object_or_404(
+            Favourite, owner=profile, listing=listing)
+        if favourite_listing:
+            favourite_listing.delete()
+            messages.success(request, 'Listing removed.')
+            return redirect('my-favourites', pk=profile.id)
+
+    context = {
+        'listing': listing
+    }
+    return render(
+        request, 'listings/delete_favourite_confirmation.html', context)

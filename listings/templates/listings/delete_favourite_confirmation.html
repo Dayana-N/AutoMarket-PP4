@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}
+Remove Favourite
+{% endblock title %}
+
+{% block content %}
+<section class="logout-profile-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-lg-4 mx-auto text-center my-5 p-4 shadow-container">
+              <form action="{% url 'remove-myfavourites' listing.id %}" method="POST">
+                {% csrf_token %}
+                <p>Are you Sure you want to remove this listing from Favourites?</p>
+                <div class="mt-2">
+                  <a href="{% url 'my-favourites' request.user.profile.id %}" class="btn btn-blue text-white">Go Back</a>
+                  <button type="submit" class="btn btn-danger text-white">Remove</button>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+{% endblock content %}
