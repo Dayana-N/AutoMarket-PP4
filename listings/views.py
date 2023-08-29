@@ -21,6 +21,7 @@ def home_page(request):
         'fuel_type': choices.FUEL_TYPE,
         'transmission': choices.TRANSMISSION,
         'years': choices.get_year_choices(),
+        'price_options': choices.PRICE_OPTIONS,
         'listings': listings
     }
     return render(request, 'listings/index.html', context)
@@ -40,6 +41,7 @@ def listings(request):
         'fuel_type': choices.FUEL_TYPE,
         'transmission': choices.TRANSMISSION,
         'years': choices.get_year_choices(),
+        'price_options': choices.PRICE_OPTIONS,
         'listings': listings,
         'values': request.GET
     }
