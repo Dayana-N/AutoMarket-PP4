@@ -199,6 +199,11 @@ i {
   height: 296px;
 }
 
+/*Error Pages */
+#error-container-row {
+  height: 420px;
+}
+
 /* Footer */
 #footer {
   background-color: var(--blue-background);
