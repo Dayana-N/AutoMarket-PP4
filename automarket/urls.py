@@ -22,6 +22,7 @@ from .views import handler403, handler404, handler500
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
     path('', include('listings.urls')),
     path('users/', include('users.urls')),
     path('reset_password/', auth_views.PasswordResetView.as_view(

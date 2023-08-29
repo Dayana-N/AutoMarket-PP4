@@ -142,7 +142,7 @@ i {
 
 /* Single listing */
 #main-image {
-  /* height: 500px; */
+  height: 500px;
   object-fit: contain;
   border: 2px solid black;
 }

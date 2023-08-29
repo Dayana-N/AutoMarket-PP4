@@ -117,19 +117,6 @@ def edit_listing(request, pk):
     return render(request, 'listings/listing_form.html', context)
 
 
-def load_models(request, pk):
-    '''
-    A view that returns car models in JSON format
-    '''
-    try:
-        car_make = CarMake.objects.get(pk=pk)
-        car_models = car_make.carmodel_set.all()
-        data = [{model.id: model.name} for model in car_models]
-        return JsonResponse(data, safe=False)
-    except CarMake.DoesNotExist:
-        return JsonResponse([], safe=False)
-
-
 def single_listing(request, pk):
     '''
     A view that renders single listing

@@ -54,7 +54,15 @@ INSTALLED_APPS = [
 
     'storages',
     'widget_tweaks',
+    'rest_framework',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        # 'rest_framework.permissions.AllowAny',
+    ]
+}
 
 # Django messages
 MESSAGE_TAGS = {
