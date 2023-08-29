@@ -24,7 +24,7 @@ Create Listings
                             <div class="col-12 col-md-6">
                             <!-- Form Fields -->
                                 <div class="form-floating mb-4">
-                                    {% render_field form.car_make class="form-control" %}
+                                    {% render_field form.car_make|attr:'required:true' class="form-control" %}
                                     <label for="id_car_make" class="form-label">Car Make: *</label>
                                     {% for error in field.errors %}
                                     <span class="text-danger">{{ error }}</span>
@@ -32,7 +32,7 @@ Create Listings
                                 </div>
 
                                 <div class="form-floating mb-4">
-                                    {% render_field form.car_model class="form-control" %}
+                                    {% render_field form.car_model|attr:'required:true' class="form-control" %}
                                     <label for="id_car_model" class="form-label">Car Model: *</label>
                                     {% for error in field.errors %}
                                     <span class="text-danger">{{ error }}</span>
@@ -82,7 +82,7 @@ Create Listings
                                 </div>
 
                                 <div class="form-floating mb-4">
-                                    {% render_field form.engine_size class="form-control" placeholder=form.mileage.engine_size%}
+                                    {% render_field form.engine_size|attr:"min:1"|attr:"max:8"|attr:"step:0.1"|attr:"title:'Please enter a value between 1 and 8. Ex 1.4'" class="form-control" placeholder=form.mileage.engine_size%}
                                     <label for="id_engine_size" class="form-label">Engine Size: *</label>
                                     {% for error in field.errors %}
                                     <span class="text-danger">{{ error }}</span>

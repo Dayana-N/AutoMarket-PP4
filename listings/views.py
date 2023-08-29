@@ -135,10 +135,10 @@ def single_listing(request, pk):
     A view that renders single listing
     '''
     listing = Listing.objects.get(pk=pk)
-    profile = request.user.profile.id
     favourite = bool
 
     if request.user.is_authenticated:
+        profile = request.user.profile.id
         if Favourite.objects.filter(owner=profile, listing=listing).exists():
             favourite = True
 

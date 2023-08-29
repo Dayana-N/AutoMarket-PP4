@@ -14,9 +14,15 @@
   --light-green: #65d4a2;
 }
 
+html {
+  height: 100%;
+}
 body {
   background-color: rgb(231, 236, 242);
   font-family: 'Roboto Slab';
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Navbar */
@@ -135,6 +141,11 @@ i {
 }
 
 /* Single listing */
+#main-image {
+  /* height: 500px; */
+  object-fit: contain;
+  border: 2px solid black;
+}
 .seller-card {
   background-color: var(--page-background);
 }
@@ -208,12 +219,50 @@ i {
 #footer {
   background-color: var(--blue-background);
   color: var(--white);
+  margin-top: auto;
 }
 
 #social-links a {
   text-decoration: none;
 }
 
+#social-links a i{
+  color: var(--white);
+  font-size: 25px;
+}
+
 .copyright {
   background-color: var(--dark-blue-background);
+}
+
+@media (max-width: 500px) {
+  #hero-image {
+    height: 220px;
+  }
+
+  /* #main-image {
+    height: 500px;
+  } */
+
+
+}
+
+@media (max-width: 700px) {
+  #hero-image {
+    height: 280px;
+  }
+
+  .hero-text-container h1{
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1000px) {
+  #hero-image {
+    height: 415px;
+  }
+
+  .hero-text-container h1{
+    font-size: 1rem;
+  }
 }

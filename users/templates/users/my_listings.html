@@ -18,11 +18,11 @@ My Listings
                        
                         <div class="col-12 col-lg-9 my-3 py-5 listings-color shadow-container">
                             <h3>My Listings:</h3>
-                            <div class="row">
+                            <div class="row justify-content-center">
                             {% if listings %}
                             
                             {% for listing in listings %}
-                            <div class="col-12 col-lg-6 mb-4">
+                            <div class="col-12 col-md-7 col-lg-6 mb-4">
                                 <div class="card listing-preview">
                                     <div class="card-body">
                                             <a class="card-link" href="{% url 'single-listing' listing.id %}">

@@ -10,16 +10,16 @@
     <div class="container">
         <button class="btn blue text-white mb-4" onclick="history.back()">Go Back</button>
         <div class="row">
-            <div class="col-12 col-xl-7">
+            <div class="col-12 col-lg-7">
                 <!-- Images carousel -->
                 <a href="{{ listing.listing_image_1.url }}" data-lightbox="listing-images">
-                    <img src="{{ listing.listing_image_1.url }}" alt="{{ listing.listing_title }} image" class="img-fluid">
+                    <img src="{{ listing.listing_image_1.url }}" alt="{{ listing.listing_title }} image" class="img-fluid" id="main-image">
                 </a>
                 <div class="row mb-5 thumbs mt-2">
                     {% if listing.listing_image_2 %}
                     <div class="col-4 col-md-2 mt-2 mt-md-0">
                         <a href="{{ listing.listing_image_2.url }}" data-lightbox="listing-images">
-                            <img src="{{ listing.listing_image_2.url }}" alt="{{ listing.listing_title }} image" class="img-fluid img-thumb">
+                            <img src="{{ listing.listing_image_2.url }}" alt="{{ listing.listing_title }} image" class="img-fluid img-thumb" >
                         </a>
                     </div>
                     {% endif %}
@@ -68,7 +68,7 @@
             </div>
 
             <!-- Listing title and details -->
-            <div class="col-12 col-md-10 col-xl-5">
+            <div class="col-12 col-md-10 col-lg-5">
                 <div class="row">
                     <div class="col-6">
                         <h2>{{ listing.car_make }}</h2>
