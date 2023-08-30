@@ -12,8 +12,8 @@
         <div class="row">
             <div class="col-12 col-lg-7">
                 <!-- Images carousel -->
-                <a href="{{ listing.listing_image_1.url }}" data-lightbox="listing-images">
-                    <img src="{{ listing.listing_image_1.url }}" alt="{{ listing.listing_title }} image" class="img-fluid" id="main-image">
+                <a href="{{ listing.listing_main_img }}" data-lightbox="listing-images">
+                    <img src="{{ listing.listing_main_img }}" alt="{{ listing.listing_title }} image" class="img-fluid" id="main-image">
                 </a>
                 <div class="row mb-5 thumbs mt-2">
                     {% if listing.listing_image_2 %}

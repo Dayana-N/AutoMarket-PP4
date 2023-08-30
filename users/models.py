@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
 import uuid
+from listings import choices
 
 
 # Create your models here.
@@ -15,9 +16,9 @@ class Profile(models.Model):
     email = models.EmailField(max_length=300, blank=False, null=True)
     phone = models.CharField(max_length=100, blank=True, null=True)
     town = models.CharField(max_length=100, blank=True, null=True)
-    county = models.CharField(max_length=100, blank=True, null=True)
+    county = models.CharField(max_length=100, choices=choices.COUNTIES)
     profile_image = models.ImageField(
-        upload_to='users/', default='users/user-default.webp', blank=True,
+        upload_to='users/', blank=True,
         null=True)
     about_me = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)

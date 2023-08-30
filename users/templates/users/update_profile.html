@@ -40,7 +40,7 @@ Edit Profile
                                 </div>
                                 <!-- Edit Name -->
                                 <div class="form-floating mb-4">
-                                    {% render_field form.name|add_required_class:"is-required" class="form-control" placeholder=form.name.label %}
+                                    {% render_field form.name|add_required_class:"is-required"|attr:"title:Please enter valid name"|attr:"pattern=^[A-Za-z\s\-]+$" class="form-control" placeholder=form.name.label %}
                                     <label for="{{ form.name.id_for_label }}" class="form-label">Name:*</label>
                                     {{ form.name.errors }}
                                     {% for error in form.name.errors %}
@@ -79,7 +79,7 @@ Edit Profile
 
                                 <!-- Edit town -->
                                 <div class="form-floating mb-4">
-                                    {% render_field form.town class="form-control" placeholder=form.town.label %}
+                                    {% render_field form.name|add_required_class:"is-required"|attr:"pattern=^[A-Za-z\s\-]+$"|attr:"title:Please enter valid town" class="form-control" placeholder=form.name.label %}
                                     <label for="{{ form.town.id_for_label }}" class="form-label">Town</label>
                                     {{ form.town.errors }}
                                     {% for error in form.town.errors %}
@@ -100,7 +100,7 @@ Edit Profile
                                 <!-- Edit about_me -->
                                 <div class="form-control mb-4">
                                     <label for="{{ form.about_me.id_for_label }}" class="form-label">About Me</label>
-                                    {% render_field form.about_me class="form-control" %}
+                                    {% render_field form.about_me|attr:"maxlength:300" class="form-control" placeholder='Max 300 characters' %}
                                     
                                     {{ form.about_me.errors }}
                                     {% for error in form.about_me.errors %}

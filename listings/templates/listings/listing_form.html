@@ -48,7 +48,7 @@ Create Listings
                                 </div>
 
                                 <div class="form-floating mb-4">
-                                    {% render_field form.town class="form-control" placeholder=form.town.label %}
+                                    {% render_field form.town|attr:"pattern:^[A-Za-z\- ]+$"|attr:"title:Please enter valid town" class="form-control" placeholder=form.town.label %}
                                     <label for="id_town" class="form-label">Town:  *</label>
                                     {% for error in field.errors %}
                                     <span class="text-danger">{{ error }}</span>
@@ -66,7 +66,7 @@ Create Listings
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-floating mb-4">
-                                    {% render_field form.mileage class="form-control" placeholder=form.mileage.label %}
+                                    {% render_field form.mileage|attr:"max:1000000"|attr:"min:1"|attr:"title:Please enter amount between 1, 1000000" class="form-control" placeholder=form.mileage.label %}
                                     <label for="id_mileage" class="form-label">Mileage: *</label>
                                     {% for error in field.errors %}
                                     <span class="text-danger">{{ error }}</span>
@@ -82,7 +82,7 @@ Create Listings
                                 </div>
 
                                 <div class="form-floating mb-4">
-                                    {% render_field form.engine_size|attr:"min:1"|attr:"max:8"|attr:"step:0.1"|attr:"title:'Please enter a value between 1 and 8. Ex 1.4'" class="form-control" placeholder=form.mileage.engine_size%}
+                                    {% render_field form.engine_size class="form-control" placeholder=form.mileage.engine_size %}
                                     <label for="id_engine_size" class="form-label">Engine Size: *</label>
                                     {% for error in field.errors %}
                                     <span class="text-danger">{{ error }}</span>
@@ -110,7 +110,7 @@ Create Listings
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-floating mb-4">
-                                    {% render_field form.price class="form-control" placeholder=form.price.label %}
+                                    {% render_field form.price|attr:"max:1000000"|attr:"min:1"|attr:"title:Please enter amount between 1, 1000000" class="form-control" placeholder=form.price.label %}
                                     <label for="id_price" class="form-label">Price:  *</label>
                                     {% for error in field.errors %}
                                     <span class="text-danger">{{ error }}</span>
@@ -124,7 +124,7 @@ Create Listings
                             <div class="col-12">
                                 <div class="form-group mb-4">
                                     <label for="id_description" class="form-label">Description:</label>
-                                    {% render_field form.description class="form-control" placeholder=form.description.label %}
+                                    {% render_field form.description|attr:"maxlength:2500" class="form-control" placeholder='Max 2500 characters' %}
                                     {% for error in field.errors %}
                                     <span class="text-danger">{{ error }}</span>
                                     {% endfor %}
@@ -193,7 +193,7 @@ Create Listings
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-blue btn-lg mt-2">Submit</button>
+                    <button type="submit" class="btn btn-blue btn-lg text-white mt-2">Submit</button>
                 </form>
             </div>
         </div>
