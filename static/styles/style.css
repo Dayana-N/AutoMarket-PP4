@@ -142,9 +142,9 @@ i {
 
 /* Single listing */
 #main-image {
-  height: 500px;
+  max-height: 400px;
   object-fit: contain;
-  border: 2px solid black;
+  border: 2px solid var(--blue-background);
 }
 .seller-card {
   background-color: var(--page-background);
@@ -160,6 +160,10 @@ i {
 .seller-image-container {
   height: 120px;
   width: 120px;
+}
+
+.seller-email {
+  font-size: 0.8rem;
 }
 #contactMessage {
   height: 250px;
