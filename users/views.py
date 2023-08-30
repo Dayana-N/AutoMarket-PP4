@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.mail import send_mail
-from .forms import CustomUserCreationForm, ProfileForm
+from .forms import CustomUserCreationForm, ProfileForm, ContactForm
 from .models import Profile
 from .emails import contact_body
 from listings.models import Listing, Favourite
@@ -200,32 +200,39 @@ def delete_profile_success(request):
 
 
 def contact(request, pk):
+    '''
+    A view that falidates the contact form and
+    sends email to the listing owner with the form data
+    '''
     if request.method == 'POST':
-        listing_id = request.POST.get('listing_id')
-        current_listing = get_object_or_404(Listing, id=listing_id)
-        listing_owner_email = current_listing.owner.email
 
-        sender_email = request.POST.get('email')
-        sender_phone = request.POST.get('phone')
-        sender_name = request.POST.get('name')
-        message = request.POST.get('message')
+        # validate the form
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form = form.cleaned_data
 
-        subject = f'New Message {current_listing.listing_title}'
+            listing_id = form['listing_id']
+            current_listing = get_object_or_404(Listing, id=listing_id)
+            listing_owner_email = current_listing.owner.email
+            subject = f'New Message {current_listing.listing_title}'
 
-        try:
-            send_mail(
-                subject,
-                contact_body.format(
-                    sender_name=sender_name, sender_email=sender_email,
-                    sender_phone=sender_phone, message=message),
-                os.environ.get('EMAIL_HOST_USER'),
-                [listing_owner_email],
-                fail_silently=False,
-            )
+            try:
+                send_mail(
+                    subject,
+                    contact_body.format(
+                        sender_name=form['name'], sender_email=form['email'],
+                        sender_phone=form['phone'], message=form['message']),
+                    os.environ.get('EMAIL_HOST_USER'),
+                    [listing_owner_email],
+                    fail_silently=False,
+                )
 
-            messages.success(request, 'Email sent successfully!')
-        except SMTPException as e:
-            messages.error(
-                request, 'An error has occurred sending this email.')
+                messages.success(request, 'Email sent successfully!')
+            except SMTPException as e:
+                messages.error(
+                    request, 'An error has occurred sending this email.')
 
-        return redirect('single-listing', current_listing.id)
+            return redirect('single-listing', listing_id)
+        else:
+            messages.error(request, 'Invalid form details!')
+            return redirect('single-listing', listing_id)

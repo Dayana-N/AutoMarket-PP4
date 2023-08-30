@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load humanize %}
+{% load widget_tweaks %}
 {% block title %}
 {{ listing.listing_title}}
 {% endblock title %}
@@ -183,7 +184,7 @@
                             </div>
                             <div class="col-12 col-md-6">
                                 <h4>{{ listing.owner.name }}</h4>
-                                {% if listing.owner.county and listing.owner.county %}
+                                {% if listing.owner.town and listing.owner.county %}
                                 <p>{{ listing.owner.town }}, {{ listing.owner.county }}</p>
                                 {% endif %}
                             </div>
@@ -229,35 +230,44 @@
             <form method="POST" action="{% url 'contact' listing.owner.id %}" class="mt-3">
                 {% csrf_token %}
                 <p>An email will be sent to {{listing.owner.name}} with your message and contact details.</p>
+
+                <!-- Listing id -->
+                <div class="form-floating mb-4">
+                {% render_field form.listing_id|attr:"hidden:True"|attr:"value:{{listing.id}}" %}
+                </div>
+
+                <!-- Listing Name -->
+                <div class="form-floating mb-4">
+                {% render_field form.listing|add_required_class:"is-required"|attr:"readonly=True" class="form-control" placeholder=form.listing.label %}
+                <label for="{{ form.listing.id_for_label }}" class="form-label">Listing:*</label>
+                {{ form.listing.errors }}
+                {% for error in form.listing.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+                </div>
+
+                <!-- Name -->
+                <div class="form-floating mb-4">
+                {% render_field form.name|add_required_class:"is-required"|attr:"title:Please enter valid name"|attr:"pattern=^[A-Za-z\s\-]+$" class="form-control" placeholder=form.name.label %}
+                <label for="{{ form.name.id_for_label }}" class="form-label">Name:*</label>
+                </div>
                 
-                <input type="hidden" name="listing_id" value="{{ listing.id }}">
+                <!-- Email -->
                 <div class="form-floating mb-4">
-                    <input type="text" name="listing" id="listingTitle" class="form-control" placeholder="Listing"  value="{{ listing.listing_title}}" readonly>
-                    <label class="form-label" for="listingTitle">Listing:</label>
-                </div>
-                
-                <div class="form-floating mb-4">
-                    <input type="email" name="email" id="contactEmail" class="form-control" placeholder="email" {% if user.is_authenticated %} value="{{ request.user.profile.email }}" {% endif %} required>
-                    <label class="form-label" for="contactEmail">Email:</label>
+                {% render_field form.email|add_required_class:"is-required" class="form-control" placeholder=form.email.label %}
+                <label for="{{ form.email.id_for_label }}" class="form-label">Email:*</label>
                 </div>
 
+                <!-- Phone -->
                 <div class="form-floating mb-4">
-                    <input type="text" name="name" id="contactName" class="form-control" placeholder="name" {% if user.is_authenticated %} value="{{ request.user.profile.name }}" {% endif %} required>
-                    <label class="form-label" for="contactName">Name:</label>
+                    {% render_field form.phone|attr:"pattern:^(?:\+?\d{1,4}|\d{1,4}00)(\d{9})$"|attr:"title:'Please enter a 10-digit phone number'" class="form-control" placeholder=form.phone.label %}
+                    <label for="{{ form.phone.id_for_label }}" class="form-label">Phone:</label>
                 </div>
 
-                <div class="form-floating mb-4">
-                    {% if request.user.profile.phone %}
-                    <input type="text" name="phone" id="contactPhone" class="form-control" title="Please enter a 10-digit phone number" placeholder="phone" value="{{request.user.profile.phone}}" required>
-                    {% else %}
-                    <input type="text" name="phone" id="contactPhone" class="form-control" pattern="^\d{10}$" title="Please enter a 10-digit phone number" placeholder="phone" required>
-                    {% endif %}
-                    <label class="form-label" for="contactPhone">Phone:</label>
-                </div>
-
-                <div class="form-floating mb-4">
-                    <textarea name="message" id="contactMessage" class="form-control" required></textarea>
-                    <label class="form-label" for="contactMessage">Enter Message Here:</label>
+                <!-- Message -->
+                <div class="form-control mb-4">
+                    <label for="{{ form.message.id_for_label }}" class="form-label">Message:</label>
+                    {% render_field form.message|attr:"maxlength:1000" class="form-control" placeholder='Max 1000 characters' %}
                 </div>
 
                 <!-- Submit button -->

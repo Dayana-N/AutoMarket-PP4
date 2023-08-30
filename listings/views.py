@@ -5,7 +5,9 @@ from django.http import JsonResponse
 from .models import Listing, CarMake, CarModel, Favourite
 from . import choices
 from .forms import ListingForm
+from users.forms import ContactForm
 from .utils import search_listings, listings_pagination
+import uuid
 
 # Create your views here.
 
@@ -123,17 +125,25 @@ def single_listing(request, pk):
     '''
     A view that renders single listing
     '''
+
     listing = Listing.objects.get(pk=pk)
+    form = ContactForm({'listing_id': listing.id, 'listing': listing})
     favourite = bool
 
     if request.user.is_authenticated:
-        profile = request.user.profile.id
-        if Favourite.objects.filter(owner=profile, listing=listing).exists():
+        profile = request.user.profile
+        form = ContactForm({'listing_id': listing.id,
+                            'listing': listing.listing_title,
+                            'email': profile.email, 'name': profile.name})
+
+        if Favourite.objects.filter(owner=profile.id,
+                                    listing=listing).exists():
             favourite = True
 
     context = {
         'listing': listing,
-        'favourite': favourite
+        'favourite': favourite,
+        'form': form
     }
     return render(request, 'listings/single-listing.html', context)
 

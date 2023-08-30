@@ -1,12 +1,13 @@
-from django.forms import ModelForm
+from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
+import uuid
 
 
 class CustomUserCreationForm(UserCreationForm):
     """
-    A class view handling registration form
+    A class handling registration form
     """
     class Meta:
         model = User
@@ -16,7 +17,7 @@ class CustomUserCreationForm(UserCreationForm):
         }
 
 
-class ProfileForm(ModelForm):
+class ProfileForm(forms.ModelForm):
     """
     A class view handling creating and editing user profile
     """
@@ -24,3 +25,15 @@ class ProfileForm(ModelForm):
         model = Profile
         fields = '__all__'
         exclude = ['created', 'user']
+
+
+class ContactForm(forms.Form):
+    '''
+    A class handling the contact form
+    '''
+    listing_id = forms.UUIDField(widget=forms.HiddenInput)
+    listing = forms.CharField(max_length=100, required=True)
+    email = forms.EmailField(required=True)
+    name = forms.CharField(max_length=100, required=True)
+    phone = forms.CharField(max_length=15, required=True)
+    message = forms.CharField(widget=forms.Textarea, required=True)
