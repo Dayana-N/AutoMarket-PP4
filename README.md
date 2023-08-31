@@ -35,9 +35,9 @@ AutoMarket is a full stack project allowing users to postlistings with their veh
     -   [Comments](#comments)
 
 
-# User Experience
+## User Experience
 
-## User Stories
+### User Stories
 
 1. As a developer I can setup a new Django project so that I can create the project's structure
 2. As a developer I can connect database and media storage so that the user's stored data is stored successfully
@@ -76,3 +76,39 @@ AutoMarket is a full stack project allowing users to postlistings with their veh
 2. To provide range of available cars for sale to potential buyers.
 3. To provide a place for the users to browse vehicles and find out the vehicle's price range.
 4. To make the website available and functional on every device.
+
+### Goals
+
+## Design
+### Colour Scheme
+The website features a calming and professional color palette that combines shades of blue, violet, and green with complementary neutrals. <br>
+Overall, this color scheme creates a professional and user-friendly environment, with subtle variations in hue and transparency to guide users' attention and enhance the visual appeal of the website.
+![Colour Scheme](./assets/readme%20images/colour-palette.PNG)
+
+### Database Schema
+![database schema](./assets/readme%20images/database-schema.png)
+
+#### Models
+1. Allauth User Model
+
+The User model is part of Django Allauth. The model comes with predefined fields as standart. Some of them are username, email, name, password and more. This model is used for user authentication, hence why changes directly to this model are not advisory. The User model is connected to the Profile model with one to one relationship. 
+
+2. Profile Model
+
+The Profile model is custom created model to handle the user profile details. Signals are used to reflect the changes between the User and Profile models. For example if the Profile gets updated or deleted the changes will apply to the user model as well. 
+
+3. Listing Model
+
+The listing model is connected to the Profile with a ForeignKey field of owner. It is furthermore connected to the CarMake and CarModel models via ForeignKey field again
+
+4. CarMake Model
+
+This Model was created to store all of the car brands (car make) in the database 
+
+5. CarModel Model
+
+This model was created to store all of the car models in the database. It is connected to the CarMake model via ForeignKey field - car_make
+
+6. Favourites
+
+This model was created to store all of the favourite listings for each Profile. The model is connected to Listing and Profile models via ForeignKey fields - listing and owner. 
