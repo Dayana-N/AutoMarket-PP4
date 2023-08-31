@@ -58,15 +58,17 @@ AutoMarket is a full stack project allowing users to postlistings with their veh
 17. As a registered user I want to be able to delete a listing so that it is not available for other users to view.
 18. As a registered user I want to be able to see all of the listings I have created so that I can manage and keep track of the vehicles I have listed for sale.
 19. As a site owner I want to ensure that the user is prompted with notification message when performing CRUD operations or login/logout, signup so that the user is informed about the outcome of the action taken
-20. As a registered user I want to be able to send messages to the seller of the listing so that I can arrange viewings and ask questions about the listing.
-21. As a registered user I want to be able to send messages to the seller of the listing so that I can arrange viewings and ask questions about the listing.
-22. As a registered user I want to be able to view any messages I may have received so that I can keep track of communication with other users.
+20. As a registered user I want to be able to send messages to the seller of the listing so that I can arrange viewings and ask questions about the listing. (Won't Have)
+21. As a registered user I want to be able to send messages to the seller of the listing so that I can arrange viewings and ask questions about the listing.(Won't Have)
+22. As a registered user I want to be able to view any messages I may have received so that I can keep track of communication with other users.(Won't Have)
 23. As a registered user I want to be able to reply to messages so that I can connect with other users.
 24. As a registered user I want to be able to save listings to my favourites so that I can keep track of my favourite listings, making it easier to revisit and compare later.
 25. As a registered user I want to be able to view my favourite listings so that I can easily revisit them later
 26. As a registered user I want to be able to remove listings from favourites in the event that I am not interested in the listing anymore
 27. As a User I can navigate through the website so that I can access different sections efficiently
 28. As a user I can visit the home page so that I can quickly browse and find relevant car listings based on my preferences
+29. As a non-authenticated user, I want to access the user profile pages of listing owners, so that I can view their contact details and listings, and I can also mark listings as favorites without those being visible to other users.
+30. As a registered user I want to be able to send emails to the seller of the listing so that I can arrange viewings and ask questions about the listing.
 
 ### Site Goals
 
