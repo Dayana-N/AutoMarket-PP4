@@ -25,7 +25,7 @@ My Favourites
                                 <div class="card listing-preview">
                                     <div class="card-body">
                                             <a class="card-link" href="{% url 'single-listing' listing.listing.id %}">
-                                            <h2>{{ listing.listing.listing_title }} </h2>
+                                            <h2 class="card-title text-truncate">{{ listing.listing.listing_title }} </h2>
                                             <div class="row py-2 ">
                                                 <div class="col-6">
                                                     <i class="fas fa-map-marker"></i> {{ listing.listing.town|capfirst }}, {{ listing.listing.county|capfirst }}
@@ -46,24 +46,17 @@ My Favourites
                                                     <i class="fa-solid fa-gauge-high"></i> Miles: {{ listing.listing.mileage|intcomma }}
                                                 </div>
                                             </div>
-                
                                             <h3>Price: €{{ listing.listing.price|intcomma }}</h3>
                                         </a>
                                             <a href="{% url 'single-listing' listing.listing.id %}" class="btn btn-blue text-white">View</a>
                                             <a href="{% url 'remove-myfavourites' listing.listing.id %}" class="btn btn-danger text-white">Remove</a>
                                         </div>
-
-                                        
-                
                                 </div>
-                
                             </div>
                             {% endfor %}
 
-
-
                              <!-- Pagination -->
-                            <div class="row">
+                             <div class="row">
                                 <div class="col-md-12">
                                     {% if listings.has_other_pages %}
                                     <ul class="pagination justify-content-center">
@@ -80,15 +73,14 @@ My Favourites
                                         {% for i in listings.paginator.page_range %}
                                         
                                         {% if i <= listings.number|add:2 and i >= listings.number|add:-2 %}
-                                        {% if listings.number == i %}
-                                        <li class="page-item active" aria-current="page">
-                                            <a class="page-link" href="?page={{i}}">{{i}}</a>
-                                        </li>
-                                        {% else %}
-                                        <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                                            {% if listings.number == i %}
+                                            <li class="page-item active" aria-current="page">
+                                                <a class="page-link" href="?page={{i}}">{{i}}</a>
+                                            </li>
+                                            {% else %}
+                                            <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                                            {% endif %}
                                         {% endif %}
-                                        {% endif %}
-
                                         {% endfor %}
                                         
                                         {% if listings.has_next %}
@@ -100,14 +92,10 @@ My Favourites
                                             <a class="page-link">&raquo;</a>
                                         </li>
                                         {% endif %}
-                                        
                                     </ul>
                                     {% endif %}
                                 </div>
                             </div>
-
-
-
                             {% else %}
                             <div class="col-12">
                                 <p>You Have No Favourite Listings</p>
@@ -115,10 +103,6 @@ My Favourites
                             {% endif %}
                             </div>
                         </div>
-
-
-
-
                     </div>
                 </div>
             </div>

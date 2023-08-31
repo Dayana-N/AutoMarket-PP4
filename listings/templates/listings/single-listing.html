@@ -80,6 +80,7 @@
                         <p>{{ listing.created|timesince}} ago</p>
                     </div>
                     <hr>
+
                     <div class="row">
                         <div class="col-6">
                             <div class="icon">
@@ -94,26 +95,24 @@
                     </div>
 
                     <div class="row mt-3">
+                        <!-- Transmission -->
                         <div class="col-6">
                             <div class="icon">
                                 <span>
-                                    <svg class="custom-icon" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="red" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="custom-icon" width="24" height="24" viewBox="0 0 24 24">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M24 3C24 1.343 22.657 0 21 0C19.343 0 18 1.343 18 3C18 4.305 18.838 5.403 20 5.816V11H13V5.816C14.162 5.403 15 4.305 15 3C15 1.343 13.657 0 12 0C10.343 0 9 1.343 9 3C9 4.305 9.838 5.403 11 5.816V11H4V5.816C5.162 5.403 6 4.305 6 3C6 1.343 4.657 0 3 0C1.343 0 0 1.343 0 3C0 4.305 0.838 5.403 2 5.816V18.184C0.838 18.597 0 19.695 0 21C0 22.657 1.343 24 3 24C4.657 24 6 22.657 6 21C6 19.695 5.162 18.597 4 18.184V13H11V18.184C9.838 18.597 9 19.695 9 21C9 22.657 10.343 24 12 24C13.657 24 15 22.657 15 21C15 19.695 14.162 18.597 13 18.184V13H20C21.103 13 22 12.103 22 11V5.816C23.162 5.403 24 4.305 24 3Z"
                                             fill="#000" />
                                     </svg>
-
                                 </span>
                                 {{ listing.transmission|capfirst }}
                             </div>
                         </div>
-
+                        <!-- Engine Size -->
                         <div class="col-6">
                             <div class="icon">
                                 <span>
-                                    <svg class="custom-icon" width="24" height="24" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="custom-icon" width="24" height="24" viewBox="0 0 24 24">
                                         <g fill="none" fill-rule="evenodd">
                                             <path d="m0 0h24v24h-24z" />
                                             <path
@@ -128,25 +127,24 @@
                     </div>
 
                     <div class="row mt-3">
+                        <!-- Location -->
                         <div class="col-6">
                             <div class="icon">
                                 <i class="fas fa-map-marker custom-icon"></i> {{ listing.town|capfirst }}, {{ listing.county|capfirst }}
                             </div>
                         </div>
-
+                        <!-- Fuel Type -->
                         <div class="col-6">
                             <div class="icon">
                                 <i class="fa-solid fa-gas-pump custom-icon"></i> {{ listing.fuel_type|capfirst }}
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <hr>
                 {% if request.user.profile.id != listing.owner.id %}
                 <div class="row">
                     <div class="col-10">
-                        
                         <form method="POST" action="{% url 'favourite-listings' listing.id %}">
                             {% csrf_token %}
                             
@@ -159,14 +157,12 @@
                                 <i class="fa-regular fa-heart fa-bounce" style="color: #cc2424;"></i>
                                 Save Listing</button>
                             {% endif %}
-                            
                         </form>
-                        
                     </div>
                 </div>
                 {% endif %}
 
-
+                 <!-- Seller's profile card -->
                 <div class="row mt-3 justify-content-center text-center">
                     <div class="col-10 my-2 py-3 shadow-container seller-card">
                         <div class="row d-flex justify-content-center align-items-center ">

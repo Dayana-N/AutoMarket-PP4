@@ -20,45 +20,39 @@ User Account
                                         <a href="{% url 'user-account' profile.id %}" class="btn btn-sidebar p-0 active">Profile</a>
                                     </div>
                                 </div>
-    
                                 <div class="row">
                                     <div class="col-12">
                                         <a href="{% url 'user-account-listings' profile.id %}" class="btn btn-sidebar p-0">Listings</a>
                                     </div>
                                 </div>
                             </div>
-                           
                         </div>
                         <div class="col-12 col-lg-9 my-3 py-5 shadow-container" id="profile-container">
-
                             <div class="row d-flex justify-content-center">
                                 <div class="image-container p-3">
                                     <img class="profile-image" src="{{ profile.profile_image.url }}"
                                         alt="user profile image">
                                 </div>
                             </div>
-
-                            <h4>{{ profile.name }}</h4>
-                            <p>{{ profile.username }}</p>
-                            <p>{{ profile.town }}, {{ profile.county }}</p>
+                            <div class="row">
+                                <h4>{{ profile.name }}</h4>
+                                <p>{{ profile.username }}</p>
+                                <p>{{ profile.town }}, {{ profile.county }}</p>
+                            </div>
                             <div class="row p-3  d-flex flex-column align-items-center">
                                 <h4>Contact Details:</h4>
                                 <div class="col-12 text-center m-auto">
                                     <p>Email: {{ profile.email }}</p>
                                     <p>Phone: {{ profile.phone }}</p>
                                 </div>
-
                             </div>
-
                             <div class="row p-3">
                                 <h4>About Me:</h4>
                                 <div class="col px-2">
                                     <p>{{ profile.about_me }} </p>
-                                
                                 </div>
                             </div>
                         </div>
-                    
                     </div>
                 </div>
             </div>

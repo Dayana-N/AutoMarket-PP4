@@ -10,7 +10,6 @@ Listings
 {% include 'partials/search-form.html' %}
 
 <section class="results mt-5">
-
     <div class="container text-center mt-5">
         <h2>Results</h2>
         <div class="row mt-5">
@@ -33,7 +32,6 @@ Listings
                             <div class="row"> <img src="{{ listing.listing_main_img }}" class="card-image"
                                     alt="{{ listing.listing_title }} image">
                             </div>
-
                             <div class="row py-2 ">
                                 <div class="col-6">
                                     <i class="fa-regular fa-calendar-days"></i> Year: {{ listing.year }}
@@ -42,42 +40,34 @@ Listings
                                     <i class="fa-solid fa-gauge-high"></i> Miles: {{ listing.mileage|intcomma }}
                                 </div>
                             </div>
-
                             <h3>Price: €{{ listing.price|intcomma }}</h3>
-
                         </a>
                             <a href="{% url 'single-listing' listing.id %}" class="btn btn-blue text-white">More
                                 Info</a>
                     </div>
-
                 </div>
-
             </div>
             {% endfor %}
-
-
-
         </div>
     </div>
 
-            <!-- Pagination -->
-            <div class="row">
-                <div class="col-md-12">
-                    {% if listings.has_other_pages %}
-                    <ul class="pagination justify-content-center">
-                        {% if listings.has_previous %}
-                        <li class="page-item">
-                            <a class="page-link" href="?{% query_transform page=listings.previous_page_number %}">&laquo;</a>
-                        </li>
-                        {% else %}
-                        <li class="page-item disabled">
-                            <a class="page-link">&laquo;</a>
-                        </li>
-                        {% endif %}
+    <!-- Pagination -->
+    <div class="row">
+        <div class="col-md-12">
+            {% if listings.has_other_pages %}
+            <ul class="pagination justify-content-center">
+                {% if listings.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?{% query_transform page=listings.previous_page_number %}">&laquo;</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link">&laquo;</a>
+                </li>
+                {% endif %}
 
-                        {% for i in listings.paginator.page_range %}
-                        
-                        {% if i <= listings.number|add:2 and i >= listings.number|add:-2 %}
+                {% for i in listings.paginator.page_range %}
+                    {% if i <= listings.number|add:2 and i >= listings.number|add:-2 %}
                         {% if listings.number == i %}
                         <li class="page-item active" aria-current="page">
                             <a class="page-link" href="?{% query_transform page=i %}">{{i}}</a>
@@ -85,24 +75,22 @@ Listings
                         {% else %}
                         <li class="page-item"><a class="page-link" href="?{% query_transform page=i %}">{{i}}</a></li>
                         {% endif %}
-                        {% endif %}
-
-                        {% endfor %}
-                        
-                        {% if listings.has_next %}
-                        <li class="page-item">
-                            <a class="page-link" href="?{% query_transform page=listings.next_page_number %}">&raquo;</a>
-                        </li>
-                        {% else %}
-                        <li class="page-item disabled">
-                            <a class="page-link">&raquo;</a>
-                        </li>
-                        {% endif %}
-                        
-                    </ul>
                     {% endif %}
-                </div>
-            </div>
+                {% endfor %}
+                
+                {% if listings.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?{% query_transform page=listings.next_page_number %}">&raquo;</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link">&raquo;</a>
+                </li>
+                {% endif %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
 </section>
 {% endblock %}
 {% block script %}

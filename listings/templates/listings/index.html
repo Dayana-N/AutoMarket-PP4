@@ -17,9 +17,9 @@ Home
             <!-- Card -->
             <div class="col-md-6 col-xl-4 mb-4">
                 <div class="card listing-preview">
-                    <a class="card-link" href="{% url 'single-listing' listing.id %}">
-                        <div class="card-body">
-                            <h2>{{ listing.listing_title }} </h2>
+                    <div class="card-body">
+                        <a class="card-link" href="{% url 'single-listing' listing.id %}">
+                            <h2 class="card-title text-truncate">{{ listing.listing_title }} </h2>
                             <div class="row py-2 ">
                                 <div class="col-6">
                                     <i class="fas fa-map-marker"></i> {{ listing.town|capfirst }}, {{ listing.county|capfirst }}
@@ -29,9 +29,9 @@ Home
                                 </div>
                             </div>
                             <!-- Image -->
-                            <div class="row"> <img src="{{ listing.listing_main_img }}" class="card-image" alt="{{ listing.listing_title }} image">
+                            <div class="row"> <img src="{{ listing.listing_main_img }}" class="card-image"
+                                    alt="{{ listing.listing_title }} image">
                             </div>
-
                             <div class="row py-2 ">
                                 <div class="col-6">
                                     <i class="fa-regular fa-calendar-days"></i> Year: {{ listing.year }}
@@ -40,15 +40,12 @@ Home
                                     <i class="fa-solid fa-gauge-high"></i> Miles: {{ listing.mileage|intcomma }}
                                 </div>
                             </div>
-
                             <h3>Price: €{{ listing.price|intcomma }}</h3>
-
-                            <a href="{% url 'single-listing' listing.id %}" class="btn btn-blue text-white">More Info</a>
-                        </div>
-
-                    </a>
+                        </a>
+                            <a href="{% url 'single-listing' listing.id %}" class="btn btn-blue text-white">More
+                                Info</a>
+                    </div>
                 </div>
-
             </div>
             {% endfor %}
 

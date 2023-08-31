@@ -14,9 +14,8 @@ My Profile
                 <div class="container">
                     <div class="row justify-content-center profile-row">
                         {% include 'users/partials/profile_sidebar.html' %}
-
+                        <!-- Profile -->
                         <div class="col-12 col-lg-9 my-3 py-5 shadow-container" id="my-profile-container">
-
                             <div class="row d-flex justify-content-center">
                                 <div class="image-container p-3">
                                     <img class="profile-image" src="{{ profile.profile_img }}"
@@ -24,6 +23,7 @@ My Profile
                                 </div>
                             </div>
 
+                            <div class="row">
                             <h4>{{ profile.name }}</h4>
                             <p>{{ profile.username }}</p>
                             <p>{% if profile.town %}
@@ -32,6 +32,8 @@ My Profile
                                 {% if profile.county %}
                                 {{ profile.county }}
                                 {% endif %}</p>
+                            </div>
+                            
                             <div class="row p-3  d-flex flex-column align-items-center">
                                 <h4>Contact Details:</h4>
                                 <div class="col-12 text-center m-auto">

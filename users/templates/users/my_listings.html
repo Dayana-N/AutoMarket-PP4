@@ -22,11 +22,12 @@ My Listings
                             {% if listings %}
                             
                             {% for listing in listings %}
-                            <div class="col-12 col-md-7 col-lg-6 mb-4">
+                            <!-- Card -->
+                            <div class="col-md-6 col-xl-4 mb-4">
                                 <div class="card listing-preview">
                                     <div class="card-body">
-                                            <a class="card-link" href="{% url 'single-listing' listing.id %}">
-                                            <h2>{{ listing.listing_title }} </h2>
+                                        <a class="card-link" href="{% url 'single-listing' listing.id %}">
+                                            <h2 class="card-title text-truncate">{{ listing.listing_title }} </h2>
                                             <div class="row py-2 ">
                                                 <div class="col-6">
                                                     <i class="fas fa-map-marker"></i> {{ listing.town|capfirst }}, {{ listing.county|capfirst }}
@@ -36,9 +37,9 @@ My Listings
                                                 </div>
                                             </div>
                                             <!-- Image -->
-                                            <div class="row"> <img src="{{ listing.listing_main_img }}" class="card-image" alt="{{ listing.listing_title }} image">
+                                            <div class="row"> <img src="{{ listing.listing_main_img }}" class="card-image"
+                                                    alt="{{ listing.listing_title }} image">
                                             </div>
-                
                                             <div class="row py-2 ">
                                                 <div class="col-6">
                                                     <i class="fa-regular fa-calendar-days"></i> Year: {{ listing.year }}
@@ -47,16 +48,13 @@ My Listings
                                                     <i class="fa-solid fa-gauge-high"></i> Miles: {{ listing.mileage|intcomma }}
                                                 </div>
                                             </div>
-                
                                             <h3>Price: €{{ listing.price|intcomma }}</h3>
                                         </a>
-                                            <a href="{% url 'edit-listing' listing.id %}" class="btn btn-blue text-white">Edit</a>
-                                            <a href="{% url 'delete-listing' listing.id %}" class="btn btn-danger text-white">Delete</a>
-                                            <a href="{% url 'single-listing' listing.id %}" class="btn btn-blue text-white">View</a>
-                                        </div>
-                
+                                        <a href="{% url 'edit-listing' listing.id %}" class="btn btn-blue text-white">Edit</a>
+                                        <a href="{% url 'delete-listing' listing.id %}" class="btn btn-danger text-white">Delete</a>
+                                        <a href="{% url 'single-listing' listing.id %}" class="btn btn-blue text-white">View</a>
+                                    </div>
                                 </div>
-                
                             </div>
                             {% endfor %}
 
@@ -78,15 +76,14 @@ My Listings
                                         {% for i in listings.paginator.page_range %}
                                         
                                         {% if i <= listings.number|add:2 and i >= listings.number|add:-2 %}
-                                        {% if listings.number == i %}
-                                        <li class="page-item active" aria-current="page">
-                                            <a class="page-link" href="?page={{i}}">{{i}}</a>
-                                        </li>
-                                        {% else %}
-                                        <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                                            {% if listings.number == i %}
+                                            <li class="page-item active" aria-current="page">
+                                                <a class="page-link" href="?page={{i}}">{{i}}</a>
+                                            </li>
+                                            {% else %}
+                                            <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                                            {% endif %}
                                         {% endif %}
-                                        {% endif %}
-
                                         {% endfor %}
                                         
                                         {% if listings.has_next %}
@@ -98,14 +95,10 @@ My Listings
                                             <a class="page-link">&raquo;</a>
                                         </li>
                                         {% endif %}
-                                        
                                     </ul>
                                     {% endif %}
                                 </div>
                             </div>
-
-
-
                             {% else %}
                             <div class="col-12">
                                 <p>You Have No Listings</p>
@@ -113,10 +106,6 @@ My Listings
                             {% endif %}
                             </div>
                         </div>
-
-
-
-
                     </div>
                 </div>
             </div>

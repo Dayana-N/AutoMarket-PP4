@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load widget_tweaks %}
-
 {% block title %}
 Create Listings
 {% endblock title %}
@@ -22,7 +21,7 @@ Create Listings
                     <div class="col-12 mt-3">
                         <div class="row">
                             <div class="col-12 col-md-6">
-                            <!-- Form Fields -->
+                                <!-- Car Make -->
                                 <div class="form-floating mb-4">
                                     {% render_field form.car_make|attr:'required:true' class="form-control" %}
                                     <label for="id_car_make" class="form-label">Car Make: *</label>
@@ -30,7 +29,7 @@ Create Listings
                                     <span class="text-danger">{{ error }}</span>
                                     {% endfor %}
                                 </div>
-
+                                 <!-- Car Model -->
                                 <div class="form-floating mb-4">
                                     {% render_field form.car_model|attr:'required:true' class="form-control" %}
                                     <label for="id_car_model" class="form-label">Car Model: *</label>
@@ -38,7 +37,7 @@ Create Listings
                                     <span class="text-danger">{{ error }}</span>
                                     {% endfor %}
                                 </div>
-
+                                 <!-- Car Year -->
                                 <div class="form-floating mb-4">
                                     {% render_field form.year class="form-control" %}
                                     <label for="id_year" class="form-label">Car Year: *</label>
@@ -46,7 +45,7 @@ Create Listings
                                     <span class="text-danger">{{ error }}</span>
                                     {% endfor %}
                                 </div>
-
+                                 <!-- Town -->
                                 <div class="form-floating mb-4">
                                     {% render_field form.town|attr:"pattern:^[A-Za-z\- ]+$"|attr:"title:Please enter valid town" class="form-control" placeholder=form.town.label %}
                                     <label for="id_town" class="form-label">Town:  *</label>
@@ -54,7 +53,7 @@ Create Listings
                                     <span class="text-danger">{{ error }}</span>
                                     {% endfor %}
                                 </div>
-
+                                 <!-- County -->
                                 <div class="form-floating mb-4">
                                     {% render_field form.county class="form-control" %}
                                     <label for="id_county" class="form-label">County:  *</label>
@@ -62,9 +61,10 @@ Create Listings
                                     <span class="text-danger">{{ error }}</span>
                                     {% endfor %}
                                 </div>
-                            
                             </div>
+
                             <div class="col-12 col-md-6">
+                                 <!-- Mileage -->
                                 <div class="form-floating mb-4">
                                     {% render_field form.mileage|attr:"max:1000000"|attr:"min:1"|attr:"title:Please enter amount between 1, 1000000" class="form-control" placeholder=form.mileage.label %}
                                     <label for="id_mileage" class="form-label">Mileage: *</label>
@@ -72,7 +72,7 @@ Create Listings
                                     <span class="text-danger">{{ error }}</span>
                                     {% endfor %}
                                 </div>
-
+                                 <!-- Fuel Type -->
                                 <div class="form-floating mb-4">
                                     {% render_field form.fuel_type class="form-control" %}
                                     <label for="id_fuel_type" class="form-label">Fuel Type:  *</label>
@@ -80,7 +80,7 @@ Create Listings
                                     <span class="text-danger">{{ error }}</span>
                                     {% endfor %}
                                 </div>
-
+                                 <!-- Engine Size -->
                                 <div class="form-floating mb-4">
                                     {% render_field form.engine_size class="form-control" placeholder=form.mileage.engine_size %}
                                     <label for="id_engine_size" class="form-label">Engine Size: *</label>
@@ -88,7 +88,7 @@ Create Listings
                                     <span class="text-danger">{{ error }}</span>
                                     {% endfor %}
                                 </div>
-
+                                 <!-- Body Type -->
                                 <div class="form-floating mb-4">
                                     {% render_field form.body_type class="form-control" %}
                                     <label for="id_body_type" class="form-label">Body Type:</label>
@@ -96,7 +96,7 @@ Create Listings
                                     <span class="text-danger">{{ error }}</span>
                                     {% endfor %}
                                 </div>
-    
+                                 <!-- Transmission -->
                                 <div class="form-floating mb-4">
                                     {% render_field form.transmission class="form-control" %}
                                     <label for="id_transmission" class="form-label">Transmission:  *</label>
@@ -109,6 +109,7 @@ Create Listings
 
                         <div class="row">
                             <div class="col-12">
+                                 <!-- Price -->
                                 <div class="form-floating mb-4">
                                     {% render_field form.price|attr:"max:1000000"|attr:"min:1"|attr:"title:Please enter amount between 1, 1000000" class="form-control" placeholder=form.price.label %}
                                     <label for="id_price" class="form-label">Price:  *</label>
