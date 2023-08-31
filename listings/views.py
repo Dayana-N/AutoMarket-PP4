@@ -127,7 +127,8 @@ def single_listing(request, pk):
     '''
 
     listing = Listing.objects.get(pk=pk)
-    form = ContactForm({'listing_id': listing.id, 'listing': listing})
+    form = ContactForm(
+        {'listing_id': listing.id, 'listing': listing.listing_title})
     favourite = bool
 
     if request.user.is_authenticated:

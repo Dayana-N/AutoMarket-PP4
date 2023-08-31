@@ -33,14 +33,14 @@ User Account
                             {% if listings %}
                             
                             {% for listing in listings %}
-                            <div class="col-12 col-lg-6 mb-4">
+                            <div class="col-md-6 mb-4">
                                 <div class="card listing-preview">
                                     <a class="card-link" href="{% url 'single-listing' listing.id %}">
                                         <div class="card-body">
                                             <h2>{{ listing.listing_title }} </h2>
                                             <div class="row py-2 ">
                                                 <div class="col-6">
-                                                    <i class="fas fa-map-marker"></i> {{ listing.town|capfirst }}, {{ listing.county|capfirst }}
+                                                    <i class="fas fa-map-marker"></i> {{ listing.town|capfirst }} <br> {{ listing.county|capfirst }}
                                                 </div>
                                                 <div class="col-6">
                                                     <i class="fas fa-clock"></i> {{ listing.created|timesince }}

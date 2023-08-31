@@ -121,7 +121,11 @@
                                         </g>
                                     </svg>
                                 </span>
+                                {% if listing.engine_size %}
                                 {{ listing.engine_size }}L
+                                {% else %}
+                                 --
+                                {% endif %}
                             </div>
                         </div>
                     </div>

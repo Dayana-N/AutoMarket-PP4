@@ -38,7 +38,7 @@ class Listing(models.Model):
         max_length=100, choices=choices.BODY_TYPE, null=True, blank=True)
     fuel_type = models.CharField(max_length=100, choices=choices.FUEL_TYPE)
     engine_size = models.CharField(
-        max_length=20, choices=choices.ENGINE_SIZES)
+        max_length=20, choices=choices.ENGINE_SIZES, null=True, blank=True)
     transmission = models.CharField(
         max_length=100, choices=choices.TRANSMISSION)
     created = models.DateTimeField(auto_now_add=True)
