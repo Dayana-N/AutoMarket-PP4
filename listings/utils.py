@@ -1,6 +1,8 @@
 from .models import Listing
 from django.db.models import Q
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from .cars import cars
+from .models import CarMake, CarModel
 
 
 def search_listings(request):
@@ -77,3 +79,20 @@ def listings_pagination(request, listings):
         page_number = paginator.num_pages
         listings = paginator.page(page_number)
     return listings, page_number
+
+
+def load_data():
+    '''
+    load data to database
+    '''
+    for key, value in cars.items():
+        car_make_instance, created = CarMake.objects.get_or_create(
+            name=key)
+
+        for item in value:
+            CarModel.objects.create(name=item, car_make=car_make_instance)
+
+    print('done')
+
+
+# load_data()
