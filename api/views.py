@@ -27,6 +27,6 @@ def getCarModel(request, pk):
     Gets car models based on car makes and returns
     a JSON representation of the serialized data
     '''
-    car_model = CarModel.objects.filter(car_make=pk)
+    car_model = CarModel.objects.filter(car_make=pk).order_by('name')
     serializer = CarModelSerializer(car_model, many=True)
     return Response(serializer.data)
