@@ -139,6 +139,11 @@ i {
     object-fit: contain;
 }
 
+.card-body {
+  box-shadow: 3px 4px 12px 0px rgba(138,144,157,0.75);
+-webkit-box-shadow: 3px 4px 12px 0px rgba(138,144,157,0.75);
+-moz-box-shadow: 3px 4px 12px 0px rgba(138,144,157,0.75);
+}
 /* Single listing */
 #main-image {
   max-height: 400px;
@@ -201,7 +206,7 @@ i {
 }
 
 .profile-row {
-  min-height: 767px;
+  min-height: 430px;
 }
 
 /* Delete profile confirmation page */

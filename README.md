@@ -9,7 +9,7 @@ AutoMarket is a full stack project allowing users to postlistings with their veh
 
 -   [User Experience](#user-experience)
     -   [User Stories](#user-stories)
-    -   [Goals](#goals)
+    -   [Site Goals](#site-goals)
     -   [Scope](#scope)
 -   [Design](#design)
     -   [Colour Scheme](#colour-scheme)
@@ -17,6 +17,11 @@ AutoMarket is a full stack project allowing users to postlistings with their veh
     -   [Fonts](#Fonts)
     -   [Wireframes](#Wireframes)
     -   [Agile Methodology](#Agile-Methodology)
+         -   [Overview](#overview)
+         -   [EPICS(Milestones)](#epicsmilestones)
+         -   [User Stories issues](#user-stories-issues)
+         -   [MoSCoW prioritization](#moscow-prioritization)
+         -   [GitHub Projects](#github-projects)
 -   [Features](#features)
     -   [Home Page](#Home-Page)
 -   [Future Features](#future-features)
@@ -171,7 +176,7 @@ This project was created using agile principles. This was a big learning curve t
 The user stories are grouped into eight EPICS or Milestones. An additional Milestone called Project Backlog was created to manage any additional features, bugs, or tasks that may arise during development. <br>
 ![Milestones](./assets/readme-images/agile-milestones.PNG)
 
-#### User Stories
+#### User Stories issues
 The structure of the user story issue consists of the user story, acceptance criteria, and tasks that outline the steps that are required for this issue to be completed. <br>
 ![User Story](./assets/readme-images/user-story-agile.PNG)
 During development where possible, the commit messages are connected to their corresponding issues. <br>
@@ -186,7 +191,21 @@ The project was created using a basic Kanban Board structure, divided into colum
 ![User Story](./assets/readme-images/github-projects.PNG)
 
 ## Features
-### Home Page
+### Navbar
+The navbar is a component that is present on all pages. It was created using bootstrap and is fully responsive. The AutoMarket logo which serves as a link to the homepage is located on the left side on the navbar. On the right are the nav links which allow the user to easily navigate through the website from any point. If the user is not authenticated the links displayed are Home, Listings and Login/Signup.
+
+![nav logged out](./assets/readme-images/features/nav-logged-out.PNG)
+
+ If the user is authenticated they will see Home, Listings, Create Listing, Profile and Logout. The profile link will has the user's username displayed to clearly indicate that the user is logged. For better user experience each nav link when active is underlined with a border to let the user know the page they are currently on.
+ ![nav logged in](./assets/readme-images/features/nav-logged-in.PNG)
+ ![nav mobile](./assets/readme-images/features/nav-mobile.PNG)
+
+ ### Footer
+ The footer consist of information about AutoMarket and their contact details. To help the users connect with AutoMarket there are icons with links to social media which open in a new tab. 
+ ![Dooter](./assets/readme-images/features/nav-mobile.PNG)
+
+  ### Home
+  The home page pre
 ## Future Features
 ## Testing
 Testing documentation can be found [here.](./TESTING.md)

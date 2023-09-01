@@ -12,11 +12,11 @@ My Listings
             <div class="col-12 mx-auto text-center my-5 p-2 shadow-container">
                 <h2 class="py-5">{{ profile.name }}'s Profile</h2>
                 <div class="container">
-                    <div class="row justify-content-center profile-row">
+                    <div class="row justify-content-center">
 
                         {% include 'users/partials/profile_sidebar.html' %}
                        
-                        <div class="col-12 col-lg-9 my-3 py-5 listings-color shadow-container">
+                        <div class="col-12 col-lg-9 my-3 py-5 listings-color border-container profile-row">
                             <h3>My Listings:</h3>
                             <div class="row justify-content-center">
                             {% if listings %}

@@ -21,6 +21,7 @@ Go back to [README.md](/README.md)
 
 2. search.js <mark>PASS<mark>
 
+The initial test showed variable not declared. This was fixed.
 ![search](./assets/testing/search.PNG)
 
 ### Python
