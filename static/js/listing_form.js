@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function() {
 const carMakeDropdown = document.getElementById("id_car_make");
 const carModelDropdown = document.getElementById("id_car_model");
 
@@ -28,4 +29,5 @@ carMakeDropdown.addEventListener("change", (e) => {
   } else {
     carModelDropdown.innerHTML = '<option value="" selected>---------</option>';
   }
+});
 });

@@ -3,7 +3,7 @@
 <hr>
 AutoMarket is a full stack project allowing users to postlistings with their vehicle for sale. The project is built using Django framework for the backend and HTML, CSS, Bootstrap and JavaScript on the frontend. Automarket allows the users to create an account and perform CRUD functionality on their profile and listings. This project was created as part of Code Institute full-stack developer course.
 
-![automarket Image](./assets/readme%20images/main-image.PNG)
+![automarket Image](./assets/readme-images/main-image.PNG)
 
 # Table Of Content
 
@@ -128,10 +128,10 @@ Benefits:
 ### Colour Scheme
 The website features a calming and professional color palette that combines shades of blue, violet, and green with complementary neutrals. <br>
 Overall, this color scheme creates a professional and user-friendly environment, with subtle variations in hue and transparency to guide users' attention and enhance the visual appeal of the website.
-![Colour Scheme](./assets/readme%20images/colour-palette.PNG)
+![Colour Scheme](./assets/readme-images/colour-palette.PNG)
 
 ### Database Schema
-![database schema](./assets/readme%20images/database-schema.png)
+![database schema](./assets/readme-images/database-schema.png)
 
 #### Models
 1. Allauth User Model
@@ -160,7 +160,7 @@ This model was created to store all of the favourite listings for each Profile. 
 
 ### Fonts
 The font used in this project is Roboto Slab, which compliments the design of the website. <br>
-![Font](./assets/readme%20images/font.PNG)
+![Font](./assets/readme-images/font.PNG)
 
 ### Wireframes
 ### Agile Methodology
@@ -169,21 +169,21 @@ This project was created using agile principles. This was a big learning curve t
 
 #### EPICS(Milestones)
 The user stories are grouped into eight EPICS or Milestones. An additional Milestone called Project Backlog was created to manage any additional features, bugs, or tasks that may arise during development. <br>
-![Milestones](./assets/readme%20images/agile-milestones.PNG)
+![Milestones](./assets/readme-images/agile-milestones.PNG)
 
 #### User Stories
 The structure of the user story issue consists of the user story, acceptance criteria, and tasks that outline the steps that are required for this issue to be completed. <br>
-![User Story](./assets/readme%20images/user-story-agile.PNG)
+![User Story](./assets/readme-images/user-story-agile.PNG)
 During development where possible, the commit messages are connected to their corresponding issues. <br>
-![User Story](./assets/readme%20images/user-story-commits.PNG)
+![User Story](./assets/readme-images/user-story-commits.PNG)
 
 #### MoSCoW prioritization
 This prioritization technique was used to effectively prioritize the features and requirements of the project based on their importance. The acronym "MoSCoW" stands for "Must have, Should have, Could have, and Won't have." Each category helps categorize and prioritize features to guide the development process and ensure that the most critical elements are addressed first. <br>
-![User Story](./assets/readme%20images/user-story-moscow.PNG)
+![User Story](./assets/readme-images/user-story-moscow.PNG)
 
 #### GitHub Projects
 The project was created using a basic Kanban Board structure, divided into columns such as Todo, In Progress, Done, and Backlog. This setup provides a clear and organized way to track the status of tasks and visualize and manage the workflow. <br>
-![User Story](./assets/readme%20images/github-projects.PNG)
+![User Story](./assets/readme-images/github-projects.PNG)
 
 ## Features
 ### Home Page
