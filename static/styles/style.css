@@ -19,7 +19,7 @@ html {
 }
 body {
   background-color: rgb(231, 236, 242);
-  font-family: 'Roboto Slab';
+  font-family: 'Roboto Slab', sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -76,7 +76,6 @@ a.active {
 
 .hero-text-container h1 {
     font-size: 2.5rem;
-    font-family: 'Roboto Slab', sans-serif;
 }
 
 /* LogIn page */
@@ -243,12 +242,6 @@ i {
   #hero-image {
     height: 220px;
   }
-
-  /* #main-image {
-    height: 500px;
-  } */
-
-
 }
 
 @media (max-width: 700px) {
