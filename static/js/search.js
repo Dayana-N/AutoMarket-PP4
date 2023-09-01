@@ -2,20 +2,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get the min and max year options
     const minYear = document.getElementById('min_year');
     const maxYear = document.getElementById('max_year');
-    minYearOptions = minYear.getElementsByTagName("option");
-    maxYearOptions = maxYear.getElementsByTagName("option");
+    const minYearOptions = minYear.getElementsByTagName("option");
+    const maxYearOptions = maxYear.getElementsByTagName("option");
 
     // Get the min and max price options
     const minPrice = document.getElementById('min_price');
     const maxPrice = document.getElementById('max_price');
-    minPriceOptions = minPrice.getElementsByTagName("option");
-    maxPriceOptions = maxPrice.getElementsByTagName("option");
+    const minPriceOptions = minPrice.getElementsByTagName("option");
+    const maxPriceOptions = maxPrice.getElementsByTagName("option");
 
     // Add event listeners to year fields to disable options based on user's selection
     minYear.addEventListener('change', (e) => {
         const selectedMinValue = parseInt(minYear.value);
 
-        for (maxOption of maxYearOptions) {
+        for (const maxOption of maxYearOptions) {
             if (isNaN(selectedMinValue) || selectedMinValue > parseInt(maxOption.value)) {
                 maxOption.disabled = true;
             } else {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     maxYear.addEventListener('change', (e) => {
         const selectedMaxValue = parseInt(maxYear.value);
 
-        for (minOption of minYearOptions) {
+        for (const minOption of minYearOptions) {
             if (isNaN(selectedMaxValue) || selectedMaxValue < parseInt(minOption.value)) {
                 minOption.disabled = true;
             } else {
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
     minPrice.addEventListener('change', (e) => {
         const selectedMinValue = parseFloat(minPrice.value);
 
-        for (maxOptionPrice of maxPriceOptions) {
+        for (const maxOptionPrice of maxPriceOptions) {
             if (selectedMinValue > parseFloat(maxOptionPrice.value)) {
                 maxOptionPrice.disabled = true;
             } else {
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     maxPrice.addEventListener('change', (e) => {
         const selectedMaxValue = parseFloat(maxPrice.value);
 
-        for (minOptionPrice of minPriceOptions) {
+        for (const minOptionPrice of minPriceOptions) {
             if (selectedMaxValue < parseFloat(minOptionPrice.value)) {
                 minOptionPrice.disabled = true;
             } else {

@@ -20,7 +20,7 @@
                 <div class="col-md-3 mb-2">
                     <label for="county" class="sr-only">County:</label>
                     <select name="county" class="form-select" id="county">
-                        <option selected="true" value="">County (All)</option>
+                        <option selected value="">County (All)</option>
                         {% for key,option in counties %}
                         <option value="{{ key }}"
                         {% if key == values.county %}
@@ -35,7 +35,7 @@
                 <div class="col-md-3 mb-2">
                     <label for="fuel" class="sr-only">Fuel Type:</label>
                     <select class="form-select" name="fuel" id="fuel">
-                        <option selected="true" value="">Fuel Type (All)</option>
+                        <option selected value="">Fuel Type (All)</option>
                         {% for key,option in fuel_type %}
                         <option value="{{ key }}"
                         {% if key == values.fuel %}

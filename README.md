@@ -184,3 +184,24 @@ This prioritization technique was used to effectively prioritize the features an
 #### GitHub Projects
 The project was created using a basic Kanban Board structure, divided into columns such as Todo, In Progress, Done, and Backlog. This setup provides a clear and organized way to track the status of tasks and visualize and manage the workflow. <br>
 ![User Story](./assets/readme%20images/github-projects.PNG)
+
+## Features
+### Home Page
+## Future Features
+## Testing
+Testing documentation can be found [here.](./TESTING.md)
+## Bugs
+## Technologies And Languages
+### Languages Used
+### Python Modules
+### Technologies and programs
+## Deployment
+### Before Deployment
+### Deployment on Heroku
+### Creating A Fork
+### Cloning Repository
+## Credits
+### Media
+### Code
+### Acknowledgements
+### Comments

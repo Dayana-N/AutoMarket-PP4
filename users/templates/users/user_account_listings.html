@@ -35,8 +35,8 @@ User Account
                             {% for listing in listings %}
                             <div class="col-md-6 mb-4">
                                 <div class="card listing-preview">
-                                    <a class="card-link" href="{% url 'single-listing' listing.id %}">
-                                        <div class="card-body">
+                                    <div class="card-body">
+                                            <a class="card-link" href="{% url 'single-listing' listing.id %}">
                                             <h2>{{ listing.listing_title }} </h2>
                                             <div class="row py-2 ">
                                                 <div class="col-6">
@@ -59,9 +59,9 @@ User Account
                                                 </div>
                                             </div>
                                             <h3>Price: €{{ listing.price|intcomma }}</h3>
+                                        </a>
                                             <a href="{% url 'single-listing' listing.id %}" class="btn btn-blue text-white">More Info</a>
                                         </div>
-                                    </a>
                                 </div>
                             </div>
                             {% endfor %}
