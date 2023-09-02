@@ -37,7 +37,7 @@ User Account
                                 <div class="card listing-preview">
                                     <div class="card-body">
                                             <a class="card-link" href="{% url 'single-listing' listing.id %}">
-                                            <h2>{{ listing.listing_title }} </h2>
+                                            <h2 class="card-title text-truncate">{{ listing.listing_title }} </h2>
                                             <div class="row py-2 ">
                                                 <div class="col-6">
                                                     <i class="fas fa-map-marker"></i> {{ listing.town|capfirst }} <br> {{ listing.county|capfirst }}
