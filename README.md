@@ -23,7 +23,34 @@ AutoMarket is a full stack project allowing users to postlistings with their veh
          -   [MoSCoW prioritization](#moscow-prioritization)
          -   [GitHub Projects](#github-projects)
 -   [Features](#features)
-    -   [Home Page](#Home-Page)
+    -   [Navbar](#Navbar)
+    -   [Footer](#Footer)
+    -   [Home](#Home)
+        -   [Hero Section](#hero-section)
+        -   [Search Form](#search-form)
+        -   [Recent Listings](#recent-listings)
+        -   [Listing Card](#listing-card)
+    -   [Listings Page](#listings-page)
+    -   [Create Listing](#create-listing)
+    -   [Profile Page](#profile-page)
+    -   [My Listings](#my-listings)
+    -   [My Favourites](#my-favourites)
+    -   [Remove From Favourites](#remove-from-favourites)
+    -   [Edit Listing](#edit-listing)
+    -   [Delete Listing](#delete-listing)
+    -   [View Listing](#view-listing)
+    -   [User account and User account listings](#user-account-and-user-account-listings)
+    -   [Sign In Page](#sign-in-page)
+    -   [Sign Up Page](#sign-up-page)
+    -   [Sign Out Confirmation](#sign-out-confirmation)
+    -   [Edit Profile](#edit-profile)
+    -   [Delete Profile Confirmation](#delete-profile-confirmation)
+    -   [We are sorry to see you go](#we-are-sorry-to-see-you-go)
+    -   [Password reset](#password-reset)
+    -   [Password reset email sent](#password-reset-email-sent)
+    -   [Enter a new password](#enter-a-new-password)
+    -   [Password Reset Completed](#password-reset-completed)
+    -   [Error Pages](#error-pages)
 -   [Future Features](#future-features)
 -   [Testing](#testing)
 -   [Bugs](#Bugs)
@@ -241,7 +268,6 @@ The Images section consists of 1 main image and six additional images. The main 
 
 ### Profile Page
 This page can be accessed only by authenticated users. It consists of a sidebar menu with links for Profile, My Listings, and My favourite listings. 
-#### Profile page 
 The profile page is essentially a large card that includes the user's profile image and details like name, user name, email, and about me. Underneath, there are two buttons one for edit profile and one for delete profile.
 
 ![My Profile](./assets/readme-images/features/my-profile.PNG)
