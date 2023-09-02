@@ -192,3 +192,55 @@ Further testing was done on mobile to confirm all is working as expected.
 | Google Chrome | All pages, load as expected. All features work as expected | PASS | --- |
 | Firefox | All pages, load as expected. All features work as expected | PASS | --- |
 | Edge | All pages, load as expected. All features work as expected | PASS | During initial testing there was an issue with the hero image on Edge. The reason was that the browser does not support avif files. The file was converted to webp and tested again.  |
+
+## Lighthouse
+
+
+|Page|Validator|Result|
+| --- | --- | --- |
+| Home Desktop |![home](./assets/testing/lighthouse/home-d.PNG) | <mark>PASS<mark> |
+| Home Mobile |![home](./assets/testing/lighthouse/home-m.PNG) | <mark>PASS<mark> |
+| Listings Desktop|![listings](./assets/testing/lighthouse/listings-d.PNG) | <mark>PASS<mark> |
+| Listings Mobile|![listings](./assets/testing/lighthouse/listings-m.PNG) | <mark>PASS<mark> |
+| Single Listing Desktop|![Single Listing](./assets/testing/lighthouse/single-listing-d.PNG) | <mark>PASS<mark> |
+| Single Listing Mobile|![Single Listing](./assets/testing/lighthouse/single-listing-m.PNG) | <mark>PASS<mark> |
+| Create Listing Desktop|![Create Listing](./assets/testing/lighthouse/create-listing-d.PNG) | <mark>PASS<mark> |
+| Create Listing Mobile|![Create Listing](./assets/testing/lighthouse/create-listing-m.PNG) | <mark>PASS<mark> |
+| Edit Listing Desktop|![Create Listing](./assets/testing/lighthouse/edit-listing-d.PNG) | <mark>PASS<mark> |
+| Edit Listing Mobile|![Create Listing](./assets/testing/lighthouse/edit-listing-m.PNG) | <mark>PASS<mark> |
+| My Profile Desktop|![My Profile](./assets/testing/lighthouse/my-profile-d.PNG) | <mark>PASS<mark> |
+| My Profile Mobile|![My Profile](./assets/testing/lighthouse/my-profile-m.PNG) | <mark>PASS<mark> |
+| My Listings Desktop|![My Listings](./assets/testing/lighthouse/my-listings-d.PNG) | <mark>PASS<mark> |
+| My Listings Mobile|![My Listings](./assets/testing/lighthouse/my-listings-m.PNG) | <mark>PASS<mark> |
+| My Favourites Desktop|![My Favourites](./assets/testing/lighthouse/my-favourites-d.PNG) | <mark>PASS<mark> |
+| My Favourites Mobile|![My Favourites](./assets/testing/lighthouse/my-favourites-m.PNG) | <mark>PASS<mark> |
+| User Account Desktop|![User Account](./assets/testing/lighthouse/user-acc-d.PNG) | <mark>PASS<mark> |
+| User Account Mobile|![User Account](./assets/testing/lighthouse/user-acc-m.PNG) | <mark>PASS<mark> |
+| User Listings Desktop |![User Listings](./assets/testing/lighthouse/user-acc-listings-d.PNG) | <mark>PASS<mark> |
+| User Listings Mobile |![User Listings](./assets/testing/lighthouse/user-acc-m.PNG) | <mark>PASS<mark> |
+| Edit Profile Desktop|![Edit Profile](./assets/testing/lighthouse/edit-profile-d.PNG) | <mark>PASS<mark> |
+| Edit Profile Mobile|![Edit Profile](./assets/testing/lighthouse/edit-profile-m.PNG) | <mark>PASS<mark> |
+| Delete Profile Conf Desktop|![Delete Profile](./assets/testing/lighthouse/delete-profile-d.PNG) | <mark>PASS<mark> |
+| Delete Profile Conf Mobile|![Delete Profile](./assets/testing/lighthouse/delete-profile-m.PNG) | <mark>PASS<mark> |
+| Profile Deleted Desktop|![Profile Deleted](./assets/testing/lighthouse/profile-delete-success-d.PNG) | <mark>PASS<mark> |
+| Profile Deleted Mobile|![Profile Deleted](./assets/testing/lighthouse/profile-delete-success-m.PNG) | <mark>PASS<mark> |
+| Delete Listing Conf Desktop|![Delete Listing Conf](./assets/testing/lighthouse/delete-listing-d.PNG) | <mark>PASS<mark> |
+| Delete Listing Conf Mobile|![Delete Listing Conf](./assets/testing/lighthouse/delete-listing-m.PNG) | <mark>PASS<mark> |
+| Remove Favourite Desktop|![Remove Favourite](./assets/testing/lighthouse/remove-fav-d.PNG) | <mark>PASS<mark> |
+| Remove Favourite Mobile|![Remove Favourite](./assets/testing/lighthouse/remove-fav-m.PNG) | <mark>PASS<mark> |
+| Log In Desktop|![Log In](./assets/testing/lighthouse/sign-in-d.PNG) | <mark>PASS<mark> |
+| Log In Mobile|![Log In](./assets/testing/lighthouse/sign-in-m.PNG) | <mark>PASS<mark> |
+| Sign Up Desktop|![Sign Up](./assets/testing/lighthouse/sign-up-d.PNG) | <mark>PASS<mark> |
+| Sign Up Mobile|![Sign Up](./assets/testing/lighthouse/sign-up-m.PNG) | <mark>PASS<mark> |
+| Sign Out Conf Desktop|![home](./assets/testing/lighthouse/logout-d.PNG) | <mark>PASS<mark> |
+| Sign Out Conf Mobile|![home](./assets/testing/lighthouse/logout-m.PNG) | <mark>PASS<mark> |
+| Reset Password Enter email Desktop|![Reset Password Enter email](./assets/testing/lighthouse/pass-res-d.PNG) | <mark>PASS<mark> |
+| Reset Password Enter email Mobile|![Reset Password Enter email](./assets/testing/lighthouse/pass-res-m.PNG) | <mark>PASS<mark> |
+| Reset Password email sent Desktop|![Reset Password email sent](./assets/testing/lighthouse/pass-res-sent-d.PNG) | <mark>PASS<mark> |
+| Reset Password email sent Mobile|![Reset Password email sent](./assets/testing/lighthouse/pass-res-sent-m.PNG) | <mark>PASS<mark> |
+| Reset Password Enter password Desktop|![Reset Password Enter password](./assets/testing/lighthouse/pass-res-newpass-d.PNG) | <mark>PASS<mark> |
+| Reset Password Enter password Mobile|![Reset Password Enter password](./assets/testing/lighthouse/pass-res-newpass-m.PNG) | <mark>PASS<mark> |
+| Reset Password Complete Desktop|![Reset Password Complete](./assets/testing/lighthouse/pass-res-complete-d.PNG) | <mark>PASS<mark> |
+| Reset Password Complete Mobile|![Reset Password Complete](./assets/testing/lighthouse/pass-res-complete-m.PNG) | <mark>PASS<mark> |
+| Profile Deleted Success Desktop |![Profile Deleted Success](./assets/testing/lighthouse/profile-delete-success-d.PNG) | <mark>PASS<mark> |
+| Profile Deleted Success Mobile |![Profile Deleted Success](./assets/testing/lighthouse/profile-delete-success-m.PNG) | <mark>PASS<mark> |
