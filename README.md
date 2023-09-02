@@ -192,20 +192,102 @@ The project was created using a basic Kanban Board structure, divided into colum
 
 ## Features
 ### Navbar
-The navbar is a component that is present on all pages. It was created using bootstrap and is fully responsive. The AutoMarket logo which serves as a link to the homepage is located on the left side on the navbar. On the right are the nav links which allow the user to easily navigate through the website from any point. If the user is not authenticated the links displayed are Home, Listings and Login/Signup.
+The navbar is a component that is present on all pages. It was created using Bootstrap and is fully responsive. The AutoMarket logo which serves as a link to the homepage is located on the left side on the navbar. On the right are the nav links which allow the user to easily navigate through the website from any point. If the user is not authenticated the links displayed are Home, Listings, and Login/Signup.
 
 ![nav logged out](./assets/readme-images/features/nav-logged-out.PNG)
 
- If the user is authenticated they will see Home, Listings, Create Listing, Profile and Logout. The profile link will has the user's username displayed to clearly indicate that the user is logged. For better user experience each nav link when active is underlined with a border to let the user know the page they are currently on.
+ If the user is authenticated they will see Home, Listings, Create Listing, Profile, and Logout. The profile link will have the user's username displayed to indicate that the user is logged in. For a better user experience, each nav link when active is underlined with a border to let the user know the page they are currently on.
+
  ![nav logged in](./assets/readme-images/features/nav-logged-in.PNG)
  ![nav mobile](./assets/readme-images/features/nav-mobile.PNG)
 
  ### Footer
- The footer consist of information about AutoMarket and their contact details. To help the users connect with AutoMarket there are icons with links to social media which open in a new tab. 
- ![Dooter](./assets/readme-images/features/nav-mobile.PNG)
+ The footer consists of information about AutoMarket and their contact details. To help the users connect with AutoMarket there are icons with links to social media which open in a new tab. 
 
-  ### Home
-  The home page pre
+ ![Footer](./assets/readme-images/features/footer.PNG)
+
+### Home
+#### Hero Section
+The choice of hero image for the website serves a specific purpose: it immediately communicates the main purpose of the website. The text overlay, "Find Your New Car," directly connects the image to the website's purpose. It encourages users to take action and search for their ideal vehicle, making the website's primary function clear right from the start. The high-end car image was carefully selected to create an immediate and powerful connection between the user and the website's mission, inviting them to explore the website further.
+
+![Hero section](./assets/readme-images/features/nav-mobile.PNG)
+#### Search Form
+The search form allows the users to select via multiple filters like keywords, town, county, fuel type, year, and price. 
+The view that handles the search form on the back end, pulls all of the listings from the database and then applies all the filters from the user's request. The results are passed to the listings page which also has the same search form at the top. The search parameters are preserved within the form for a better user experience.
+
+![Search Form](./assets/readme-images/features/home-search.PNG)
+#### Recent Listings
+This section displays the six most recent listings added to the system.
+
+![Recent Listings](./assets/readme-images/features/recent-listings.PNG)
+#### Listing Card
+The listing card is designed to present to the user the most important information about the listing. 
+The card consists of a title, location, time ago posted, year, miles, price, and a button for more info. The card and the button are links to the single listing page.
+
+![Listing Card](./assets/readme-images/features/listing-card.PNG)
+
+### Listings Page
+The listings page consists of the same search form as the home page. Further down are displayed all the listings starting from the most recent ones. Once the user applies filters from the search form the results are refined based on the filter applied. Six cards per page are displayed followed by pagination to allow the user to easily navigate through multiple pages of listings. The pagination works well with search results as well.
+
+![Listings Page](./assets/readme-images/features/listing-results.PNG)
+![Listings Page results](./assets/readme-images/features/listings-search-filter.PNG)
+
+### Create Listing
+This page can be accessed only by authenticated users. It provides the user with a listing creation form. During the planning process, the initial idea was to try and connect to an external API to fetch the car details based on the reg plate, however, all of the available APIs are paid. This is a future feature I would like to add. Implementing this will save time for the user and they won't have to fill out this very long form which will improve the user experience. Another idea to make the form more user-friendly was to break it into sections and make it dynamic. The only reason this wasn't completed was due to the timeframe for the project's deadline. 
+The form fields limit wrong user input as much as possible by implementing select elements with drop-down options and using regex validation. The car model field is dynamically populated by using JavaScript and making a call to the back end. The model field is then populated with the appropriate options based on the car make selection. This helps to prevent users from creating listings with wrong details. Django widget tweaks was used to render the form in a more user-friendly version. The required fields are indicated by the * symbol after each label.
+The Images section consists of 1 main image and six additional images. The main image input field is indicated so that the user can easily select the best possible main image for the card listing.
+
+![Create Listing Form](./assets/readme-images/features/create-listing.PNG)
+
+### Profile Page
+This page can be accessed only by authenticated users. It consists of a sidebar menu with links for Profile, My Listings, and My favourite listings. 
+#### Profile page 
+The profile page is essentially a large card that includes the user's profile image and details like name, user name, email, and about me. Underneath, there are two buttons one for edit profile and one for delete profile.
+
+![My Profile](./assets/readme-images/features/my-profile.PNG)
+
+#### My listings
+This page shows all of the listings that were created by this user. The cards have additional buttons for editing and deleting listings which allows each user to easily manage their listings. Maximum of 6 listings per page display and then pagination will appear at the bottom to help the user navigate through their listings.
+
+![My Listings](./assets/readme-images/features/my-listings.PNG)
+
+#### My Favourites
+This page shows all the listings that have been saved to favourites by this user. The cards have buttons to remove from favourites or view the listing. Maximum of 6 listings per page display and then pagination will appear at the bottom to help the user navigate through their favourites.
+
+![My favourites](./assets/readme-images/features/my-favourites.PNG)
+
+#### Remove from Favourites
+The user can easily remove a listing from favourites by pressing the remove button on the card listing from their favourites page. The user is then redirected to the confirmation page with a warning message and two buttons- one to go back and one to remove the listing. Once clicked the listing is removed. 
+![Remove my favourites](./assets/readme-images/features/remove-favourites.PNG)
+
+#### Edit Listing
+This page displays the same form as create a listing, with already populated fields with the current details of the listing. The user can amend all of the details on the page and upload new images or just save the form as it is. Once submitted the user is redirected to my listings page.
+
+![Edit Listing](./assets/readme-images/features/edit-listing.PNG)
+
+#### Delete Listing
+When the user visits my listings page they can delete listings using the delete button on each card, which redirects the user to confirmation page. The page consists of a warning message and two buttons - one to go back and one to delete listing, which is in red colour to clearly indicate danger.  Once the user confirms, the listing is deleted. The user is then redirected to my listings page.
+
+![delete Listing](./assets/readme-images/features/delete-listing.PNG)
+
+#### View Listing
+This button leads to the single listing page. 
+On the top left, there is a button to go back. Since this page can be accessed from multiple places, the path for a step back cannot be a link to a specific URL. This is why this button brings the user one step back. Below the button is the images section consisting of one large image and up to 6 smaller images below. To display the images in a more user-friendly way Lighbox2 was used. The button can easily navigate through the images with the buttons on the side.
+
+![Gallery](./assets/readme-images/features/gallery.PNG)
+Below that a description of the listing can be found. On the right side of the listing is where the most important information is presented to the user in a user-friendly manner. 
+The listing's title (consisting of the car make and car model) followed by the price and then how long ago was this listing created.
+Below that the relevant specifications are displayed, and by using icons the information is visually structured better.
+If the user visits a listing that is not theirs there is a heart that they can click to save the listing into their favourites the action is clearly communicated with a flash message and the heart changing to a red heart. If the user clicks the heart again, they will remove the listing from favourites and will get a flash message letting them know that.
+
+![add favourites](./assets/readme-images/features/save-favourites.PNG)
+
+![remove favourites](./assets/readme-images/features/saved-listing.PNG)
+
+Further down there is a card with the seller's details, consisting of their image, name, email, phone, and location if added. Below that is an email seller button which when clicked opens a modal with a form. The form is prepopulated with the user's details if they are authenticated. Once submitted, an email is sent to the listing's owner with the details within the form. 
+![contact form](./assets/readme-images/features/contact-form.PNG)
+![contact form](./assets/readme-images/features/contact-email.PNG)
+
 ## Future Features
 ## Testing
 Testing documentation can be found [here.](./TESTING.md)
