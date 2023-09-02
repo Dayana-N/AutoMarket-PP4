@@ -83,7 +83,8 @@ def listings_pagination(request, listings):
 
 def load_data():
     '''
-    load data to database
+    This function was called to load the car makes
+    and model into the database.
     '''
     for key, value in cars.items():
         car_make_instance, created = CarMake.objects.get_or_create(
@@ -91,8 +92,3 @@ def load_data():
 
         for item in value:
             CarModel.objects.create(name=item, car_make=car_make_instance)
-
-    print('done')
-
-
-# load_data()
