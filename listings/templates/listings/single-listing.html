@@ -131,10 +131,15 @@
                     </div>
 
                     <div class="row mt-3">
-                        <!-- Location -->
+                        <!-- Body Type -->
                         <div class="col-6">
                             <div class="icon">
-                                <i class="fas fa-map-marker custom-icon"></i> {{ listing.town|capfirst }}, {{ listing.county|capfirst }}
+                                <i class="fa-solid fa-car-side custom-icon"></i>
+                                {% if listing.body_type %}
+                                 {{ listing.body_type|capfirst }}
+                                 {% else %}
+                                 --
+                                 {% endif %}
                             </div>
                         </div>
                         <!-- Fuel Type -->
@@ -144,6 +149,16 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row mt-3">
+                        <!-- Location -->
+                        <div class="col-6">
+                            <div class="icon">
+                                <i class="fas fa-map-marker custom-icon"></i> {{ listing.town|capfirst }}, {{ listing.county|capfirst }}
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <hr>
                 {% if request.user.profile.id != listing.owner.id %}
@@ -155,7 +170,7 @@
                             {% if favourite %}
                             <button class="btn" type="submit" name="favourites" value="submit">
                                 <i class="fa-solid fa-heart" style="color: #cc2424;"></i>
-                                Save Listing</button>
+                                Listing Saved</button>
                             {% else %}
                             <button class="btn" type="submit" name="favourites" value="submit">
                                 <i class="fa-regular fa-heart fa-bounce" style="color: #cc2424;"></i>

@@ -17,6 +17,7 @@
 html {
   height: 100%;
 }
+
 body {
   background-color: rgb(231, 236, 242);
   font-family: 'Roboto Slab', sans-serif;
@@ -127,7 +128,6 @@ a.active {
 }
 
 /* Listing results */
-
 .card-link,
 i {
     text-decoration: none;
@@ -141,19 +141,21 @@ i {
 
 .card-body {
   box-shadow: 3px 4px 12px 0px rgba(138,144,157,0.75);
--webkit-box-shadow: 3px 4px 12px 0px rgba(138,144,157,0.75);
--moz-box-shadow: 3px 4px 12px 0px rgba(138,144,157,0.75);
+  -webkit-box-shadow: 3px 4px 12px 0px rgba(138,144,157,0.75);
+  -moz-box-shadow: 3px 4px 12px 0px rgba(138,144,157,0.75);
 }
 
 /* Pagination */
 .page-link {
   color: var(--blue-background);
 }
+
 .page-item.active .page-link {
   color: var(--white);
   background-color: var(--blue-background);
   border-color: var(--dark-blue-background);
 }
+
 /* Single listing */
 #main-image {
   max-height: 400px;
@@ -163,14 +165,17 @@ i {
 .seller-card {
   background-color: var(--page-background);
 }
+
 .img-thumb {
   width: auto;
   height: 100%;
   object-fit: cover;
 }
+
 .custom-icon {
   color: #000;
 }
+
 .seller-image-container {
   height: 120px;
   width: 120px;
@@ -187,12 +192,14 @@ i {
 .border-container {
   border: 2px solid var(--light-gray);
 }
+
 .image-container {
   display: flex;
   justify-content: center;
   height: 250px;
   width: 250px;
 }
+
 .profile-image {
   max-width: 100%;
   border-radius: 25%;
@@ -209,7 +216,6 @@ i {
 .btn-sidebar {
   color:var(--violet)
 }
-
 
 .btn-sidebar.active {
   color:var(--dark-blue-text);
