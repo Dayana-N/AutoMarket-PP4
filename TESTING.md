@@ -7,12 +7,16 @@ Go back to [README.md](/README.md)
     - [JavaScript](#JavaScript)
     - [Python](#python)
 - [Responsiveness](#Responsiveness)
+- [Browser Compatibility](#browser-compatibility)
 - [Lighthouse](#Lighthouse)
 - [Manual Testing](#manual-testing)
 - [User Story Testing](#user-story-testing)
 
 ## Code Validation
 ### HTML
+|Page|Validator|Result|
+| --- | --- | --- |
+| Home |![home](./assets/testing/html-validator/home.PNG) | <mark>PASS<mark> |
 ### CSS
 ### JavaScript
 1. listing_form.js <mark>PASS<mark> 
