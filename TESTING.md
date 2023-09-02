@@ -41,6 +41,9 @@ Go back to [README.md](/README.md)
 
 
 ### CSS
+Test Results CSS  <mark>PASS<mark> 
+
+![css-validator](./assets/testing/css-validator.PNG)
 ### JavaScript
 1. listing_form.js <mark>PASS<mark> 
 
@@ -150,3 +153,42 @@ The initial test showed variable not declared. This was fixed.
 - views.py <mark>PASS<mark>
 
 ![views](./assets/testing/users-views.PNG)
+
+## Responsiveness
+During development each page was tested using dev tools in Google Chrome. The strategy involved ensuring that every page would adapt to various screen sizes beyond a width of 320px, as opposed to relying on fixed device-specific widths.
+Further testing was done on mobile to confirm all is working as expected.
+
+|Device|Screen Size|Pass/Fail|Comment|
+| --- | --- | --- | ---|
+| Iphone 4 | 320x480 | PASS | All sections are displayed correctly. All features work|
+| Iphone 12 Pro | 390x844 | PASS | All sections are displayed correctly. All features work|
+| Samsung Galaxy s20U | 412x915 | PASS | All sections are displayed correctly. All features work|
+| Galaxy Tab S4 | 712x1138| PASS | All sections are displayed correctly. All features work|
+| Nest Hub | 1024x600 | PASS | All sections are displayed correctly. All features work|
+
+
+### Galaxy S20 Ultra
+<details><summary>Home</summary> 
+ <img src="./assets/testing/responsiveness/Home.jpg"> </details>
+
+<details><summary>Listings</summary> <img src="./assets/testing/responsiveness/Listings.jpg"></details>
+<details><summary>Single Listing</summary><img src="./assets/testing/responsiveness/single-listing-page.jpg"></details>
+<details><summary>Gallery</summary><img src="./assets/testing/responsiveness/gallery.jpg"></details>
+<details><summary>Create Listing</summary><img src="./assets/testing/responsiveness/Create-listing.jpg"></details>
+<details><summary>My Profile</summary><img src="./assets/testing/responsiveness/my-profile.jpg"></details>
+<details><summary>My Favourites</summary><img src="./assets/testing/responsiveness/my-favourites.jpg"></details>
+<details><summary>My Listings</summary><img src="./assets/testing/responsiveness/my-listings.jpg"></details>
+<details><summary>Remove Favourite</summary><img src="./assets/testing/responsiveness/remove-fav-conf.jpg"></details>
+<details><summary>500 Page</summary><img src="./assets/testing/responsiveness/500-page.jpg"></details>
+<details><summary>Log In</summary><img src="./assets/testing/responsiveness/Sign-in.jpg"></details>
+<details><summary>Sign Up</summary><img src="./assets/testing/responsiveness/Sign-up.jpg"></details>
+
+
+## Browser Compatibility
+
+
+|Browser|Result|Pass/Fail|Notes|
+| --- | --- | --- | ---|
+| Google Chrome | All pages, load as expected. All features work as expected | PASS | --- |
+| Firefox | All pages, load as expected. All features work as expected | PASS | --- |
+| Edge | All pages, load as expected. All features work as expected | PASS | During initial testing there was an issue with the hero image on Edge. The reason was that the browser does not support avif files. The file was converted to webp and tested again.  |
