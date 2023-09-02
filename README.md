@@ -284,9 +284,84 @@ If the user visits a listing that is not theirs there is a heart that they can c
 
 ![remove favourites](./assets/readme-images/features/saved-listing.PNG)
 
-Further down there is a card with the seller's details, consisting of their image, name, email, phone, and location if added. Below that is an email seller button which when clicked opens a modal with a form. The form is prepopulated with the user's details if they are authenticated. Once submitted, an email is sent to the listing's owner with the details within the form. 
+Further down there is a card with the seller's details, consisting of their image, name, email, phone, and location if added. Their image is a link to their user account page. Below that is an email seller button which when clicked opens a modal with a form. The form is prepopulated with the user's details if they are authenticated. Once submitted, an email is sent to the listing's owner with the details within the form. 
 ![contact form](./assets/readme-images/features/contact-form.PNG)
-![contact form](./assets/readme-images/features/contact-email.PNG)
+![contact email](./assets/readme-images/features/contact-email.PNG)
+
+#### User account and User account listings
+This page renders other user's profiles. It has a very similar layout to my profile page with a few small changes. There are no favourites links in the sidebar menu. The profile page does not have edit and delete buttons as users should only be able to amend their profile pages. The link for my listings shows all of the listings this user has created. The cards display with a view button only.
+
+![user account](./assets/readme-images/features/user-account.PNG)
+
+![user account listings](./assets/readme-images/features/user-account-listings.PNG)
+
+### Sign In page
+Consist of a form with username and password. Below it has a link to reset password, followed by a sign in button which submits the form. The register link is position below that.
+
+![Sign In](./assets/readme-images/features/sign-in.PNG)
+
+### Sign Up page
+Consists of a form with name, email, username, password, and password confirmation. Below it has a link to log in if the user already has an account. Below that is the signup button. The user is sent a welcome email to the email provided and is redirected to the profile page update form to customize their profile
+
+![Sign Un](./assets/readme-images/features/signup.PNG)
+![Welcome email](./assets/readme-images/features/welcome-email.PNG)
+
+### Sign out confirmation
+When the user clicks on the log out link in the nav, they are redirected to the confirmation page. This page consist of warning message and two buttons- one to go back and one to log out.
+
+![log out confirmation](./assets/readme-images/features/log-out-confirmation.PNG)
+
+### Edit Profile
+The edit profie page renders a form with prefilled fields with the existing information for this user. It consists of profie image, name, username, email, phone, town, county and about me section. Below that is the submit button which will update the profile details once submitted. 
+
+![edit profile](./assets/readme-images/features/edit-profile.PNG)
+
+### Delete Profile Confirmation
+This page consists of warning message with two buttons - one to go back and one to delete the profile. Delete profile is in red to indicate danger. Once clicked the profile is deleted and the user is redirected to We are sorry to see you go page
+
+![delete profile](./assets/readme-images/features/delete-profile.PNG)
+
+### We are sorry to see you go
+This page confirms that the profile was deleted. The user is presented with a flash message confirming the profile was deleted successfully. Below that there is a button to go back to the home page.
+
+![profile deleted](./assets/readme-images/features/profile-deleted.PNG)
+
+### Password reset
+This page prompts the user to enter their email address. An email with instructions is then sent to their email and the user is redirected to a page that informs them about the email being sent.
+
+![pass reset](./assets/readme-images/features/pass-reset-enter-email.PNG)
+
+### Password reset email sent
+This page informs the user an email with instructions has been sent.
+
+![pass reset email sent](./assets/readme-images/features/pass-reset-sent.PNG)
+
+Email with instructions
+
+![pass reset email](./assets/readme-images/features/pass-reset-email-instructions.PNG)
+
+### Enter a new password
+When the user follows the link from the email, they are sent to a page to set up their new password.
+
+![pass reset new pass](./assets/readme-images/features/pass-reset-new-pass.PNG)
+
+### Password Reset Completed
+Once the form is submitted the user is redirected to a page advising them the password reset was completed followed by a log-in button.
+
+![pass reset completed](./assets/readme-images/features/pass-reset-completed.PNG)
+
+### Error Pages
+- 404
+
+![404](./assets/readme-images/features/404page.PNG)
+- 403
+
+![403](./assets/readme-images/features/403-page.PNG)
+- 500
+
+![500](./assets/readme-images/features/500-error.PNG)
+
+
 
 ## Future Features
 ## Testing
