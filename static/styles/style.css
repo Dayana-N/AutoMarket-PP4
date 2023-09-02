@@ -135,7 +135,7 @@ i {
 }
 
 .card-image {
-    height: 250px;
+    height: 190px;
     object-fit: contain;
 }
 
@@ -143,6 +143,16 @@ i {
   box-shadow: 3px 4px 12px 0px rgba(138,144,157,0.75);
 -webkit-box-shadow: 3px 4px 12px 0px rgba(138,144,157,0.75);
 -moz-box-shadow: 3px 4px 12px 0px rgba(138,144,157,0.75);
+}
+
+/* Pagination */
+.page-link {
+  color: var(--blue-background);
+}
+.page-item.active .page-link {
+  color: var(--white);
+  background-color: var(--blue-background);
+  border-color: var(--dark-blue-background);
 }
 /* Single listing */
 #main-image {
