@@ -92,7 +92,7 @@ Edit Profile
 
                                 <!-- Edit county -->
                                 <div class="form-floating mb-4">
-                                    {% render_field form.county class="form-control" placeholder=form.county.label %}
+                                    {% render_field form.county class="form-control" %}
                                     <label for="{{ form.county.id_for_label }}" class="form-label">County</label>
                                     {{ form.county.errors }}
                                     {% for error in form.county.errors %}

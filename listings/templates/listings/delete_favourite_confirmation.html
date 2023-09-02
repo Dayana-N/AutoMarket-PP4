@@ -10,7 +10,7 @@ Remove Favourite
             <div class="col-sm-6 col-lg-4 mx-auto text-center my-5 p-4 shadow-container">
               <form action="{% url 'remove-myfavourites' listing.id %}" method="POST">
                 {% csrf_token %}
-                <p>Are you Sure you want to remove this listing from Favourites?</p>
+                <h2>Are you Sure you want to remove this listing from Favourites?</h2>
                 <div class="mt-2">
                   <a href="{% url 'my-favourites' request.user.profile.id %}" class="btn btn-blue text-white">Go Back</a>
                   <button type="submit" class="btn btn-danger text-white">Remove</button>

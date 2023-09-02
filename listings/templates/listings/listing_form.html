@@ -2,7 +2,11 @@
 {% load static %}
 {% load widget_tweaks %}
 {% block title %}
-Create Listings
+{% if page == 'edit' %}
+Edit Listing
+{% else %}
+Create New Listing
+{% endif %}
 {% endblock title %}
 
 {% block content %}
@@ -23,7 +27,7 @@ Create Listings
                             <div class="col-12 col-md-6">
                                 <!-- Car Make -->
                                 <div class="form-floating mb-4">
-                                    {% render_field form.car_make|attr:'required:true' class="form-control" %}
+                                    {% render_field form.car_make|attr:'required' class="form-control" %}
                                     <label for="id_car_make" class="form-label">Car Make: *</label>
                                     {% for error in field.errors %}
                                     <span class="text-danger">{{ error }}</span>
@@ -31,7 +35,7 @@ Create Listings
                                 </div>
                                  <!-- Car Model -->
                                 <div class="form-floating mb-4">
-                                    {% render_field form.car_model|attr:'required:true' class="form-control" %}
+                                    {% render_field form.car_model|attr:'required' class="form-control" %}
                                     <label for="id_car_model" class="form-label">Car Model: *</label>
                                     {% for error in field.errors %}
                                     <span class="text-danger">{{ error }}</span>
@@ -82,7 +86,7 @@ Create Listings
                                 </div>
                                  <!-- Engine Size -->
                                 <div class="form-floating mb-4">
-                                    {% render_field form.engine_size class="form-control" placeholder=form.mileage.engine_size %}
+                                    {% render_field form.engine_size class="form-control" %}
                                     <label for="id_engine_size" class="form-label">Engine Size:</label>
                                     {% for error in field.errors %}
                                     <span class="text-danger">{{ error }}</span>
