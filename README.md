@@ -394,16 +394,94 @@ Once the form is submitted the user is redirected to a page advising them the pa
 Testing documentation can be found [here.](./TESTING.md)
 ## Bugs
 ## Technologies And Languages
+
 ### Languages Used
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
+- Python
+- Django
+- Django Rest Framework
+
 ### Python Modules
+- Boto3 is the Amazon Web Services (AWS) SDK for Python. It allows to interact with AWS services, such as S3
+
+- dj-database-url - This library is used to parse the database URL specified in the DATABASE_URL environment variable, which is commonly used for configuring database connections in Django projects.
+
+- django-resized - This package provides utilities for resizing images in Django. 
+
+- django-storages - Django Storages is a collection of custom storage backends for Django, including support for storing files on remote services like AWS S3.
+
+- django-widget-tweaks - Django Widget Tweaks is a package that simplifies working with form widgets and templates in Djang
+
+- djangorestframework - Django REST framework is a toolkit for building Web APIs in Django.
+
+- gunicorn - Gunicorn is a popular WSGI (Web Server Gateway Interface) HTTP server for running Python web applications, including Django applications, in a production environment.
+
+- Pillow - Pillow is a Python Imaging Library (PIL) fork that provides tools for working with images in various formats.
+
+- psycopg2 - Psycopg2 is a PostgreSQL adapter for Python. It allows Django to connect to PostgreSQL databases.
+
+- s3transfer - S3 Transfer is a library for managing file transfers to and from Amazon S3 storage.
+
+- whitenoise - Whitenoise is a middleware for serving static files directly from your Django application.
+- django humanize - A set of Django template filters useful for adding a “human touch” to data. Used to transform large numbers into easy to read numbers
 ### Technologies and programs
+ - [Favicon Generator](https://favicon.io/favicon-converter/) was used to generate Favicon
+ - [Lightbox](https://lokeshdhakar.com/projects/lightbox2/) was used to display the listings images in a more user friendly way
+ - [GitHub](https://github.com/) is the hosting site used to store the code for the website.
+- [Git](https://git-scm.com/) was used as a version control software to commit and push the code to the GitHub repository.
+- [Code Institute Template](https://github.com/Code-Institute-Org/gitpod-full-template) was used as a starting point for the project.
+- [Photoshop](https://www.adobe.com/ie/products/photoshop.html) was used for creating the mockup images of the website during planning stage.
+- [Google Fonts](https://fonts.google.com/) was used to import fonts.
+- [Google Chrome Lighthouse](https://developers.google.com/web/tools/lighthouse) was used during the testing of the website.
+- [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/overview/) was used during testing, debugging and making the website responsive.
+- [W3C HTML Validator](https://validator.w3.org/) was used to check for errors in the HTML code.
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to check for errors in the CSS code
+- [Js Hint](https://jshint.com/) was used to validate the JavaScript code.
+- [CI Python Linter](https://pep8ci.herokuapp.com/) was used to validate the Python code.
+- [Online Convert](https://image.online-convert.com/convert-to-webp) used to convert images to webp format
+- [Coolors.co](https://coolors.co/) was used to display the colour scheme.
+- [Box Shadow Generator](https://cssgenerator.org/box-shadow-css-generator.html) was used to generate the shadows
+
 ## Deployment
 ### Before Deployment
+To ensure the application is deployed correctly on Heroku it is mandatory to update the requirements.txt. This is a list of requirements that the application needs in order to run.
+
+- To create the list of requirements we use the command pip3 freeze > requirements.txt. This will ensure the file with the requirements is updated.
+- Then commit and push the changes to GitHub.
 ### Deployment on Heroku
-### Creating A Fork
+### Creating a fork
+1. Navigate to the [repository](https://github.com/Dayana-N/AutoMarket-PP4)
+2. In the top-right corner of the page click on the fork button and select create a fork.
+3. You can change the name of the fork and add description 
+4. Choose to copy only the main branch or all branches to the new fork. 
+5. Click Create a Fork. A repository should appear in your GitHub
+
 ### Cloning Repository
+1. Navigate to the [repository](https://github.com/Dayana-N/AutoMarket-PP4)
+2. Click on the Code button on top of the repository and copy the link. 
+3. Open Git Bash and change the working directory to the location where you want the cloned directory. 
+4. Type git clone and then paste the link.
+5. Press Enter to create your local clone.
 ## Credits
 ### Media
+- [Default user image](https://res.cloudinary.com/dpmykpsih/image/upload/c_fill,f_auto,q_auto,w_360/tj-samson-site-251/media/5c7a249a36974d978322f386269f9c24.jpg)
+- [Hero image](https://static1.hotcarsimages.com/wordpress/wp-content/uploads/2023/01/2023-bmw-4-series-coupe-featured.jpg)
+- [Sorry to see you go image](https://charatoon.com/?id=5214)
+- [Default Listing Image](https://png.pngtree.com/template/20220419/ourmid/pngtree-photo-coming-soon-abstract-admin-banner-image_1262901.jpg)
+
 ### Code
+- Learned how to setup django project and deploy to Heroku from CI Django Blog walkthrough 
+- [How to create dependant drop down](https://github.com/akjasim/cb_dj_dependent_dropdown) The code was later refactored to use Django Rest Api
+- [The Car models list is from (back4app)](https://www.back4app.com/database/back4app/car-make-model-dataset) 
+- [How to use Q objects for complex queries](https://books.agiliq.com/projects/django-orm-cookbook/en/latest/query_relatedtool.html)
+- [Pagination fix for multiple search parameters](https://stackoverflow.com/questions/46026268/pagination-and-get-parameters)
+- [How to catch email sending exceptions](https://stackoverflow.com/questions/41457565/how-to-catch-email-sending-exceptions-in-django-1-10)
+- The search form was inspired visually by Brad Traversy's Python course
+- How to setup AWS - CI instructions from PP5 walkthrough
+- I learned how to use advanced Django concepts like signals, sending emails, how to use django rest framework and more from Dennis[ Ivy's Django course](https://dennisivy.teachable.com/p/django-beginners-course)
 ### Acknowledgements
+
 ### Comments
