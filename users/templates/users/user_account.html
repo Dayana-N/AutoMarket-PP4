@@ -35,13 +35,13 @@ User Account
                                 </div>
                             </div>
                             <div class="row">
-                                <h4>{{ profile.name }}</h4>
+                                <h4>{{ profile.name|capfirst }}</h4>
                                 <p>{{ profile.username }}</p>
                                 <p>{% if profile.town %}
-                                    {{ profile.town }},
+                                    {{ profile.town|capfirst }},
                                     {% endif %}
                                     {% if profile.county %}
-                                    {{ profile.county }}
+                                    {{ profile.county|capfirst }}
                                     {% endif %}</p>
                             </div>
                             <div class="row p-3  d-flex flex-column align-items-center">
