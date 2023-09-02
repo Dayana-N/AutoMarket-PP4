@@ -57,7 +57,7 @@ a.active {
 
 /* Hero section */
 #hero-image {
-  background-image: url(/static/images/hero-image.avif);
+  background-image: url(/static/images/hero-image.webp);
   background-repeat: no-repeat;
   background-position: left;
   background-size: cover;
