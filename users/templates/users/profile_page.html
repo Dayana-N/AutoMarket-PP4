@@ -46,7 +46,11 @@ My Profile
                             <div class="row p-3">
                                 <h4>About Me:</h4>
                                 <div class="col px-2">
+                                    {% if profile.about_me %}
                                     <p>{{ profile.about_me }} </p>
+                                    {% else %}
+                                    --
+                                    {% endif %}
                                 </div>
                             </div>
                             <div>
