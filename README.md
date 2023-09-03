@@ -195,6 +195,19 @@ The font used in this project is Roboto Slab, which compliments the design of th
 ![Font](./assets/readme-images/font.PNG)
 
 ### Wireframes
+- Home
+![Home](./assets/readme-images/wireframes/Home.png)
+- Listings
+![listings](./assets/readme-images/wireframes/Listings.png)
+- Single listing
+![single-listing](./assets/readme-images/wireframes/single-listing.png)
+- Log in
+![login](./assets/readme-images/wireframes/login.png)
+- My Listings
+![my listings](./assets/readme-images/wireframes/my-listings.png)
+- Profile
+![profile](./assets/readme-images/wireframes/profile.png)
+
 ### Agile Methodology
 #### Overview
 This project was created using agile principles. This was a big learning curve together with my very first full-stack project. Using the agile approach allowed me to plan all the features of the website through user stories. Each user story has acceptance criteria and tasks to clearly outline the requirements for each feature to be completed.
@@ -478,7 +491,7 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 ### Deployment on Heroku
 - To deploy the project on Heroku, first create an account.
 - Once logged in, create a new app by clicking on the create app button
-- Pick a unique name for the app, select a region, and click create app.
+- Pick a unique name for the app, select a region, and click Create App.
 - On the next page select the settings tab and scroll down to Config Vars. If there are any files that should be hidden like credentials and API keys they should be added here. In this project, there are credentials that need to be protected. This project requires credentials added for:
 1. Django's secret key
 2. Database Credentials
@@ -487,7 +500,7 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 4. Email host password.
 - Scroll down to Buildpacks. The buildpacks will install further dependencies that are not included in the requirements.txt. For this project, the buildpack required is Python
 - From the tab above select the deploy section.
-- The deployment method for this project is GitHub. Once selected, confirm that we want to connect to GitHub, search for the repository name and click connect to connect the Heroku app to our GitHub code.
+- The deployment method for this project is GitHub. Once selected, confirm that we want to connect to GitHub, search for the repository name, and click connect to connect the Heroku app to our GitHub code.
 - Scroll further down to the deploy section where automatic deploys can be enabled, which means that the app will update every time code is pushed to GitHub. Click deploy and wait for the app to be built. Once this is done, a message should appear letting us know that the app was successfully deployed with a view button to see the app.
 ### Creating a fork
 1. Navigate to the [repository](https://github.com/Dayana-N/AutoMarket-PP4)
@@ -525,3 +538,12 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 - Dennis Ivy for the brilliant 18-hour Django course, which explains in detail a lot of the main Django concepts.
 
 ### Comments
+This project consists of three apps - API, Listings, and Users. 
+The User's app handles everything related to the users including their listings and favourites since they are directly related to the user. 
+The Listings app handles everything related to the listings including CRUD functionality and add and remove from favourites.
+The API app was created to serialize the data and pass it to the front end. In particular the car models. On the front end, JavaScript makes a call to fetch all the models based on the user's selection of car make. 
+The car makes and models were loaded into the database by calling a function in the utils.py file. The code loops over all of the car models in the cars dictionary and uploads them to the database. This function should not be called otherwise. It has been left there to document the process. 
+
+I wanted to include some automated testing, but unfortunately i ran out of time. However, this is something I plan to add in the future to help me manage the project as I keep adding more features.
+
+This project is particularly close to my heart, not only because it's my very first full-stack project but also because it's inspired by my love for cars. 
