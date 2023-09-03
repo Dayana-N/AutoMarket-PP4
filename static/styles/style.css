@@ -135,7 +135,7 @@ i {
 }
 
 .card-image {
-    height: 190px;
+    height: 270px;
     object-fit: contain;
 }
 
@@ -257,6 +257,12 @@ i {
 
 .copyright {
   background-color: var(--dark-blue-background);
+}
+
+@media (max-width: 430px) {
+  .card-image{
+    height: 160px;
+  }
 }
 
 @media (max-width: 500px) {

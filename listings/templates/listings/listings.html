@@ -12,10 +12,10 @@ Listings
 <section class="results mt-5">
     <div class="container text-center mt-5">
         <h2>Results</h2>
-        <div class="row mt-5">
+        <div class="row mt-5 justify-content-center">
             {% for listing in listings %}
             <!-- Card -->
-            <div class="col-md-6 col-xl-4 mb-4">
+            <div class="col-10 col-md-6 col-xl-4 mb-4">
                 <div class="card listing-preview">
                     <div class="card-body">
                         <a class="card-link" href="{% url 'single-listing' listing.id %}">
