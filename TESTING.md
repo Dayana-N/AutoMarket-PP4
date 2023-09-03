@@ -195,7 +195,6 @@ Further testing was done on mobile to confirm all is working as expected.
 
 ## Lighthouse
 
-
 |Page|Validator|Result|
 | --- | --- | --- |
 | Home Desktop |![home](./assets/testing/lighthouse/home-d.PNG) | <mark>PASS<mark> |
@@ -244,3 +243,37 @@ Further testing was done on mobile to confirm all is working as expected.
 | Reset Password Complete Mobile|![Reset Password Complete](./assets/testing/lighthouse/pass-res-complete-m.PNG) | <mark>PASS<mark> |
 | Profile Deleted Success Desktop |![Profile Deleted Success](./assets/testing/lighthouse/profile-delete-success-d.PNG) | <mark>PASS<mark> |
 | Profile Deleted Success Mobile |![Profile Deleted Success](./assets/testing/lighthouse/profile-delete-success-m.PNG) | <mark>PASS<mark> |
+
+## User Story Testing
+|User Story|Screenshot|Result|
+| --- | --- | --- |
+| As a developer I can set up a new Django project so that I can create the project's structure | The project was set up successfully| <mark>PASS<mark>  |
+| As a developer I can connect database and media storage so that the user's stored data is stored successfully | Database and media storage were connected successfully| <mark>PASS<mark> |
+| As a developer I can deploy the application early so that I can confirm that the initial setup is working and can continue testing the application during development | The application was deployed after the initial set up to confirm everything is working as expected| <mark>PASS<mark> |
+| As a developer I can create wireframes so that the layout of the website is clear for desktop and mobile | wireframes were created and are included in the relevant section of the [README](./README.md)| <mark>PASS<mark> |
+|As a user I want the website to be responsive so I can view it on my mobile | ![mobile view](./assets/testing/responsiveness/Home.jpg)| <mark>PASS<mark> |
+| As a user I want to be able to register an account so that I can have access to all functionality of AutoMarket. | ![Sign up](./assets/readme-images/features/signup.PNG)| <mark>PASS<mark> |
+| As a registered user I want to be able to log in to my account so I can view my profile page, my listings, and my favourites. | ![Sign In](./assets/readme-images/features/sign-in.PNG)| <mark>PASS<mark> |
+| As a registered user I want to be able to see my profile page so that I can update my information | ![My Profile](./assets/readme-images/features/my-profile.PNG)| <mark>PASS<mark> |
+| As a registered user I want to be able to reset my password so that I can regain access to my account in case I forget my password | ![Pass Reset](./assets/readme-images/features/pass-reset-enter-email.PNG)| <mark>PASS<mark> |
+| As a user I want to be able to view other user’s profiles so that I can get more information about the seller/buyer like location and phone number | ![User Account](./assets/readme-images/features/user-account.PNG)| <mark>PASS<mark> |
+| As a registered user I want to be able to delete my profile and all my listings if I do not wish to use the services of AutoMarket. | ![Delete Profile](./assets/readme-images/features/delete-profile.PNG)| <mark>PASS<mark> |
+| As a user, I want to be able to see the most recent listings on the landing page so that I can quickly and easily discover the latest items available for sale | ![Recent Listings](./assets/readme-images//recent-listings.PNG)| <mark>PASS<mark> |
+| As a user I want to be able to see details about the listing such as a description, image, and seller’s details so that I can find suitable car options and make informed decisions before I contact the seller | ![Single Listing](./assets/readme-images/features/single-listing.PNG)| <mark>PASS<mark> |
+| As a user I want to be able to easily navigate through pages of listings so that I can view all the listings in an organised way (pagination) | ![Pagination](./assets/readme-images/features/pagination.PNG)| <mark>PASS<mark> |
+| As a registered user I want to be able to create a listing so that I can advertise my vehicle for sale. | ![Create Listing](./assets/readme-images/features/create-listing.PNG)| <mark>PASS<mark> |
+| As a registered user I want to be able to edit a listing so that I can correct any mistakes or adjust the listed price | ![Edit Listing](./assets/readme-images/features/edit-listing.PNG)| <mark>PASS<mark> |
+| As a registered user I want to be able to delete a listing so that it is not available for other users to view. | ![Delete Listing](./assets/readme-images/features/delete-listing.PNG)| <mark>PASS<mark> |
+| As a registered user I want to be able to see all of the listings I have created so that I can manage and keep track of the vehicles I have listed for sale. | ![My Listings](./assets/readme-images/features/my-listings.PNG)| <mark>PASS<mark> |
+| As a site owner I want to ensure that the user is prompted with a notification message when performing CRUD operations or login/logout, and signup so that the user is informed about the outcome of the action taken | ![Flash messages](./assets/readme-images/features/flash-messages.PNG)| <mark>PASS<mark> |
+| As a registered user I want to be able to send messages to the seller of the listing so that I can arrange viewings and ask questions about the listing. (Won't Have) | N/A| N/A |
+| As a registered user I want to be able to send messages to the seller of the listing so that I can arrange viewings and ask questions about the listing. (Won't Have) | N/A| N/A |
+| As a registered user I want to be able to view any messages I may have received so that I can keep track of communication with other users. (Won't Have) | N/A| N/A |
+| As a registered user I want to be able to reply to messages so that I can connect with other users. (Won't Have) | N/A| N/A |
+| As a registered user I want to be able to save listings to my favourites so that I can keep track of my favourite listings, making it easier to revisit and compare later. | ![Favourites](./assets/readme-images/features/save-favourites.PNG)| <mark>PASS<mark> |
+| As a registered user I want to be able to view my favourite listings so that I can easily revisit them later | ![Favourites](./assets/readme-images/features/my-favourites.PNG)| <mark>PASS<mark> |
+| As a registered user I want to be able to remove listings from favourites if I am not interested in the listing anymore | ![Remove Favourites](./assets/readme-images/features/remove-favourites.PNG)| <mark>PASS<mark> |
+| As a User I can navigate through the website so that I can access different sections efficiently | ![NavBar](./assets/readme-images/features/nav-logged-in.PNG)| <mark>PASS<mark> |
+|As a user I can visit the home page so that I can quickly browse and find relevant car listings based on my preferences | ![Home](./assets/readme-images/automarket-home-d.png)| <mark>PASS<mark> |
+|As a non-authenticated user, I want to access the user profile pages of listing owners, so that I can **view their contact details and listings. | ![User Account](./assets/readme-images/features/user-account.PNG)| <mark>PASS<mark> |
+|As a registered user I want to be able to send emails to the seller of the listing so that I can arrange viewings and ask questions about the listing. | ![Send Email Form](./assets/readme-images/features/contact-form.PNG)| <mark>PASS<mark> |

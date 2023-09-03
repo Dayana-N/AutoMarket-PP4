@@ -96,13 +96,13 @@ AutoMarket is a full stack project allowing users to postlistings with their veh
 20. As a registered user I want to be able to send messages to the seller of the listing so that I can arrange viewings and ask questions about the listing. (Won't Have)
 21. As a registered user I want to be able to send messages to the seller of the listing so that I can arrange viewings and ask questions about the listing. (Won't Have)
 22. As a registered user I want to be able to view any messages I may have received so that I can keep track of communication with other users. (Won't Have)
-23. As a registered user I want to be able to reply to messages so that I can connect with other users.
+23. As a registered user I want to be able to reply to messages so that I can connect with other users. (Won't have)
 24. As a registered user I want to be able to save listings to my favourites so that I can keep track of my favourite listings, making it easier to revisit and compare later.
 25. As a registered user I want to be able to view my favourite listings so that I can easily revisit them later
 26. As a registered user I want to be able to remove listings from favourites if I am not interested in the listing anymore
 27. As a User I can navigate through the website so that I can access different sections efficiently
 28. As a user I can visit the home page so that I can quickly browse and find relevant car listings based on my preferences
-29. As a non-authenticated user, I want to access the user profile pages of listing owners, so that I can view their contact details and listings, and I can also mark listings as favorites without those being visible to other users.
+29. As a non-authenticated user, I want to access the user profile pages of listing owners, so that I can **view their contact details and listings.
 30. As a registered user I want to be able to send emails to the seller of the listing so that I can arrange viewings and ask questions about the listing.
 
 ### Site Goals
@@ -314,6 +314,11 @@ Further down there is a card with the seller's details, consisting of their imag
 ![contact form](./assets/readme-images/features/contact-form.PNG)
 ![contact email](./assets/readme-images/features/contact-email.PNG)
 
+#### Flash Messages
+Flash messages were user every time the user performs CRUD operation, sign in, and sign out.
+
+![messages](./assets/readme-images/features/flash-messages.PNG)
+
 #### User account and User account listings
 This page renders other user's profiles. It has a very similar layout to my profile page with a few small changes. There are no favourites links in the sidebar menu. The profile page does not have edit and delete buttons as users should only be able to amend their profile pages. The link for my listings shows all of the listings this user has created. The cards display with a view button only.
 
@@ -480,8 +485,11 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 - [Pagination fix for multiple search parameters](https://stackoverflow.com/questions/46026268/pagination-and-get-parameters)
 - [How to catch email sending exceptions](https://stackoverflow.com/questions/41457565/how-to-catch-email-sending-exceptions-in-django-1-10)
 - The search form was inspired visually by Brad Traversy's Python course
-- How to setup AWS - CI instructions from PP5 walkthrough
-- I learned how to use advanced Django concepts like signals, sending emails, how to use django rest framework and more from Dennis[ Ivy's Django course](https://dennisivy.teachable.com/p/django-beginners-course)
+- How to setup AWS - CI instructions from the PP5 walkthrough
+- I learned how to use advanced Django concepts like signals, sending emails, how to use Django rest framework, and more from Dennis[ Ivy's Django course](https://dennisivy.teachable.com/p/django-beginners-course)
 ### Acknowledgements
+- Huge thank you to my mentor Ronan McClelland for encouraging me to go with my very ambitious idea for my first full-stack project.
+- The Slack community and especially Indrek who listened to my struggles during development.
+- Dennis Ivy for the brilliant 18-hour Django course, which explains in detail a lot of the main Django concepts.
 
 ### Comments
