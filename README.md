@@ -521,6 +521,7 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 - [Hero image](https://static1.hotcarsimages.com/wordpress/wp-content/uploads/2023/01/2023-bmw-4-series-coupe-featured.jpg)
 - [Sorry to see you go image](https://charatoon.com/?id=5214)
 - [Default Listing Image](https://png.pngtree.com/template/20220419/ourmid/pngtree-photo-coming-soon-abstract-admin-banner-image_1262901.jpg)
+- The images for the listing were taken from [https://www.autotrader.co.uk/](https://www.autotrader.co.uk/). They are for display purpose only.
 
 ### Code
 - Learned how to setup django project and deploy to Heroku from CI Django Blog walkthrough 
