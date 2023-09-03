@@ -244,6 +244,182 @@ Further testing was done on mobile to confirm all is working as expected.
 | Profile Deleted Success Desktop |![Profile Deleted Success](./assets/testing/lighthouse/profile-delete-success-d.PNG) | <mark>PASS<mark> |
 | Profile Deleted Success Mobile |![Profile Deleted Success](./assets/testing/lighthouse/profile-delete-success-m.PNG) | <mark>PASS<mark> |
 
+## Manual Testing
+- Home Page 
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+|Navbar|Click on logo in Navbar|Redirect to Home |Pass|Navbar present on all pages |
+||Click on Home link in Navbar|Redirect to Home |Pass|Navbar present on all pages |
+||Click on Listings link in Navbar|Redirect to Listings Page |Pass|Navbar present on all pages |
+||Click on Create Listing link in Navbar|Redirect to Create Listing Page |Pass|Navbar present on all pages |
+||Click on Profile link in Navbar|Redirect to My Profile Page |Pass|Navbar present on all pages |
+||Click on Log Out link in Navbar|Redirect to Create Listing Page |Pass|Navbar present on all pages |
+||Click on LogIn/Sign Up in Navbar|Redirect to Login Page |Pass|Navbar present on all pages |
+|Hero section|Open Home page. Ensure the hero section loads as it should|Hero section loads as it should |Pass| |
+|Search form|Open Home page. Ensure the search form section loads as it should|Search form section loads as it should |Pass| |
+||Click on each input field. Ensure all choices are loaded.|All input fields appear as they should. |Pass| |
+||Search listings by combination of filters. Ensure the results displayed are accurate with the search filters|All search results match the search criteria |Pass| |
+||Select max year. Ensure the min year cannot exceed the max year|All values of min year which exceed max year are disabled |Pass| |
+||Select min year. Ensure the max year cannot be less than the max year|All values of max year which are below min year are disabled |Pass| |
+||Select max price. Ensure the min price cannot exceed the max price|All values of min price which exceed max price are disabled |Pass| |
+||Select min price. Ensure the max price cannot be less than the max price|All values of max price which are below min price are disabled |Pass| |
+||Click on the search button. Ensure the user is redirected to listings page|The user is redirected to the listings page with accurate results |Pass| |
+|Recent Listings|Open the Home page. Scroll down to recent listings. Ensure the most recent listings are showing by comparing the time added stamp|The most recent listings are displayed |Pass| |
+||Open the create listing page and create a listing. Ensure it shows as first in the most recent listings section |The added listing is displayed as most recent |Pass| |
+|Listing Card| Click on the listing card. Ensure it redrects to the correct single listing page |When clicked each card redirects to the correct single listing page |Pass| |
+|| Click on the listing card button. Ensure it redrects to the correct single listing page |When clicked each card button redirects to the correct single listing page |Pass| |
+|| Go to create listings page and create new listing. Ensure the details displayed on the card are accurate |The information displayed on the card is accurate |Pass| |
+|Pagination| Click on all of the links in the pagination. Ensure they redirect to the appropriate page. |All links redirect to the correct page. |Pass| |
+|Pagination| Use the search form to search listings. Click on all of the links in the pagination. Ensure they redirect to the appropriate page displaying only the search results. |All links redirect to the correct page displaying the correct results. |Pass| |
+|Footer|Click on all of the social links in the footer. Ensure each one opens the correct page in a new tab |All links open the correct page in a new tab |Pass| |
+
+- Listings Page 
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+|search form|||Pass|Tested on home page|
+|listing card|||Pass|Tested on home page|
+|Pagination| Click on all of the links in the pagination. Ensure they redirect to the appropriate page. |All links redirect to the correct page. |Pass| |
+|Pagination| Use the search form to search listings. Click on all of the links in the pagination. Ensure they redirect to the appropriate page displaying only the search results. |All links redirect to the correct page displaying the correct results. |Pass| |
+|Footer|Click on all of the social links in the footer. Ensure each one opens the correct page in a new tab |All links open the correct page in a new tab |Pass| |
+
+- Single listing Page 
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+|back button|Open the single listing page. Click on the back button. Ensure it sends back to previous page|When clicked the button brings back to previous page.|Pass||
+|back button|Open the single listing page and the listing to favourites. Click on the back button. Ensure it sends back to previous page|When clicked the button does not bring back to previous page due to the fact the page reloaded|Fail|This is a known bug.|
+|Images section|Click on the main image. Ensure it opens using lightbox. Ensure arrows appear to navigate through the images|When clicked the images opens using lighbox. Arrows appear on the sides and allow to navigate through the images|Pass||
+|Listing details|Ensure all the car spec are accurate with the details used when creating the listing. Ensure all icons display as they should|All icons display as they should, the information is accurate.|Pass||
+|Save to favourites button|Click on the heart icon. Ensure the page reloads, flash message is displayed with confirmation and the icon changes to full heart|When clicked the page reloads, flash message is displayed with confirmation and the icon changes to full heart|Pass||
+||As not authenticated user, Click on the heart icon. Ensure the page redirects to the login page|When clicked the page redirects to the login page|Pass||
+||As an authenticated user, open own listing. Ensure the favourites button does not appear|When visit own listing the favourites button does not appear|Pass||
+|Seller Card|Click on the seller's image. Ensure the link leads the user's account profile|When clicked redirects to user's account profile|Pass||
+|Email Seller form|Click on the Email seller button. Ensure a modal pops up with a form to fill in|When clicked, modal pops up with a form to fill in|Pass||
+||Click on the Email seller button. Ensure The listing title field is populated and read only. |The listing title field is populated and read only.|Pass||
+||As an authenticated user, ensure the form is prefilled with the user's details|When clicked, modal pops up with a pre-filled form fields for existing details like name and email.|Pass||
+||Fill all fields with correct data in the expected format. Click send message. Ensure email has been sent with the details entered using test email address |Email was recieved with accurate details|Pass||
+||Fill all fields with correct data but one. Click send message. Ensure the form does not submit and appropriate message is displayed. Repeat for all fields. |Form did not submit, appropriate message was displayed|Pass||
+|Description|Scroll to description section. Ensure the accurate description is displayed |The accurate description is displayed|Pass||
+
+- Create listing Page 
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+|Form|To test car make/model dependancy first select model and ensure there are no drop down options. Then select car make. Ensure the car model field is populated with the correct options for each make|The car model dropdown has no options initially. The car model field is populated with the correct options for each make|Pass||
+||Click on each drop down field to ensure correct options are displayed|Correct options are displayed|Pass||
+||Fill all fields with correct data in the expected format. Click Submit. Ensure the listing was created by: 1. checking for flash message, 2. Go to Home page and find the card with the new listing |When submitted success flash message is presented. The new listing card appears on the home page's recent listings|Pass||
+||Fill all fields with correct data but one. Click Submit. Ensure the form does not submit and appropriate message is displayed. Repeat for all fields. |Form did not submit, appropriate message was displayed|Pass||
+
+- Edit listing Page 
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+|Form|||Pass|Tested at create listing|
+||Open edit listing page. Ensure the form is populated with the correct listing's details|The form is populated with the correct listing's details|Pass||
+
+- My Profile Page 
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+|Profile Card|Open my profile page. Ensure the image is displaying correctly.|The image is displaying correctly.|Pass||
+||Open my profile page. Ensure my details are accurate and are displaying correctly.|My details are accurate and are displaying correctly.|Pass||
+|Edit profile button|Click on the edit profile button. Ensure it redirects to the edit profile page.|The edit profile button redirects to the edit profile page.|Pass||
+|Delete profile button|Click on the delete profile button. Ensure it redirects to the delete profile page.|The delete profile button redirects to the delete profile page.|Pass||
+||Click on my listings link on the sidebar nav. Ensure it redirects to my listings page| Redirects to my listings page|Pass||
+||Click on my favourites link on the sidebar nav. Ensure it redirects to my favourites page| Redirects to my favourites page|Pass||
+
+- My Listings Page 
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+|My Listings Card|When on the my listings page ensure the listings displayed were created by the authenticated user.|The listings displayed were created by the authenticated user. |Pass||
+||Click on the edit button. Ensure it redirects to the edit listing page.|The button redirects to the edit listing page. |Pass||
+||Click on the delete button. Ensure it redirects to the delete listing page.|The button redirects to the delete listing page. |Pass||
+||Click on the view button. Ensure it redirects to the single listing page.|The button redirects to the single listing page. |Pass||
+
+- My Favourites Page 
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+|My Favourites Card|When on the my favourites page ensure the listings displayed were saved by the authenticated user.|The listings displayed were saved by the authenticated user. |Pass||
+||Click on the view button. Ensure it redirects to the single listing page.|The button redirects to the single listing page. |Pass||
+||Click on the remove button. Ensure it redirects to the remove listing confirmation page.|The button redirects to the remove listing confirmation page. |Pass||
+
+
+- User Account Page 
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+|Profile Card|Open the user account page from the seller card on the listing page. Ensure the image is displaying correctly.|The image is displaying correctly.|Pass||
+||Open the user account page. Ensure the contact details are accurate and are displaying correctly.|The contact details are accurate and are displaying correctly.|Pass||
+||Click on listings link on the sidebar nav. Ensure it redirects to the account listings page| Redirects to account listings page|Pass||
+
+- Account Listings Page 
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+|My Listings Card|When on the account listings page ensure the listings displayed were created by the account user.|The listings displayed were created by the account user. |Pass||
+||Click on the More Info button. Ensure it redirects to the single listing page.|The button redirects to the single listing page. |Pass||
+
+
+- Edit/Update Profile Page 
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+|Back button|Open the edit profile page. Click on the back button. Ensure it sends back to previous page|When clicked the button brings back to previous page.|Pass||
+|Form|Open the edit profile page. Ensure the form is pre-filled with the user's details.| The form is pre-filled with the user's details|Pass||
+||Fill all fields with correct data in the expected format. Click Submit. Ensure 1. Flash message appears, the user is redirected to their profile, 3. The user's details have been updated |When submitted success flash message is presented, the user is redirected to the profile page and the details are updated.|Pass||
+||Fill all fields with correct data but one. Click Submit. Ensure the form does not submit and appropriate message is displayed. Repeat for all fields. |Form did not submit, appropriate message was displayed|Pass||
+
+- Delete Profile Page 
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+|Go back button|Click on the go back button. Ensure it sends back to previous page |When clicked the button brings back to previous page.|Pass||
+|Delete profile|Click on the delete profile button. Ensure it deletes the user account and the user is redirected to the We are sorry to see you go page. |The user is redirected to the We are sorry to see you go page. By checking in the admin pannel can be confirmed the user and the profile were deleted|Pass||
+
+- We are sorry to see you go page.
+|Go Home|Click on the go home button. Ensure it redirects to home page |When clicked the button redirects to home page.|Pass||
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+
+- Delete Listing Page 
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+|Go back button|Click on the go back button. Ensure it sends back to previous page |When clicked the button brings back to previous page.|Pass||
+|Delete Listing|Click on the delete listing button. Ensure it deletes the listing and the user is redirected to the my listings page. |The user is redirected to the my listings page. By checking in the admin pannel can be confirmed the was deleted|Pass||
+
+- Remove listing from favourites
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+|Go back button|Click on the go back button. Ensure it sends back to previous page |When clicked the button brings back to previous page.|Pass||
+|Remove button|Click on the Remove button. Ensure it removes the listing from favourites and the user is redirected to the my favourites page. Ensure flash message is displayed |The user is redirected to the my favourites page. Flash message is displayed. By visiting my favourites page can be confirmed that the listing was removed. |Pass||
+
+- Log In page
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+
+- Sign Up Page
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+
+- Sign Out conf
+
+|Section|Test Action|Expected Result|Pass/Fail|Comments|
+| ---| ---| ---| ---| ---|
+
+
+
+
+
+
+
 ## User Story Testing
 |User Story|Screenshot|Result|
 | --- | --- | --- |
