@@ -17,6 +17,7 @@ def home_page(request):
     A view that displays the homepage
     '''
     listings = Listing.objects.all().order_by('-created')
+
     context = {
         'counties': choices.COUNTIES,
         'body_type': choices.BODY_TYPE,
@@ -89,6 +90,7 @@ def delete_listing(request, pk):
         listing.delete()
         messages.success(request, 'Listing deleted successfully.')
         return redirect('my-listings', pk=profile.id)
+
     context = {
         'listing': listing,
     }
@@ -153,7 +155,7 @@ def single_listing(request, pk):
 def favourite_listings(request, pk):
     '''
     A view that adds and removes listings from favourites
-    on profile page
+    on the listings page
     '''
     listing = get_object_or_404(Listing, pk=pk)
     profile = request.user.profile

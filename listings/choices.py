@@ -1,3 +1,8 @@
+'''
+All choices for the listings are stored here
+'''
+
+
 def get_year_choices():
     '''
     function that creates a tuple with choices

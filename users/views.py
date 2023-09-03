@@ -66,6 +66,7 @@ def register_user(request):
 
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
+
         if form.is_valid():
             user = form.save(commit=False)
             user.username = user.username.lower()
@@ -134,6 +135,7 @@ def user_account(request, pk):
     '''
     profile = Profile.objects.get(id=pk)
     listings = profile.listing_set.all()
+
     context = {
         'profile': profile,
         'listings': listings
@@ -148,6 +150,7 @@ def user_account_listings(request, pk):
     profile = Profile.objects.get(id=pk)
     listings = profile.listing_set.all().order_by('-created')
     listings, page_number = listings_pagination(request, listings)
+
     context = {
         'profile': profile,
         'listings': listings
@@ -165,6 +168,7 @@ def update_profile(request):
 
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
+
         if form.is_valid:
             form.save()
             messages.success(request, 'Profile updated successfully.')

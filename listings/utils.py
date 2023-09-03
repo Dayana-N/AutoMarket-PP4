@@ -70,6 +70,7 @@ def listings_pagination(request, listings):
     '''
     paginator = Paginator(listings, 6)
     page_number = request.GET.get("page")
+
     try:
         listings = paginator.page(page_number)
     except PageNotAnInteger:
