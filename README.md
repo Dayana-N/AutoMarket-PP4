@@ -395,11 +395,16 @@ Once the form is submitted the user is redirected to a page advising them the pa
 
 
 ## Future Features
+1. I would like to include an API that can check the reg plate of a vehicle and get all the data for that vehicle. This way the users won't have to fill a very long form and it will improve the overall user experience.
+2. I would like to update the database with car models for the Irish market. The models currently loaded are for the USA market.
+3. I would like to expand the application by adding inbox feature and the option for the users to send and reply to messages.
+4. 
 ## Testing
 Testing documentation can be found [here.](./TESTING.md)
 ## Bugs
+### Resolved bugs
+- 
 ## Technologies And Languages
-
 ### Languages Used
 - HTML
 - CSS
@@ -456,7 +461,22 @@ To ensure the application is deployed correctly on Heroku it is mandatory to upd
 
 - To create the list of requirements we use the command pip3 freeze > requirements.txt. This will ensure the file with the requirements is updated.
 - Then commit and push the changes to GitHub.
+
+! Before pushing code to GitHub ensure all credentials are in an env.py file, which is included in the .gitignore file. This tells Git not to track this file which will prevent it from being added to Github and the credentials being exposed.
 ### Deployment on Heroku
+- To deploy the project on Heroku, first create an account.
+- Once logged in, create a new app by clicking on the create app button
+- Pick a unique name for the app, select a region, and click create app.
+- On the next page select the settings tab and scroll down to Config Vars. If there are any files that should be hidden like credentials and API keys they should be added here. In this project, there are credentials that need to be protected. This project requires credentials added for:
+1. Django's secret key
+2. Database Credentials
+3. AWS access key 
+3. AWS secret key
+4. Email host password.
+- Scroll down to Buildpacks. The buildpacks will install further dependencies that are not included in the requirements.txt. For this project, the buildpack required is Python
+- From the tab above select the deploy section.
+- The deployment method for this project is GitHub. Once selected, confirm that we want to connect to GitHub, search for the repository name and click connect to connect the Heroku app to our GitHub code.
+- Scroll further down to the deploy section where automatic deploys can be enabled, which means that the app will update every time code is pushed to GitHub. Click deploy and wait for the app to be built. Once this is done, a message should appear letting us know that the app was successfully deployed with a view button to see the app.
 ### Creating a fork
 1. Navigate to the [repository](https://github.com/Dayana-N/AutoMarket-PP4)
 2. In the top-right corner of the page click on the fork button and select create a fork.
