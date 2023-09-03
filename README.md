@@ -402,8 +402,20 @@ Once the form is submitted the user is redirected to a page advising them the pa
 ## Testing
 Testing documentation can be found [here.](./TESTING.md)
 ## Bugs
-### Resolved bugs
-- 
+
+|Bug|Status|
+| ---| ---|
+|[BUG: Deployment error #30](https://github.com/Dayana-N/AutoMarket-PP4/issues/30#issue-1816808909)|Closed|
+|[BUG: Update user profile form images #33](https://github.com/Dayana-N/AutoMarket-PP4/issues/33#issue-1848255025)|Closed|
+|[BUG: Create listing form not displaying correctly #34](https://github.com/Dayana-N/AutoMarket-PP4/issues/34#issue-1857900988)|Closed|
+|[BUG: Error when the user deletes their default image #37](https://github.com/Dayana-N/AutoMarket-PP4/issues/37#issue-1867812729)|Closed|
+|[BUG: Wrong time since on listings #38](https://github.com/Dayana-N/AutoMarket-PP4/issues/38#issue-1868276351)|Closed|
+|[BUG: Page error when the user tries to delete their profile #39](https://github.com/Dayana-N/AutoMarket-PP4/issues/39#issue-1868283130)|Closed|
+|[BUG: Issue when sending email to listing owner #40](https://github.com/Dayana-N/AutoMarket-PP4/issues/40#issue-1868292453)|Closed|
+|[BUG: Search results pagination #41](https://github.com/Dayana-N/AutoMarket-PP4/issues/41#issue-1868485937)|Closed|
+|[BUG: Dynamic update on profile page causes issue when redirected back to the page #42](https://github.com/Dayana-N/AutoMarket-PP4/issues/42#issue-1868626287)|Open|
+
+
 ## Technologies And Languages
 ### Languages Used
 - HTML
